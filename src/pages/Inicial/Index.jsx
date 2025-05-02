@@ -1,9 +1,33 @@
 import styles from "./Inicial.module.css"
+import Boton from "../../components/Boton/Index"
+import logo from "/imgs/logo.png"
+import { useContext } from "react"
+import {GlobalContext} from "../../context/GlobalContext"
+
 
 function Inicial(params) {
-    return(
-        <> <h1>Componente:</h1> <h2>Inicial</h2>
-        </>
+
+   const {ir} = useContext(GlobalContext)
+
+    return (
+        <section className={styles.container}>
+            <div className={styles.logo}>
+                <img src={logo} alt="" />
+            </div>
+            <div className={styles.bienvenida}>
+                <p>Gourmet</p>
+                <p>Casero</p>
+                <p>y con mucho amor</p>
+            </div>
+            <div className={styles.bingresa}>
+                <Boton
+                    ancho="200px"
+                    type="submit"
+                    onClick={() => ir("Categorias")}
+                    label="Ingresar"
+                />
+            </div>
+        </section>
     )
 }
 export default Inicial

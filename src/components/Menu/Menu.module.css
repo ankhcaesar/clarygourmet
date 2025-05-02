@@ -1,0 +1,16 @@
+.container{
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgba(211, 211, 211, 0.507);
+    border-radius: 3px;
+
+    
+    button {
+        margin: 0 0 0 10px ;
+        background-color: transparent;
+        border: 0;
+        width: 10px;
+    }
+}
+

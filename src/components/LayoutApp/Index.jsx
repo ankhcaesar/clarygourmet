@@ -1,14 +1,14 @@
-import { GlobalContext } from "../../context/GlobalContext"
 import { Outlet } from "react-router-dom"
 import TotalContainer from "../TotalContainer/Index"
+import GlobalContextProvider from "../../context/GlobalContext"
 function LayoutApp() {
     return (
         <main>
-            <GlobalContext>
+            <GlobalContextProvider>
                 <TotalContainer>
                     <Outlet />
                 </TotalContainer>
-            </GlobalContext>
+            </GlobalContextProvider>
         </main>
     )
 }

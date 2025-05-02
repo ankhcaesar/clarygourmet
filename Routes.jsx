@@ -15,10 +15,9 @@ function AppRoute() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route index element={<Inicial/>} />
-                <Route path="*" element={<E404 />} />
-                
                 <Route element={<LayoutApp />}>
+                    <Route index element={<Inicial />} />
+                    <Route path="*" element={<E404 />} />
                     <Route path="/Categorias" element={<Categorias />} />
                     <Route path="/Filtrado" element={<Filtrado />} />
                     <Route path="/Carrito" element={<Carrito />} />

@@ -3,21 +3,21 @@
     padding: 5px 10px;
     border-style: solid;
     border-width: 0.5px;
-    border-color: rgba(165, 165, 165, 0.8);
+    border-color: rgba(128, 128, 128, 0.199);
     border-radius: 7px;
     font-size: 20px;
-    color: rgb(255, 255, 255);
-    background-color: var(white);
-    box-shadow: 2px 3px 8px 1px var(grey), inset 2px 3px 8px 1px var(green);
+    color: black;
+    background-color: white;
+    box-shadow: 2px 3px 8px 1px grey, inset 2px 3px 8px 1px rgb(226, 228, 226);
     cursor: pointer;
 
     &:hover {
-        box-shadow: 2px 3px 7px 1px var(grey), inset 2px 3px 8px 1px var(darkgreen);
+        box-shadow: 2px 3px 7px 1px rgba(128, 128, 128, 0.5), inset 2px 3px 8px 1px rgb(240, 238, 219);
 
     }
 
     &:active {
-        box-shadow: inset 2px 3px 8px 1px var(grey);
+        box-shadow: inset 2px 3px 8px 1px rgb(116, 111, 111);
     }
 
 
