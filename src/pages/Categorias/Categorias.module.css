@@ -8,5 +8,6 @@
     gap: 30px;
 
     overflow-y: auto;
-    overflow-x: hidden;
+   /* overflow-x: hidden; */
+    scroll-behavior: smooth;
 }

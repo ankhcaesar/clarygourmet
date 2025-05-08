@@ -41,8 +41,124 @@ function GlobalContextProvider({ children }) {
                 img: "",
                 orden: 5
             }
-            
+
         ];
+
+    const ProductosySubCategorias =
+        [
+            {
+                id: "001",
+                nombre: "Uno",
+                imagen: "",
+                descripcion: "bla, bla... bla.... bla",
+                precioUnitario: 1500,
+                productos: [
+                    {
+                        id: "01",
+                        nombre: "Prod_Uno",
+                        imagen: "",
+                        descripcion: "bla, bla... bla.... bla",
+                        precioUnitario: 1500
+                    }
+                ]
+
+            },
+            {
+                id: "002",
+                nombre: "Dos",
+                imagen: "",
+                descripcion: "bla, bla... blo.... bla",
+                precioUnitario: 2600,
+                productos: [{
+                    id: "01",
+                    nombre: "Prod_Uno",
+                    imagen: "",
+                    descripcion: "bla, bla... bla.... bla",
+                    precioUnitario: 1500
+                },
+                {
+                    id: "02",
+                    nombre: "Prod_Dos",
+                    imagen: "",
+                    descripcion: "bla, bla... blo.... bla",
+                    precioUnitario: 2600
+                },
+                {
+                    id: "03",
+                    nombre: "Prod_tres",
+                    imagen: "",
+                    descripcion: "bla, bla... bli.... bla",
+                    precioUnitario: 3900
+                },
+                {
+                    id: "04",
+                    nombre: "Prod_cuatro",
+                    imagen: "",
+                    descripcion: "bla, bla... ua.... bla",
+                    precioUnitario: 4200,
+                }]
+            },
+            {
+                id: "003",
+                nombre: "tres",
+                imagen: "",
+                descripcion: "bla, bla... bli.... bla",
+                precioUnitario: 3900,
+                productos: [
+                    {
+                        id: "01",
+                        nombre: "Prod_Uno",
+                        imagen: "",
+                        descripcion: "bla, bla... bla.... bla",
+                        precioUnitario: 1500
+                    },
+                    {
+                        id: "02",
+                        nombre: "Prod_Dos",
+                        imagen: "",
+                        descripcion: "bla, bla... blo.... bla",
+                        precioUnitario: 2600
+                    }
+                ]
+            },
+            {
+                id: "004",
+                nombre: "cuatro",
+                imagen: "",
+                descripcion: "bla, bla... ua.... bla",
+                precioUnitario: 4200,
+                productos: [{
+                    id: "01",
+                    nombre: "Prod_Uno",
+                    imagen: "",
+                    descripcion: "bla, bla... bla.... bla",
+                    precioUnitario: 1500
+                },
+                {
+                    id: "02",
+                    nombre: "Prod_Dos",
+                    imagen: "",
+                    descripcion: "bla, bla... blo.... bla",
+                    precioUnitario: 2600
+                },
+                {
+                    id: "03",
+                    nombre: "Prod_tres",
+                    imagen: "",
+                    descripcion: "bla, bla... bli.... bla",
+                    precioUnitario: 3900
+                },
+                {
+                    id: "04",
+                    nombre: "Prod_cuatro",
+                    imagen: "",
+                    descripcion: "bla, bla... ua.... bla",
+                    precioUnitario: 4200,
+                }]
+            }
+        ]
+
+
 
     //funcion ir
     function ir(destino) {
@@ -75,7 +191,8 @@ function GlobalContextProvider({ children }) {
             {
                 ir,
                 botonMenu, setBotonMenu,
-                categoriasVenta
+                categoriasVenta,
+                ProductosySubCategorias
             }
         }> {children} </GlobalContext.Provider>
     )
