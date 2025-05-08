@@ -1,13 +1,19 @@
 import styles from "./Inicial.module.css"
 import Boton from "../../components/Boton/Index"
 import logo from "/imgs/logo.png"
-import { useContext } from "react"
-import {GlobalContext} from "../../context/GlobalContext"
-
+import { useContext, useEffect } from "react"
+import { GlobalContext } from "../../context/GlobalContext"
 
 function Inicial(params) {
 
-   const {ir} = useContext(GlobalContext)
+    const { ir } = useContext(GlobalContext)
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            ir("categorias");
+        }, 9000);
+        return () => clearTimeout(timeout);
+    }, [ir]);
 
     return (
         <section className={styles.container}>

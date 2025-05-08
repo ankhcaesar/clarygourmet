@@ -1,32 +1,32 @@
-import { GlobalContext } from "../../context/GlobalContext"
-import { useContext } from "react"
 import styles from "./Menu.module.css"
-import iconoHome from "../../../public/icons/home_negro.svg"
-import iconoCategorias from "../../../public/icons/categoria_negro.svg"
-import iconoCarrito from "../../../public/icons/carrito_negro.svg"
-
+import iconoHome from "/icons/home_negro.svg"
+import iconoCategorias from "/icons/categoria_negro.svg"
+import iconoCarrito from "/icons/carrito_negro.svg"
+import BotonMenu from "../BotonMenu/Index"
 function Menu(params) {
-    const { ir } = useContext(GlobalContext)
+
+
+
+
+
 
     return (
         <section className={styles.container}>
-            <button
-                className={styles.butt_Home}
-                onClick={() => ir("Inicio")}>
-                <img src={iconoHome} alt="/" />
-            </button>
-            <button
-                className={styles.butt_CAtegorias}
-                onClick={() => ir("categorias")}>
-                <img src={iconoCategorias} alt="Categorias" />
-            </button>
-            <button
-                className={styles.butt_Carrito}
-                onClick={() => ir("carrito")}
-            >
+            <BotonMenu
+                destino="/"
 
-                <img src={iconoCarrito} alt="Carrito" />
-            </button>
+                icono={iconoHome}
+            />
+            <BotonMenu
+                destino="categorias"
+
+                icono={iconoCategorias}
+            />
+            <BotonMenu
+                destino="carrito"
+
+                icono={iconoCarrito}
+            />
         </section>
     )
 }

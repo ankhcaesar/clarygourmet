@@ -1,5 +1,5 @@
 import styles from "./Cabecera.module.css"
-import iconoVolver from "../../../public/icons/volver_negro.svg"
+import iconoVolver from "/icons/volver_negro.svg"
 import { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 function Cabecera(props) {
