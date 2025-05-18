@@ -13,7 +13,7 @@ function Carrito() {
         <section className={styles.container}>
             <Cabecera
                 titulo="Carrito"
-                origen="/" />
+                origen="inicio" />
 
             <section className={styles.principal}>
                 <p>Aqui la fiesta del   {botonMenu}</p>

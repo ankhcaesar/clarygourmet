@@ -8,7 +8,7 @@ function E404(params) {
         <section className={styles.principal}>
             <Cabecera
                 titulo="Pagina web no encontrada"
-                origen="/"
+                origen="inicio"
             />
 
             <div className={styles.container}>

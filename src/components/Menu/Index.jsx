@@ -4,16 +4,11 @@ import iconoCategorias from "/icons/categoria_negro.svg"
 import iconoCarrito from "/icons/carrito_negro.svg"
 import BotonMenu from "../BotonMenu/Index"
 function Menu(params) {
-
-
-
-
-
-
+    
     return (
         <section className={styles.container}>
             <BotonMenu
-                destino="/"
+                destino="inicio"
 
                 icono={iconoHome}
             />

@@ -1,16 +1,12 @@
 import styles from "./TarjetasCategorias.module.css"
 
-function TarjetasCategorias({nombre, color, imagen}) {
+function TarjetasCategorias({ nombre,imagen , onclick }) {
     return (
-        <section className={styles.principal}>
+        <section className={styles.principal} >
 
-            <div className={styles.caja} style={{ backgroundColor: `rgba(${color}, 0.05)` }}>
-                <div className={styles.cajaImagen}></div>
+            <div className={styles.caja} onClick={onclick}>
+                    <img src={imagen} alt="" />
                 <h3>{nombre}</h3>
-                
-                
-                
-
             </div>
         </section>
     )

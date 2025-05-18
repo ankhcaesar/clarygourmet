@@ -6,34 +6,46 @@ import { GlobalContext } from "../../context/GlobalContext"
 import TarjetasCategorias from "../../components/TarjetasCategorias/Index"
 import useScrollArrows from "../../context/useScrollArrows"
 import FlechaScroll from "../../components/FlechasScroll/Index"
+import { useCategorias } from "../../hooks/UseCategorias";
 
 function Categorias() {
-    const { setBotonMenu, categoriasVenta } = useContext(GlobalContext)
+    const { setBotonMenu, ir } = useContext(GlobalContext);
 
     const {
         scrollRef,
         showPrev,
         showNext,
         scroll
-    } = useScrollArrows({ direction: "vertical", scrollAmount: 150 })
+    } = useScrollArrows({ direction: "vertical", scrollAmount: 150 });
 
-    useEffect(() => { setBotonMenu("categorias") }, [])
-    
+    useEffect(() => { setBotonMenu("categorias") }, []);
+
+    const { categorias, loading } = useCategorias();
+    if (loading) return <p>Cargando...</p>;
+
     return (
         <section className={styles.container}>
             <Cabecera
                 titulo="Categorias"
-                origen="/" />
-             {showPrev && <FlechaScroll direction="up" onClick={() => scroll("prev")} />}
+                origen="inicio" 
+            />
+            {showPrev && <FlechaScroll direction="up" onClick={() => scroll("prev")} />}
 
             <section ref={scrollRef} className={styles.principal}>
 
-                {categoriasVenta.map((cat) => (
+                {categorias.map((cat) => (
                     <TarjetasCategorias
-                        key={cat.orden}
-                        nombre={cat.nombre}
-                        color={cat.color}
-                        imagen={cat.imagen}
+                        key={cat.id_cats}
+                        nombre={cat.categoria}
+                        imagen={cat.imagenUrl}
+                        onclick={() =>
+                            ir("filtrado", {
+                                state: {
+                                    id_cats: cat.id_cats,
+                                    categoria: cat.categoria
+                                }
+                            })
+                        }
                     />
                 ))}
 

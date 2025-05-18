@@ -1,9 +1,16 @@
 import styles from "./TarjetasProductos.module.css"
 
-function TarjetasProductos(params) {
-    return(
-        <> <h1>Componente:</h1> <h2>TarjetasProductos</h2>
-        </>
+function TarjetasProductos({ nombre, imagen, onclick }) {
+    return (
+        <section className={styles.principal} >
+
+            <div className={styles.caja} onClick={onclick}>
+                <div className={styles.cajaImagen}>
+                    <img src={imagen} alt='${nombre}' />
+                </div>
+                <h3>{nombre}</h3>
+            </div>
+        </section>
     )
 }
 export default TarjetasProductos
