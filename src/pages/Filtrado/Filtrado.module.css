@@ -14,14 +14,13 @@
 }
 
 .subcats{
-    background-color: rgba(246, 246, 244, 0.398);
-
     h2{
-        margin: 0.5lh 0 0.5lh 3lh ;
+        margin: 0.1lh 0 0.1lh 3lh ;
         text-align: left;
         font-size: 1.3lh;
         text-transform: capitalize;
         font-family: "B612 mono";
+        
     }
 }
 
@@ -29,7 +28,8 @@
     box-sizing: content-box;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 50px;
     overflow-x: auto;
     scroll-behavior: smooth;
+    margin-bottom: 15px;
 }
