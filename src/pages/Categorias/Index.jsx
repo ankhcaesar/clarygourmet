@@ -23,7 +23,7 @@ function Categorias() {
                 origen="inicio"
             />
 
-            <ScrollContainer direction="vertical">
+            <ScrollContainer direction="vertical" scrollStep={200}>
                 <section className={styles.principal}>
 
                     {categorias.map((cat) => (

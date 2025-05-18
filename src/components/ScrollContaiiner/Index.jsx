@@ -10,7 +10,7 @@ const iconos = {
 
 export default function ScrollContainer({
   direction = "vertical",
-  scrollAmount = 200,
+  scrollStep = 200,
   children,
 }) {
   const scrollRef = useRef(null);
@@ -46,7 +46,7 @@ export default function ScrollContainer({
     const el = scrollRef.current;
     if (!el) return;
 
-    const amount = dir === "prev" ? -scrollAmount : scrollAmount;
+    const amount = dir === "prev" ? -scrollStep : scrollStep;
     const scrollOptions = isVertical
       ? { top: amount, behavior: "smooth" }
       : { left: amount, behavior: "smooth" };

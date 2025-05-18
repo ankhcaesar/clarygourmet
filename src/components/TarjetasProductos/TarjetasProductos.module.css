@@ -1,6 +1,7 @@
 .principal {
     display: flex;
     justify-content: center;
+    margin: 0 5px;
 }
 
 .caja {
@@ -10,14 +11,15 @@
     width: 200px;
     height: 180px;
     cursor: pointer;
+    background-color: rgba(245, 245, 242, 0.107);
     box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.151);
     border-radius: 5px;
-    
+
     & h3 {
         margin: 2px;
     }
 
-    &&:active{
+    &&:active {
         background-color: grey;
     }
 }
@@ -28,9 +30,9 @@
     height: 100%;
     background-color: white;
     margin: 10px 0 0 0;
-    overflow:hidden;
-    
-    img{
+    overflow: hidden;
+
+    img {
         width: 100%;
     }
 }

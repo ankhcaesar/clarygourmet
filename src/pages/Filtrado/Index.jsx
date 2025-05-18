@@ -28,12 +28,12 @@ function Filtrado() {
             />
 
             <section className={styles.principal}>
-                <ScrollContainer direction="vertical">
+                <ScrollContainer direction="vertical" scrollStep={260}>
                     {data.map((grupo) => (
                         <section key={grupo.id_subcats} className={styles.subcats}>
                             <h2>{grupo.sub_categorias}</h2>
                             <div className={styles.articulos}>
-                                <ScrollContainer direction="horizontal">
+                                <ScrollContainer direction="horizontal"scrollStep={400}>
 
                                     {grupo.articulos.map((arts) => (
                                         <TarjetasProductos
