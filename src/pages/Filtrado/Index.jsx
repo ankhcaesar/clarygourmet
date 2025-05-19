@@ -1,24 +1,24 @@
 import styles from "./Filtrado.module.css"
-import Cabecera from "../../components/Cabecera/Index"
-import Menu from "../../components/Menu/Index"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import { useLocation } from "react-router-dom";
-import TarjetasProductos from "../../components/TarjetasProductos/Index"
 import { useArticulosPorSubcategorias } from "../../hooks/useArticulosPorSubcategorias"
 import ScrollContainer from "../../components/ScrollContaiiner/Index"
+import Cabecera from "../../components/Cabecera/Index"
+import Menu from "../../components/Menu/Index"
+import TarjetasProductos from "../../components/TarjetasProductos/Index"
+import AddCarrito from "../../components/AddCarrito/Index";
 
 function Filtrado() {
     const location = useLocation();
     const { id_cats } = location.state;
-    const { setBotonMenu, ir } = useContext(GlobalContext);
+    const { setBotonMenu, ir, addCarrito, setAddCarrito } = useContext(GlobalContext);
+    const { data, loading } = useArticulosPorSubcategorias(id_cats);
 
     useEffect(() => { setBotonMenu("subcategorias") }, []);
 
-    const { data, loadingArts } = useArticulosPorSubcategorias(id_cats)
 
-
-    if (loadingArts) return <p>Cargando articulos...</p>
+    if (loading) return <p>Cargando articulos...</p>
 
     return (
         <section className={styles.container}>
@@ -40,6 +40,7 @@ function Filtrado() {
                                             key={arts.id_arts}
                                             nombre={arts.articulo}
                                             imagen={arts.imagenUrl || arts.imagen_articulo}
+                                            onclick={() => setAddCarrito({ show: true, data: [arts] })}
                                         />
                                     ))}
 
@@ -51,6 +52,7 @@ function Filtrado() {
 
             </section>
             <Menu />
+            {addCarrito.show && <AddCarrito data={addCarrito.data}/>}
         </section>
     )
 }

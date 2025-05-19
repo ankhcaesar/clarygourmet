@@ -1,0 +1,96 @@
+.overlay {
+    position: absolute;
+    z-index: 97;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    z-index: 97;
+    justify-content: center;
+
+}
+
+.caja {
+    transform: translateY(7vh);
+    position: fixed;
+    /*transition: 2s;*/
+    z-index: 98;
+    display: flex;
+    width: 400px;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.815);
+    border-radius: 5px;
+
+    && p{
+        margin: 0;
+    }
+}
+
+
+.cajaImagen {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    aspect-ratio: 1/1;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgba(128, 128, 128, 0.2);
+    margin: 5px auto;
+    padding: 5px;
+    overflow: hidden;
+
+    && img {
+        width: 70%;
+        aspect-ratio: 1/1;
+    }
+}
+
+.pie {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 5px  0 ;
+
+
+}
+
+.descripcion {
+    width: 90%;
+    height: 60px;
+    padding: 5px;
+    
+
+
+    && h4 {
+        margin: 5px 0 0;
+        text-transform: uppercase;
+    }
+}
+
+.valor{
+    font-weight: bold;
+    color: green;
+}
+
+
+.cantidad {
+    width: 90%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(128, 128, 128, 0.424);
+    border-radius: 2px;
+    padding: 5px;
+
+    && img{
+        width: 1.3lh;
+    }
+}

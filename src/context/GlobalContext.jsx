@@ -8,23 +8,23 @@ function GlobalContextProvider({ children }) {
     // Variables
     const navigate = useNavigate();
     const [botonMenu, setBotonMenu] = useState("principal");
-    
 
-// Traer las categorias
+
+    // Traer las categorias
 
 
 
 
 
     //funcion ir
-    function ir(destino, opciones ={}) {
+    function ir(destino, opciones = {}) {
         const to = destino.trim().toLowerCase();
-    
+
         if (to === "salir") {
             console.log("funcion cerrar sesion aun no creada");
             return;
         }
-    
+
         const rutas = {
             categorias: "/Categorias",
             filtrado: "/Filtrado",
@@ -33,7 +33,7 @@ function GlobalContextProvider({ children }) {
             carrito: "/Carrito",
             carritocerrado: "/CarritoCerrado"
         };
-    
+
         if (rutas[to]) {
             navigate(rutas[to], opciones);
         } else {
@@ -43,6 +43,25 @@ function GlobalContextProvider({ children }) {
     //onClick={()=>ir("salir")} 
     // fin funcion ir 
 
+    //AddCarrito
+    const [addCarrito, setAddCarrito] = useState({ show: false, data: [] });
+    const limpiarAddCarrito = () => {
+        setAddCarrito({
+            show: false,
+            data: []
+        })
+    }
+    // fin AddCarrito
+
+
+     // funcion formato moneda 
+    function formatomoneda(valor) {
+        return new Intl.NumberFormat("es-AR", {
+            style: "currency",
+            currency: "ARS",
+        }).format(valor);
+    };
+    // Fin funcion formato moneda
 
     return (
 
@@ -50,6 +69,10 @@ function GlobalContextProvider({ children }) {
             {
                 ir,
                 botonMenu, setBotonMenu,
+
+                addCarrito, setAddCarrito,
+                limpiarAddCarrito,
+                formatomoneda
 
             }
         }> {children} </GlobalContext.Provider>
