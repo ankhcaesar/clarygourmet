@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom"
 import TotalContainer from "../TotalContainer/Index"
-import GlobalContextProvider from "../../context/GlobalContext"
+import GlobalContextProvider, { GlobalContext } from "../../context/GlobalContext"
 function LayoutApp() {
+
     return (
         <main>
             <GlobalContextProvider>

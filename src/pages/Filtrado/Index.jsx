@@ -12,13 +12,19 @@ import AddCarrito from "../../components/AddCarrito/Index";
 function Filtrado() {
     const location = useLocation();
     const { id_cats } = location.state;
-    const { setBotonMenu, ir, addCarrito, setAddCarrito } = useContext(GlobalContext);
+    const { setBotonMenu, ir, addCarrito, setAddCarrito, setLoader } = useContext(GlobalContext);
     const { data, loading } = useArticulosPorSubcategorias(id_cats);
 
-    useEffect(() => { setBotonMenu("subcategorias") }, []);
+    useEffect(() => {
+        setBotonMenu("subcategorias")
 
+        if (loading) {
+            setLoader({ show: true });
+        } else {
+            setLoader({ show: false });
+        }
 
-    if (loading) return <p>Cargando articulos...</p>
+    }, [loading]);
 
     return (
         <section className={styles.container}>
@@ -33,7 +39,7 @@ function Filtrado() {
                         <section key={grupo.id_subcats} className={styles.subcats}>
                             <h2>{grupo.sub_categorias}</h2>
                             <div className={styles.articulos}>
-                                <ScrollContainer direction="horizontal"scrollStep={400}>
+                                <ScrollContainer direction="horizontal" scrollStep={400}>
 
                                     {grupo.articulos.map((arts) => (
                                         <TarjetasProductos
@@ -52,7 +58,7 @@ function Filtrado() {
 
             </section>
             <Menu />
-            {addCarrito.show && <AddCarrito data={addCarrito.data}/>}
+            {addCarrito.show && <AddCarrito data={addCarrito.data} />}
         </section>
     )
 }

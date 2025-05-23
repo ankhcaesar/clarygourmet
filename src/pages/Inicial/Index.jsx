@@ -4,7 +4,7 @@ import logo from "/imgs/logo.png"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
-function Inicial(params) {
+function Inicial() {
 
     const { ir } = useContext(GlobalContext)
 

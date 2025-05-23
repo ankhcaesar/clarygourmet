@@ -54,6 +54,11 @@ function GlobalContextProvider({ children }) {
     // fin AddCarrito
 
 
+// Loader
+const [loader, setLoader]= useState({show:false});
+// Fin Loader
+
+
      // funcion formato moneda 
     function formatomoneda(valor) {
         return new Intl.NumberFormat("es-AR", {
@@ -69,6 +74,8 @@ function GlobalContextProvider({ children }) {
             {
                 ir,
                 botonMenu, setBotonMenu,
+                
+                loader, setLoader,
 
                 addCarrito, setAddCarrito,
                 limpiarAddCarrito,

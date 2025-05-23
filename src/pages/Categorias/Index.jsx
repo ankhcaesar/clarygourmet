@@ -8,14 +8,20 @@ import { useCategorias } from "../../hooks/UseCategorias";
 import ScrollContainer from "../../components/ScrollContaiiner/Index"
 
 function Categorias() {
-    const { setBotonMenu, ir } = useContext(GlobalContext);
+    const { setBotonMenu, ir, setLoader } = useContext(GlobalContext);
 
 
     useEffect(() => { setBotonMenu("categorias") }, []);
 
     const { categorias, loading } = useCategorias();
-    if (loading) return <p>Cargando...</p>;
+    useEffect(() => {
+        if (loading) {
+            setLoader({ show: true });
+        } else {
+            setLoader({ show: false });
+        }
 
+    }, [loading]);
     return (
         <section className={styles.container}>
             <Cabecera
