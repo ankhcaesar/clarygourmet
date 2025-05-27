@@ -2,14 +2,16 @@ import styles from "./AddCarrito.module.css"
 import Boton from "../Boton/Index"
 import iconomas from "/icons/mas.svg"
 import iconomenos from "/icons/menos.svg"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext"
+import Sumador from "../Sumador/Index";
 
 
 
 function AddCarrito({ data }) {
 
-    const { limpiarAddCarrito, formatomoneda } = useContext(GlobalContext)
+    const { limpiarAddCarrito, formatomoneda } = useContext(GlobalContext);
+    const [cantidad, setCantidad] = useState(1);
     
     if (!data || data.length === 0 || !data[0].articulo) return null;
     const { articulo, descripcion, imagenUrl, valor_venta, presentacion, onclick } = data[0];
@@ -36,14 +38,11 @@ function AddCarrito({ data }) {
                     <p className={styles.textodescipcion}>{descripcion}</p>
                 </div>
                 <div className={styles.cantidad}>
-                    <p>cantidad</p>
-                    <p>1</p>
-                    <button className={styles.suma}>
-                        <img src={iconomas} alt="suma" />
-                    </button>
-                    <button className={styles.resta}>
-                        <img src={iconomenos} alt="resta" />
-                    </button>
+                    <p className={styles.titulocantidad}>cantidad</p>
+                    <Sumador
+                        value={cantidad} 
+                        setValue={setCantidad}
+                    />
                 </div>
                 <Boton
                     ancho="300px"

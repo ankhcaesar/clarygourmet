@@ -14,7 +14,7 @@
 }
 
 .caja {
-    transform: translateY(7vh);
+    transform: translateY(10vh);
     position: fixed;
     /*transition: 2s;*/
     z-index: 98;
@@ -23,12 +23,11 @@
     height: 580px;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     background-color: rgb(255, 255, 255);
     box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.815);
     border-radius: 5px;
 
-    && p{
+    && p {
         margin: 0;
     }
 }
@@ -56,7 +55,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 5px  0 ;
+    padding: 0 5px 0;
 
 
 }
@@ -65,7 +64,7 @@
     width: 90%;
     height: 60px;
     padding: 5px;
-    
+
 
 
     && h4 {
@@ -74,7 +73,7 @@
     }
 }
 
-.valor{
+.valor {
     font-weight: bold;
     color: green;
 }
@@ -85,12 +84,14 @@
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    background-color: rgba(128, 128, 128, 0.424);
+    justify-content: space-between;
+    background-color: rgba(199, 195, 195, 0.104);
     border-radius: 2px;
     padding: 5px;
+}
 
-    && img{
-        width: 1.3lh;
-    }
+.titulocantidad {
+    font-size: 1.2lh;
+    font-weight: bold;
+    margin-left: 20px;
 }
