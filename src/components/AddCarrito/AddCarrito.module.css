@@ -20,16 +20,14 @@
     z-index: 98;
     display: flex;
     width: 390px;
-    height: 580px;
+    height: 610px;
     flex-direction: column;
     align-items: center;
     background-color: rgb(255, 255, 255);
     box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.815);
     border-radius: 5px;
 
-    && p {
-        margin: 0;
-    }
+
 }
 
 
@@ -68,9 +66,14 @@
 
 
     && h4 {
-        margin: 5px 0 0;
+        margin: 5px 0 0 0;
         text-transform: uppercase;
     }
+
+    && p {
+        margin: 0;
+    }
+
 }
 
 .valor {
@@ -81,7 +84,7 @@
 
 .cantidad {
     width: 90%;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -93,5 +96,6 @@
 .titulocantidad {
     font-size: 1.2lh;
     font-weight: bold;
-    margin-left: 20px;
+    margin: 0px;
+
 }

@@ -2,7 +2,6 @@
     width: 33%;
     display: flex;
     flex-direction: row;
-
     && img {
         width: 1.2lh;
     }
@@ -30,8 +29,9 @@
 
 
 .titulovalor {
-    width: 1.5lh;
+    width: 1lh;
     font-size: 1.4lh;
     font-weight: bold;
     text-align: center;
+    margin:auto 0;
 }
