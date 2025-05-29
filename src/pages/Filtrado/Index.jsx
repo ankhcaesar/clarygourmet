@@ -11,7 +11,7 @@ import AddCarrito from "../../components/AddCarrito/Index";
 
 function Filtrado() {
     const location = useLocation();
-    const { id_cats } = location.state;
+    const { id_cats, categoria} = location.state;
     const { setBotonMenu, ir, addCarrito, setAddCarrito, setLoader } = useContext(GlobalContext);
     const { data, loading } = useArticulosPorSubcategorias(id_cats);
 
@@ -29,8 +29,8 @@ function Filtrado() {
     return (
         <section className={styles.container}>
             <Cabecera
-                titulo="Categorias"
-                origen="inicio"
+                titulo= {categoria}
+                origen="categorias"
             />
 
             <section className={styles.principal}>

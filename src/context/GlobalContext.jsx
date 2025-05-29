@@ -9,8 +9,9 @@ function GlobalContextProvider({ children }) {
     const navigate = useNavigate();
     const [botonMenu, setBotonMenu] = useState("principal");
 
-
-    // Traer las categorias
+    const [itemsCarrito, setItemsCarrito] = useState({
+  totalItems: 0
+});
 
 
 
@@ -61,6 +62,7 @@ const [loader, setLoader]= useState({show:false});
 
      // funcion formato moneda 
     function formatomoneda(valor) {
+        
         return new Intl.NumberFormat("es-AR", {
             style: "currency",
             currency: "ARS",
@@ -79,6 +81,7 @@ const [loader, setLoader]= useState({show:false});
 
                 addCarrito, setAddCarrito,
                 limpiarAddCarrito,
+                itemsCarrito, setItemsCarrito,
                 formatomoneda
 
             }
