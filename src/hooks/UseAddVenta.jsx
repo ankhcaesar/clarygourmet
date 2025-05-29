@@ -42,5 +42,5 @@ export function UseAddVenta() {
 
     
 
-    return { agregarProductoAVenta };
+    return { agregarProductoAVenta, calcularItems };
 }
