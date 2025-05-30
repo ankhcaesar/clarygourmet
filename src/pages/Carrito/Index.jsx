@@ -6,14 +6,16 @@ import Boton from "../../components/Boton/Index"
 import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import ScrollContainer from "../../components/ScrollContaiiner/Index"
-
+import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito"
 
 
 function Carrito() {
-    
-    const { setBotonMenu, formatomoneda, setLoader } = useContext(GlobalContext)
-    
-    const loading = false //la reemplazo cuando cargue los articulos
+    useEffect
+    const { setBotonMenu, formatomoneda, setLoader, itemsCarrito } = useContext(GlobalContext)
+    const { articulosCarrito, loading } = UseArticulosCarrito();
+
+    const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
+
 
     useEffect(() => {
         setBotonMenu("carrito")
@@ -36,24 +38,30 @@ function Carrito() {
 
             <section className={styles.principal}>
 
-                <ScrollContainer direction="vertical" scrollStep={200}>
 
+
+                {articulosCarrito.length === 0 ? (
+                    <p>No hay productos para mostrar.</p>
+                ) : (
                     <div className={styles.listarticulos}>
+                            <ScrollContainer direction="vertical" scrollStep={200}>
+                            {articulosCarrito.map((item) => (
+                                <TarjetasCarrito key={item.id_arts} {...item} />
 
-                            <TarjetasCarrito />
-                        Aqui
-                        envio: key(idarticulo), nombre, imagen, presentacion, valor_venta
+                            ))}
+                    </ScrollContainer>
+                        </div>
+                )}
 
 
-                    </div>
-                </ScrollContainer>
+
                 <div className={styles.totales}>
                     <div className={styles.subTotales}>
-                        <p>Cantidad de productos: aqui const suma productos con el mismo id de venta </p>
+                        <p>Cantidad de productos: {itemsCarrito.totalCantidades}</p>
                     </div>
                     <div className={styles.totalCompra}>
                         <p>
-                            TOTAL COMPRA:{formatomoneda(50)}
+                            TOTAL COMPRA:{formatomoneda(totalCompra)}
 
 
 

@@ -1,1 +1,16 @@
- 
+ .principal{
+    display: flex;
+    flex-direction: row;
+ }
+
+
+ .cajaImagen{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    background-color: aquamarine;
+
+    && img{
+      width: 100%;
+    }
+ }

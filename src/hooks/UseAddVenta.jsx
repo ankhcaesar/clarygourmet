@@ -1,10 +1,9 @@
-
 import { useContext, useRef } from "react";
 import db from "../db/db";
 import { GlobalContext } from "../context/GlobalContext";
 
 export function UseAddVenta() {
-    const { setItemsCarrito } = useContext(GlobalContext)
+    const { setItemsCarrito } = useContext(GlobalContext);
 
     const ventaIdRef = useRef(null);
 
@@ -21,17 +20,30 @@ export function UseAddVenta() {
         const id_vta = await obtenerVentaId();
         const fecha_hora = new Date().toISOString();
 
-        await db.ventas.add({
-            id_vta,
-            fecha_hora,
-            id_arts,
-            cant,
-            valor_unit
-        });
+        // Verificar si el producto ya está en la venta
+        const productoExistente = await db.ventas.get({ id_arts });
+
+        if (productoExistente) {
+            // Si existe, sumar la cantidad nueva a la existente
+            const nuevaCantidad = productoExistente.cant + cant;
+            await db.ventas.update(productoExistente.id_vta, {
+                cant: nuevaCantidad,
+                fecha_hora // se actualiza la fecha también
+            });
+        } else {
+            // Si no existe, agregar el producto
+            await db.ventas.add({
+                id_vta,
+                fecha_hora,
+                id_arts,
+                cant,
+                valor_unit
+            });
+        }
+
         await calcularItems();
     };
 
-    
     const calcularItems = async () => {
         const productos = await db.ventas.toArray();
 
@@ -39,8 +51,6 @@ export function UseAddVenta() {
 
         setItemsCarrito({ totalCantidades });
     };
-
-    
 
     return { agregarProductoAVenta, calcularItems };
 }

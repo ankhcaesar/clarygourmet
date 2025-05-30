@@ -1,31 +1,34 @@
 import styles from "./TarjetasCarrito.module.css"
 import Sumador from "../Sumador/Index"
-function TarjetasCarrito({ key, nombre, imagen, presentacion, valor_venta }) {
-     const [cantidad, setCantidad] = useState(1);
- 
- 
+import { useContext, useState } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
+
+function TarjetasCarrito({
+    id_art, articulo, presentacion, imagen, valor_unit, cantidad
+}) {
+    const [cant, setCant] = useState(cantidad);
+    const { formatomoneda } = useContext(GlobalContext);
+
     return (
-        <section className={styles.principal} >
+        <section className={styles.principal}>
             <div className={styles.cajaImagen}>
-                <img src={imagen} alt='${nombre}' />
+                <img src={imagen} alt={articulo} />
             </div>
             <div className={styles.derecha}>
-                <h3 className={styles.nombre}> {nombre} </h3>
+                <h3 className={styles.nombre}>{articulo}</h3>
                 <div className={styles.presentacion}>
                     {presentacion}
                 </div>
                 <div className={styles.sumadoryvalor}>
                     <Sumador
-                        value={cantidad}
-                        setValue={setCantidad}
+                        value={cant}
+                        setValue={setCant}
                     />
-                    <h3>{valor_venta}</h3>
+                    <h3>{formatomoneda(valor_unit)}</h3>
                 </div>
             </div>
         </section>
-
-
     )
 }
-export default TarjetasCarrito
 
+export default TarjetasCarrito

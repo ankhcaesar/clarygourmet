@@ -3,7 +3,6 @@ import Boton from "../Boton/Index"
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext"
 import Sumador from "../Sumador/Index";
-import db from "../../db/db"
 import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 function AddCarrito({ data }) {
