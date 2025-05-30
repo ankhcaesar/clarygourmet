@@ -12,19 +12,21 @@ function TarjetasCarrito({
     const { formatomoneda } = useContext(GlobalContext);
 
     const { actualizarCantidadProducto } = UseAddVenta();
+    const [isUpdating, setIsUpdating] = useState(false);
 
-    useEffect(() => {
-        // Cada vez que cambie la cantidad, actualizamos IndexedDB
-        const actualizarCantidad = async () => {
-            try {
-                await actualizarCantidadProducto(id_art, cant);
-            } catch (error) {
-                console.error("Error al actualizar cantidad:", error);
-            }
-        };
-
-        actualizarCantidad();
-    }, [cant, id_art, actualizarCantidadProducto]);
+useEffect(() => {
+    const actualizarCantidad = async () => {
+        setIsUpdating(true);
+        try {
+            await actualizarCantidadProducto(id_art, cant);
+        } catch (error) {
+            console.error("Error al actualizar cantidad:", error);
+        } finally {
+            setIsUpdating(false);
+        }
+    };
+    actualizarCantidad();
+}, [cant, id_art]);
 
 
     return (
@@ -41,6 +43,7 @@ function TarjetasCarrito({
                     <Sumador
                         value={cant}
                         setValue={setCant}
+                        disabled={isUpdating}
                     />
                     <h3>{formatomoneda(valor_unit)}</h3>
                 </div>
