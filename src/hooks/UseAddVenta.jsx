@@ -37,12 +37,23 @@ export function UseAddVenta() {
                 fecha_hora,
                 id_arts,
                 cant,
-                valor_unit
-            });
+                valor_unit            });
         }
 
         await calcularItems();
     };
+
+    const actualizarCantidadProducto = async (id_arts, nuevaCantidad) => {
+        const productoExistente = await db.ventas.get({ id_arts });
+        if (productoExistente) {
+            await db.ventas.update(productoExistente.id_vta, {
+                cant: nuevaCantidad
+            });
+            await calcularItems();
+        }
+    };
+
+
 
     const calcularItems = async () => {
         const productos = await db.ventas.toArray();
@@ -52,5 +63,5 @@ export function UseAddVenta() {
         setItemsCarrito({ totalCantidades });
     };
 
-    return { agregarProductoAVenta, calcularItems };
+    return { agregarProductoAVenta, actualizarCantidadProducto, calcularItems };
 }

@@ -46,7 +46,7 @@ function Carrito() {
                     <div className={styles.listarticulos}>
                             <ScrollContainer direction="vertical" scrollStep={200}>
                             {articulosCarrito.map((item) => (
-                                <TarjetasCarrito key={item.id_arts} {...item} />
+                                <TarjetasCarrito key={item.id_art} {...item} />
 
                             ))}
                     </ScrollContainer>

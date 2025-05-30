@@ -10,8 +10,8 @@ function GlobalContextProvider({ children }) {
     const [botonMenu, setBotonMenu] = useState("principal");
 
     const [itemsCarrito, setItemsCarrito] = useState({
-  totalItems: 0
-});
+        totalItems: 0
+    });
 
 
 
@@ -55,14 +55,14 @@ function GlobalContextProvider({ children }) {
     // fin AddCarrito
 
 
-// Loader
-const [loader, setLoader]= useState({show:false});
-// Fin Loader
+    // Loader
+    const [loader, setLoader] = useState({ show: false });
+    // Fin Loader
 
 
-     // funcion formato moneda 
+    // funcion formato moneda 
     function formatomoneda(valor) {
-        
+
         return new Intl.NumberFormat("es-AR", {
             style: "currency",
             currency: "ARS",
@@ -76,7 +76,7 @@ const [loader, setLoader]= useState({show:false});
             {
                 ir,
                 botonMenu, setBotonMenu,
-                
+
                 loader, setLoader,
 
                 addCarrito, setAddCarrito,

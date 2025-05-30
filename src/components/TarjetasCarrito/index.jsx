@@ -1,13 +1,31 @@
 import styles from "./TarjetasCarrito.module.css"
 import Sumador from "../Sumador/Index"
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
+import { UseAddVenta } from "../../hooks/UseAddVenta"
+
 
 function TarjetasCarrito({
     id_art, articulo, presentacion, imagen, valor_unit, cantidad
 }) {
     const [cant, setCant] = useState(cantidad);
     const { formatomoneda } = useContext(GlobalContext);
+
+    const { actualizarCantidadProducto } = UseAddVenta();
+
+    useEffect(() => {
+        // Cada vez que cambie la cantidad, actualizamos IndexedDB
+        const actualizarCantidad = async () => {
+            try {
+                await actualizarCantidadProducto(id_art, cant);
+            } catch (error) {
+                console.error("Error al actualizar cantidad:", error);
+            }
+        };
+
+        actualizarCantidad();
+    }, [cant, id_art, actualizarCantidadProducto]);
+
 
     return (
         <section className={styles.principal}>

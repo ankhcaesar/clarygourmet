@@ -1,16 +1,28 @@
- .principal{
-    display: flex;
-    flex-direction: row;
- }
+.principal {
+   display: flex;
+   flex-direction: row;
+}
 
 
- .cajaImagen{
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    background-color: aquamarine;
+.cajaImagen {
+   width: 150px;
+   height: 150px;
+   overflow: hidden;
 
-    && img{
+   && img {
       width: 100%;
-    }
- }
+   }
+}
+
+.derecha {
+   margin-left: 5px;
+   display: flex;
+   flex-direction: column;
+}
+
+.sumadoryvalor {
+   display: flex;
+   flex-direction: row-reverse;
+   justify-content: space-between;
+   align-items: center;
+}
