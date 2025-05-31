@@ -1,38 +1,31 @@
 .principal {
-    width: 100px;
     display: flex;
-    flex-direction: row;
-    && img {
-        width: 15px;
-    }
+    align-items: center;
+    gap: 5px;
 }
 
 .resta,
 .suma {
     cursor: pointer;
     border: 1px solid rgb(212, 211, 211);
-    box-shadow: 1px 1px 5px rgba(129, 128, 128, 0.541);
-    width: auto;
+    box-shadow: 1px 1px 3px rgba(129, 128, 128, 0.4);
     height: 25px;
     aspect-ratio: 1/2;
-    padding: 1.5px;
+    padding: 2px;
     border-radius: 3px;
-    margin: 1px;
+    background: white;
 
     &&:active {
-        box-shadow: inset 1px 1px 5px rgba(129, 128, 128, 0.541);
+        box-shadow: inset 1px 1px 4px rgba(129, 128, 128, 0.5);
+    }
 
-        && img {
-            width: 14px;
-        }
+    && img {
+        width: 14px;
     }
 }
 
-
 .titulovalor {
-    width: 1lh;
-    font-size: 1.4lh;
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    margin:auto 0;
 }
