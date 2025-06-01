@@ -10,7 +10,7 @@ import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito"
 
 
 function Carrito() {
-    useEffect
+
     const { setBotonMenu, formatomoneda, setLoader, itemsCarrito } = useContext(GlobalContext)
     const { articulosCarrito, loading } = UseArticulosCarrito();
 

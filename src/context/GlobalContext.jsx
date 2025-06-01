@@ -11,6 +11,7 @@ function GlobalContextProvider({ children }) {
 
     const [itemsCarrito, setItemsCarrito] = useState({
         totalItems: 0
+
     });
 
 
@@ -66,6 +67,8 @@ function GlobalContextProvider({ children }) {
         return new Intl.NumberFormat("es-AR", {
             style: "currency",
             currency: "ARS",
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
         }).format(valor);
     };
     // Fin funcion formato moneda

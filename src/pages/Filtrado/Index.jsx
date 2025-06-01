@@ -15,6 +15,9 @@ function Filtrado() {
     const { setBotonMenu, ir, addCarrito, setAddCarrito, setLoader } = useContext(GlobalContext);
     const { data, loading } = useArticulosPorSubcategorias(id_cats);
 
+
+
+    
     useEffect(() => {
         setBotonMenu("subcategorias")
 

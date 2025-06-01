@@ -5,7 +5,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 
 function BotonMenu({ destino, icono }) {
 
-    const { ir, botonMenu, setBotonMenu } = useContext(GlobalContext)
+    const { ir, botonMenu } = useContext(GlobalContext)
 
     const claseIcono = botonMenu === destino ? styles.iconoNO : styles.iconoOK
 
