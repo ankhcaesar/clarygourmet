@@ -9,7 +9,7 @@ import ScrollContainer from "../../components/ScrollContaiiner/Index";
 import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito";
 
 function Carrito() {
-    const { setBotonMenu, formatomoneda, setLoader, itemsCarrito } = useContext(GlobalContext);
+    const { setBotonMenu, formatomoneda, setLoader, itemsCarrito, ir } = useContext(GlobalContext);
     const { articulosCarrito, loading } = UseArticulosCarrito();
 
     const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
@@ -52,6 +52,7 @@ function Carrito() {
                     ancho="85%"
                     type="submit"
                     label="Cerrar compra"
+                    onClick={()=>ir("fin")}
                 />
             </section>
 

@@ -15,7 +15,7 @@ export const UseArticulosCarrito = () => {
     useEffect(() => {
         const cargarDatosCarrito = async () => {
             setLoading(true);
-            console.log("Cargando datos del carrito debido a cambio en itemsCarrito:", itemsCarrito);
+           
 
             try {
                 // Se obtienen los artículos actuales de la tabla 'ventas' en Dexie.

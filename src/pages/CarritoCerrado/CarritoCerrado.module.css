@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
+
+.carritoCerrado {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carritoCerrado__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    box-shadow: 4px 4px 7px rgba(128, 128, 128, 0.6);
+    overflow: hidden;
+    width: 350px;
+    aspect-ratio: 1/1;
+    margin-bottom: 20px;
+}
+
+.carritoCerrado__logo img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.carritoCerrado__bienvenida {
+    font-family: "Slackside One", cursive;
+    font-weight: 300;
+    font-size: 2em;
+    margin: 0;
+}
+
+.carritoCerrado__bienvenida p {
+    margin: 5px 0;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+    .carritoCerrado__logo {
+        width: 80%;
+    }
+
+    .carritoCerrado__bienvenida {
+        font-size: 1.5em;
+    }
+}

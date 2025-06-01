@@ -28,7 +28,9 @@ function GlobalContextProvider({ children }) {
             fin: "/FinCompra",
             inicio: "/",
             carrito: "/Carrito",
-            carritocerrado: "/CarritoCerrado"
+            carritocerrado: "/CarritoCerrado",
+            resumen: "/RsmCompra"
+            
         };
 
         if (rutas[to]) {

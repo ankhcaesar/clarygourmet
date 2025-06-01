@@ -7,6 +7,7 @@ import Categorias from "./src/pages/Categorias/Index"
 import Filtrado from "./src/pages/Filtrado/Index"
 import Carrito from "./src/pages/Carrito/Index"
 import FinCompra from "./src/pages/FinCompra/Index"
+import RsmCompra from "./src/pages/RsmCompra/Index"
 import CarritoCerrado from "./src/pages/CarritoCerrado/Index"
 
 import LayoutApp from "./src/components/LayoutApp/Index";
@@ -22,7 +23,9 @@ function AppRoute() {
                     <Route path="/Filtrado" element={<Filtrado />} />
                     <Route path="/Carrito" element={<Carrito />} />
                     <Route path="/FinCompra" element={<FinCompra />} />
+                    <Route path="/RsmCompra" element={<RsmCompra />} />
                     <Route path="/CarritoCerrado" element={<CarritoCerrado />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -1,0 +1,42 @@
+.campoForm__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 0.4rem;
+    margin-top: 0.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /* apenas redondeado */
+    box-sizing: border-box;
+    resize: none;
+    /* evita redimensionar en textarea */
+}
+
+.campoForm__error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.campoForm__checkboxContainer {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.campoForm__checkboxLabel {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.campoForm__checkboxLabel input {
+    margin-right: 0.4rem;
+}
