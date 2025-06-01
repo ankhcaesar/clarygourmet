@@ -1,20 +1,22 @@
-.boton {
-    margin: 0 0 0 10px;
+.boton-menu {
+    margin-left: 10px;
     background-color: transparent;
     border: 0;
     width: 10px;
-    
-    
 }
 
-
-.iconoOK {
+.boton-menu__icono--activo {
     cursor: pointer;
     filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 
-.iconoNO {
+.boton-menu__icono--inactivo {
     cursor: none;
     opacity: 20%;
+}
 
+@media (max-width: 480px) {
+    .boton-menu {
+        width: 20px;
+    }
 }

@@ -13,28 +13,32 @@ export function useSubcategorias(id_cats) {
         const fetchSubcategorias = async () => {
             setLoading(true);
             setError(null);
-            
-            const { data, error } = await supabase
-                .from("sub_categorias")
-                .select("*")
-                .eq('categoria', id_cats);
 
-            if (error) {
-                setError(error);
+            try {
+                const { data, error: supabaseError } = await supabase
+                    .from("sub_categorias")
+                    .select("*")
+                    .eq("categoria", id_cats);
+
+                if (supabaseError) {
+                    setError(supabaseError);
+                    setLoading(false);
+                    return;
+                }
+
+                const subCategoriasConImagen = await Promise.all(
+                    data.map(async (sCat) => ({
+                        ...sCat,
+                        imagenUrl: await getPublicImage("subcats", sCat.imagen_categoria),
+                    }))
+                );
+
+                setSubcategorias(subCategoriasConImagen);
+            } catch (err) {
+                setError(err);
+            } finally {
                 setLoading(false);
-                return;
             }
-            
-
-            const subCategoriasConImagen = await Promise.all(
-                data.map(async (sCat) => ({
-                    ...sCat,
-                    imagenUrl: await getPublicImage("subcats", sCat.imagen_categoria)
-                }))
-            );
-
-            setSubcategorias(subCategoriasConImagen);
-            setLoading(false);
         };
 
         fetchSubcategorias();

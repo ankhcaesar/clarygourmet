@@ -11,12 +11,7 @@ function GlobalContextProvider({ children }) {
 
     const [itemsCarrito, setItemsCarrito] = useState({
         totalItems: 0
-
     });
-
-
-
-
 
     //funcion ir
     function ir(destino, opciones = {}) {

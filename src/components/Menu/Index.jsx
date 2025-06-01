@@ -8,33 +8,30 @@ import { GlobalContext } from "../../context/GlobalContext"
 import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 function Menu() {
-
     const { itemsCarrito } = useContext(GlobalContext)
-    const { calcularItems } = UseAddVenta();
+    const { calcularItems } = UseAddVenta()
 
     useEffect(() => {
-        calcularItems();
-    }, []);
+        calcularItems()
+    }, [])
+
     return (
-        <section className={styles.container}>
+        <section className={styles.menu}>
             <BotonMenu
                 destino="inicio"
-
                 icono={iconoHome}
             />
             <BotonMenu
                 destino="categorias"
-
                 icono={iconoCategorias}
             />
-
-            <div className={styles.cantidad}>
+            <div className={styles.menu__carrito}>
                 <BotonMenu
                     destino="carrito"
                     icono={iconoCarrito}
                 />
                 {itemsCarrito.totalCantidades > 0 && (
-                    <div className={styles.circuloCantidad}>
+                    <div className={styles.menu__cantidad}>
                         {itemsCarrito.totalCantidades}
                     </div>
                 )}
@@ -42,4 +39,5 @@ function Menu() {
         </section>
     )
 }
+
 export default Menu

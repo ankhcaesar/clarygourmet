@@ -1,4 +1,4 @@
-:root {
+/*:root {
   max-width: 480px;
   min-width: 320px;
   margin: 0 auto;
@@ -8,4 +8,27 @@ html, body {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
+}*/
+
+:root {
+  /* Ajustes globales */
+  max-width: 480px;
+  min-width: 320px;
+  margin: 0 auto;
+  font-size: 16px; /* base relativa para rem */
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }

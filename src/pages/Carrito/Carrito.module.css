@@ -1,49 +1,87 @@
-.principal {
+.carrito {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.carrito__principal {
     width: 100%;
     height: 80vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
 }
 
-.listarticulos {
+.carrito__listaArticulos {
     width: 95%;
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0.625rem;
+
     overflow-y: auto;
     scroll-behavior: smooth;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
-
-    &&::-webkit-scrollbar {
-        display: none;
-    }
 }
 
-.totales {
+.carrito__listaArticulos::-webkit-scrollbar {
+    display: none;
+}
+
+.carrito__totales {
     width: 90%;
-    margin-top: 10px;
+    margin-top: 0.625rem;
 }
 
-.subTotales {
+.carrito__subTotales {
     border-bottom: 1px solid black;
-
-    && p {
-        margin: 10px 0 0 0;
-    }
 }
 
-.totalCompra {
+.carrito__subTotales p {
+    margin: 0.625rem 0 0 0;
+}
+
+.carrito__totalCompra {
     display: flex;
     justify-content: flex-end;
     font-weight: bold;
+}
 
-    && p {
-        margin: 0 0 10px 0;
+.carrito__totalCompra p {
+    margin: 0 0 0.625rem 0;
+}
+
+@media (max-width: 768px) {
+    .carrito__principal {
+        padding-bottom: 1rem;
+    }
+
+    .carrito__listaArticulos {
+        gap: 0.5rem;
+    }
+
+    .carrito__totales {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .carrito__principal {
+        padding-bottom: 0.8rem;
+    }
+
+    .carrito__listaArticulos {
+        width: 100%;
+        gap: 0.4rem;
+    }
+
+    .carrito__totales {
+        width: 100%;
+        padding:0 10px;
     }
 }

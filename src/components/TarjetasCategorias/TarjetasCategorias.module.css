@@ -1,55 +1,78 @@
-.principal {
+.tarjeta-categorias {
     display: flex;
     justify-content: center;
+    padding: 1rem;
 }
 
-.caja {
+.tarjeta-categorias__contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 350px;
-    height: 230px;
+    width: min(90%, 22rem);
+    height: 14rem;
     cursor: pointer;
     box-shadow: 2px 2px 3px rgba(68, 66, 66, 0.15);
-    border: 1px solid  rgba(68, 66, 66, 0.15);
-    border-radius: 5px;
+    border: 1px solid rgba(68, 66, 66, 0.15);
+    border-radius: 0.5rem;
     transition: box-shadow 0.3s, transform 0.3s;
     overflow: hidden;
+    background-color: #fff;
 }
 
-.caja:active {
+.tarjeta-categorias__contenedor:active {
     box-shadow: inset 2px 2px 3px rgba(147, 143, 143, 0.15);
     transform: scale(0.98);
 }
 
-.cajaimagen{
-height: 80%;
-display: flex;
-
+.tarjeta-categorias__imagen-contenedor {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
 }
 
-.imagen {
-    width: 90%;
-    aspect-ratio: 3/2;
+.tarjeta-categorias__imagen {
+    width: 100%;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
-    margin: 15px;
+    border-radius: 0.25rem;
 }
 
-.cajatitulo {
+.tarjeta-categorias__titulo-contenedor {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 20%;
-    background-color: rgba(243, 243, 239, 1);
-    border-radius: 0 0 5px;
-
+    background-color: rgba(250, 235, 215, 0.4);
+    border-radius: 0 0 0.5rem 0.5rem;
 }
 
-
-.titulo {
+.tarjeta-categorias__titulo {
     text-align: center;
+    font-size: 1rem;
+    margin: 0.25rem;
     color: inherit;
-    margin: 2px;
+}
+
+@media (max-width: 480px) {
+    .tarjeta-categorias__contenedor {
+        height: 12rem;
+    }
+
+    .tarjeta-categorias__titulo {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjeta-categorias__contenedor {
+        height: 16rem;
+    }
+
+    .tarjeta-categorias__titulo {
+        font-size: 1.1rem;
+    }
 }

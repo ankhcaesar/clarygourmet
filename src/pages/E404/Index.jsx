@@ -1,24 +1,28 @@
-import Cabecera from "../../components/Cabecera/Index"
-import Menu from "../../components/Menu/Index"
-import styles from "./E404.module.css"
-import e404img from "/imgs/E_404.svg"
-function E404(params) {
+import Cabecera from "../../components/Cabecera/Index";
+import Menu from "../../components/Menu/Index";
+import styles from "./E404.module.css";
+import e404img from "/imgs/E_404.svg";
 
+function E404() {
     return (
-        <section className={styles.principal}>
+        <section className={styles.e404}>
             <Cabecera
-                titulo="Pagina web no encontrada"
+                titulo="Página web no encontrada"
                 origen="inicio"
             />
 
-            <div className={styles.container}>
-                <img src={e404img} alt="Pagina web no encontrada" className={styles.imagen} />
-                <div className={styles.animacionPuerta}></div>
+            <div className={styles.e404__container}>
+                <img
+                    src={e404img}
+                    alt="Página web no encontrada"
+                    className={styles.e404__imagen}
+                />
+                <div className={styles.e404__animacionPuerta}></div>
             </div>
 
             <Menu />
-
         </section>
-    )
+    );
 }
-export default E404
+
+export default E404;
