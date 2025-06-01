@@ -4,7 +4,6 @@ import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
 function Inicial() {
-
     const { ir } = useContext(GlobalContext)
 
     useEffect(() => {
@@ -15,11 +14,11 @@ function Inicial() {
     }, [ir]);
 
     return (
-        <section className={styles.container}>
-            <div className={styles.logo}>
-                <img src={logo} alt="" />
+        <section className={styles.inicial}>
+            <div className={styles.inicial__logo}>
+                <img src={logo} alt="Logo" />
             </div>
-            <div className={styles.bienvenida}>
+            <div className={styles.inicial__bienvenida}>
                 <p>Gourmet</p>
                 <p>Casero</p>
                 <p>y con mucho amor</p>
@@ -27,4 +26,4 @@ function Inicial() {
         </section>
     )
 }
-export default Inicial
+export default Inicial;
