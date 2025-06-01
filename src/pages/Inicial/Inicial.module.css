@@ -44,7 +44,7 @@
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 480px) {
   .inicial__logo {
-    width: 150px;
+    width: 80%;
   }
   .inicial__bienvenida {
     font-size: 1.2em;
