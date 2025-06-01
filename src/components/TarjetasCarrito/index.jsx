@@ -19,6 +19,7 @@ useEffect(() => {
         setIsUpdating(true);
         try {
             await actualizarCantidadProducto(id_art, cant);
+            
         } catch (error) {
             console.error("Error al actualizar cantidad:", error);
         } finally {

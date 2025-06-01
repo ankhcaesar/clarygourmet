@@ -7,30 +7,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 350px;
-    height: 190px;
+    height: 230px;
     cursor: pointer;
-    box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.151);
+    box-shadow: 2px 2px 3px rgba(68, 66, 66, 0.15);
+    border: 1px solid  rgba(68, 66, 66, 0.15);
     border-radius: 5px;
-    padding: 5px 0;
+    transition: box-shadow 0.3s, transform 0.3s;
+    overflow: hidden;
+}
 
-    & h3 {
-        margin: 5px 0 0 0;
-    }
+.caja:active {
+    box-shadow: inset 2px 2px 3px rgba(147, 143, 143, 0.15);
+    transform: scale(0.98);
+}
 
-    &&:active {
-        box-shadow: inset 2px 2px 3px 1px 5px rgba(147, 143, 143, 0.151);
-        transition: 0.5s;
-        scale: 0.99;
-    }
-
+.cajaimagen{
+height: 80%;
+display: flex;
 
 }
 
-.cajaImagen {
-    width: 80%;
-    height: 70%;
-    background-color: white;
-    margin: 10px 0 0 0;
+.imagen {
+    width: 90%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    margin: 15px;
+}
 
+.cajatitulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(243, 243, 239, 1);
+    border-radius: 0 0 5px;
+
+}
+
+
+.titulo {
+    text-align: center;
+    color: inherit;
+    margin: 2px;
 }

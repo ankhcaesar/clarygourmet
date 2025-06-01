@@ -5,7 +5,7 @@ import iconomenos from "/icons/menos.svg"
 
 function Sumador({ value, setValue, disabled }) {
     const aumentar = () => setValue(prev => prev + 1);
-    const disminuir = () => setValue(prev => (prev > 1 ? prev - 1 : 1));
+    const disminuir = () => setValue(prev => (prev > 0 ? prev - 1 : 0));
 
     return (
         <section className={styles.principal}>

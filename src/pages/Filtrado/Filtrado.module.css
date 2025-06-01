@@ -1,51 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-.principal{
-    width: 100%;
-    height: 80vh;
-    box-sizing: content-box;
-    margin: 15px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    overflow-y: auto;
-   /* overflow-x: hidden; */
-    scroll-behavior: smooth;
-    
+.principal {
+  width: 100%;
+  height: 80vh;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 
-
-        scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    &&::-webkit-scrollbar {
-        display: none;
-    }
+  /* Ocultar scrollbar en todos los navegadores */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.subcats{
-
-
-    
-    h2{
-        margin: 0.1lh 0 0.1lh 3lh ;
-        text-align: left;
-        font-size: 1.3lh;
-        text-transform: capitalize;
-        font-family: "B612 mono";
-        
-    }
+.principal::-webkit-scrollbar {
+  display: none;
 }
 
+.subcats h2 {
+margin: 0.1lh 0 0.2lh 3lh ;
+  text-align: left;
+  font-size: 1.3lh;
+  text-transform: capitalize;
+  font-family: "B612 Mono", monospace;
+}
 
-
-.articulos{
-    box-sizing: content-box;
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    margin-bottom: 15px;
-
-
+.articulos {
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-bottom: 15px;
 }

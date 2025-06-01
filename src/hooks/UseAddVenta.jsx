@@ -20,24 +20,22 @@ export function UseAddVenta() {
         const id_vta = await obtenerVentaId();
         const fecha_hora = new Date().toISOString();
 
-        // Verificar si el producto ya está en la venta
         const productoExistente = await db.ventas.get({ id_arts });
 
         if (productoExistente) {
-            // Si existe, sumar la cantidad nueva a la existente
             const nuevaCantidad = productoExistente.cant + cant;
             await db.ventas.update(productoExistente.id_vta, {
                 cant: nuevaCantidad,
-                fecha_hora // se actualiza la fecha también
+                fecha_hora
             });
         } else {
-            // Si no existe, agregar el producto
             await db.ventas.add({
                 id_vta,
                 fecha_hora,
                 id_arts,
                 cant,
-                valor_unit            });
+                valor_unit
+            });
         }
 
         await calcularItems();
@@ -46,9 +44,15 @@ export function UseAddVenta() {
     const actualizarCantidadProducto = async (id_arts, nuevaCantidad) => {
         const productoExistente = await db.ventas.get({ id_arts });
         if (productoExistente) {
-            await db.ventas.update(productoExistente.id_vta, {
-                cant: nuevaCantidad
-            });
+
+            if (nuevaCantidad === 0) {
+                // Si llega a cero, se borra
+                await db.ventas.delete(productoExistente.id_vta);
+            } else {
+                await db.ventas.update(productoExistente.id_vta, {
+                    cant: nuevaCantidad
+                });
+            }
             await calcularItems();
         }
     };

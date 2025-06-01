@@ -5,10 +5,14 @@ function TarjetasProductos({ nombre, imagen, onclick }) {
         <section className={styles.principal} >
 
             <div className={styles.caja} onClick={onclick}>
+
                 <div className={styles.cajaImagen}>
                     <img src={imagen} alt='${nombre}' />
                 </div>
-                <h3>{nombre}</h3>
+                <div className={styles.cajanombre}>
+
+                <h3 className={styles.nombre}>{nombre}</h3>
+                </div>
             </div>
         </section>
     )

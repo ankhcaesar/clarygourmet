@@ -59,12 +59,15 @@ function AddCarrito({ data }) {
                         setValue={setCantidad}
                     />
                 </div>
-                <Boton
-                    ancho="300px"
-                    type="submit"
-                    onClick={handleAgregar}
-                    label="agregar al carrito"
-                />
+                <div className={styles.cajaboton}>
+
+                    <Boton
+                        ancho="300px"
+                        type="submit"
+                        onClick={handleAgregar}
+                        label="agregar al carrito"
+                    />
+                </div>
             </div>
         </section>
     )

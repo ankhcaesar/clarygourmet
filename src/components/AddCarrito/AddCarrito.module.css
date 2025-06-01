@@ -1,6 +1,5 @@
 .overlay {
     position: absolute;
-    z-index: 97;
     top: 0;
     right: 0;
     left: 0;
@@ -8,72 +7,62 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    z-index: 97;
     justify-content: center;
-
+    z-index: 97;
 }
 
 .caja {
-    transform: translateY(10vh);
     position: fixed;
-    /*transition: 2s;*/
-    z-index: 98;
+    top: 10vh;
     display: flex;
-    width: 390px;
-    height: 610px;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    width: 390px;
+    height: auto;
+    background-color: #fff;
     box-shadow: 2px 2px 3px 1px rgba(68, 66, 66, 0.815);
     border-radius: 5px;
-
-
+    z-index: 98;
 }
-
 
 .cajaImagen {
     display: flex;
     justify-content: center;
     width: 90%;
     aspect-ratio: 1/1;
-    background-color: rgb(255, 255, 255);
-    border: solid 1px rgba(128, 128, 128, 0.2);
+    background-color: #fff;
+    border: 1px solid rgba(128, 128, 128, 0.2);
     margin: 5px auto;
-    padding: 5px;
+    padding: 10px;
     overflow: hidden;
+}
 
-    && img {
-        width: 70%;
-        aspect-ratio: 1/1;
-    }
+.cajaImagen img {
+    width: 70%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
 }
 
 .pie {
     width: 90%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    padding: 0 5px 0;
-
-
+    padding: 0 5px;
 }
 
 .descripcion {
     width: 90%;
     height: 60px;
     padding: 5px;
+}
 
+.descripcion h4 {
+    margin: 5px 0 0 0;
+    text-transform: uppercase;
+}
 
-
-    && h4 {
-        margin: 5px 0 0 0;
-        text-transform: uppercase;
-    }
-
-    && p {
-        margin: 0;
-    }
-
+.descripcion p {
+    margin: 0;
 }
 
 .valor {
@@ -81,21 +70,23 @@
     color: green;
 }
 
-
 .cantidad {
     width: 90%;
-    margin-bottom: 20px;
+    margin: 10px 0;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    background-color: rgba(199, 195, 195, 0.104);
+    align-items: center;
+    background-color: rgba(243, 243, 239, 1);
     border-radius: 2px;
-    padding: 5px;
+    padding: 0 8px;
 }
 
 .titulocantidad {
     font-size: 1.2lh;
     font-weight: bold;
-    margin: 0px;
+    margin: 0;
+}
 
+.cajaboton {
+    padding: 15px;
 }
