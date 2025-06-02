@@ -68,6 +68,10 @@
 }
 
 @media (max-width: 480px) {
+.filtrado{
+    min-height:80vh;
+}
+
   .filtrado__titulo {
     font-size: 0.95rem;
     margin: 0.2em 0 0.2em 0.8em;

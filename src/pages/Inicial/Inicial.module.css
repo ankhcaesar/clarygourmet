@@ -43,6 +43,11 @@
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 480px) {
+.inicial {
+  min-height:80vh;
+}
+
+
   .inicial__logo {
     width: 80%;
   }

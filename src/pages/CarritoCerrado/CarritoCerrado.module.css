@@ -43,6 +43,10 @@
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 480px) {
+    .carritoCerrado {
+        min-height: 80vh;
+    }
+
     .carritoCerrado__logo {
         width: 80%;
     }

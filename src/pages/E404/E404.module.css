@@ -39,9 +39,11 @@
   0% {
     transform: scaleX(1);
   }
+
   99% {
     transform: scaleX(0);
   }
+
   100% {
     transform: scaleX(0);
     display: none;
@@ -55,8 +57,12 @@
 }
 
 @media (max-width: 480px) {
+  .e404 {
+    min-height: 80vh;
+
+  }
+
   .e404__imagen {
     width: 95vw;
   }
 }
-
