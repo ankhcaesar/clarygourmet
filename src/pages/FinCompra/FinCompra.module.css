@@ -1,22 +1,51 @@
 .finCompra {
     width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    padding-bottom: 10px;
 }
 
 .finCompra__principal {
-    width: 100%;
     height: 80vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 1.25rem;
 }
 
-.finCompra__boton{
+.finCompra__titulo{
+    border-bottom: solid 5px rgb(23, 33, 170);
+
+    border-radius: 3%;
+}
+
+.finCompra__titulo h2{
+    margin: 5rem 0 0 0;
+}
+
+
+.finCompra__formulario {
+    width: 80%;
+    padding: 2rem 0;
+}
+
+.fincompra_formulario_01,
+.fincompra_formulario_02 {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fincompra_formulario_02 {
+    background-color: rgba(250, 235, 215, 0.377);
+
+}
+
+
+.finCompra__boton {
     display: flex;
     justify-content: center;
+    padding: 2rem 0;
+
 }

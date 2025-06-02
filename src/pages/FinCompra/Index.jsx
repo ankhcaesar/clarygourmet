@@ -55,118 +55,138 @@ function FinCompra() {
 
     return (
         <section className={styles.finCompra}>
-            <Cabecera titulo="Datos del envío" origen="carrito" />
-
-            <form className={styles.finCompra__principal} onSubmit={handleSubmit}>
-                
-                <CampoForm
-                    label="Nombre"
-                    name="nombre"
-                    value={form.nombre}
-                    onChange={handleChange}
-                    error={errores.nombre}
-                />
-                <CampoForm
-                    label="WhatsApp"
-                    name="whatsapp"
-                    value={form.whatsapp}
-                    onChange={handleChange}
-                />
-                <CampoForm
-                    label="Número alternativo"
-                    name="nro_alternativo"
-                    value={form.nro_alternativo}
-                    onChange={handleChange}
-                    error={errores.telefonos}
-                />
-
-                <CampoForm
-                    label="Envío a domicilio"
-                    name="envio_a_domicilio"
-                    type="checkbox"
-                    checked={form.envio_a_domicilio}
-                    onChange={handleChange}
-                />
-
-                {form.envio_a_domicilio && (
-                    <>
-                        <CampoForm
-                            label="Ciudad"
-                            name="ciudad"
-                            value={form.ciudad}
-                            onChange={handleChange}
-                            error={errores.ciudad}
-                            ancho="80%"
-                        />
-                        <CampoForm
-                            label="Barrio"
-                            name="barrio"
-                            value={form.barrio}
-                            onChange={handleChange}
-                            error={errores.barrio}
-                        />
-                        <CampoForm
-                            label="Calle"
-                            name="calle"
-                            value={form.calle}
-                            onChange={handleChange}
-                            error={errores.calle}
-                        />
-                        <CampoForm
-                            label="Número de calle"
-                            name="numero_calle"
-                            value={form.numero_calle}
-                            onChange={handleChange}
-                            error={errores.numero_calle}
-                        />
-                        <CampoForm
-                            label="Piso"
-                            name="piso"
-                            value={form.piso}
-                            onChange={handleChange}
-                        />
-                        <CampoForm
-                            label="Departamento"
-                            name="depto"
-                            value={form.depto}
-                            onChange={handleChange}
-                        />
-                    </>
-                )}
-
-                <CampoForm
-                    label="Aclaraciones (opcional)"
-                    name="aclaraciones"
-                    value={form.aclaraciones}
-                    onChange={handleChange}
-                    type="textarea"
-                />
-
-                <div className={styles.finCompra__boton}>
-                    <Boton ancho="100%" type="submit" label="Confirmar" />
-                </div>
-            </form>
-        </section>
-    );
-}
-
-function CampoTexto({ label, name, value, onChange, error, ancho }) {
-    return (
-        <label style={{ width: { ancho }, marginBottom: "0.75rem" }}>
-            {label}
-            <input
-                type="text"
-                name={name}
-                value={value}
-                onChange={onChange}
-                style={{ width: "100%", padding: "0.4rem", marginTop: "0.2rem" }}
+            <Cabecera
+                titulo="Datos del envío"
+                origen="carrito"
             />
-            {error && (
-                <div style={{ color: "red", fontSize: "0.8rem", marginTop: "0.2rem" }}>
-                    {error}
+
+            <section className={styles.finCompra__principal}>
+
+
+                <div className={styles.finCompra__titulo}>
+                    <h2>Complete los datos para el envio</h2>
                 </div>
-            )}
-        </label>
+
+
+                <form className={styles.finCompra__formulario} onSubmit={handleSubmit}>
+
+                    <CampoForm
+                        label="Nombre"
+                        name="nombre"
+                        ancho="80%"
+                        value={form.nombre}
+                        onChange={handleChange}
+                        error={errores.nombre}
+                    />
+                    <div className={styles.fincompra_formulario_02}>
+                        <CampoForm
+                            label="WhatsApp"
+                            name="whatsapp"
+                            ancho="35%"
+                            value={form.whatsapp}
+                            onChange={handleChange}
+                        />
+                        <CampoForm
+                            label="Número alternativo"
+                            name="nro_alternativo"
+                            ancho="35%"
+                            value={form.nro_alternativo}
+                            onChange={handleChange}
+                            error={errores.telefonos}
+                        />
+                    </div>
+
+                    <CampoForm
+                        label="Envío a domicilio"
+                        name="envio_a_domicilio"
+                        type="checkbox"
+                        ancho="80%"
+                        checked={form.envio_a_domicilio}
+                        onChange={handleChange}
+                    />
+
+                    {form.envio_a_domicilio && (
+                        <>
+                            <div className={styles.fincompra_formulario_02}>
+                                <CampoForm
+                                    label="Ciudad"
+                                    name="ciudad"
+                                    ancho="35%"
+                                    value={form.ciudad}
+                                    onChange={handleChange}
+                                    error={errores.ciudad}
+                                />
+                                <CampoForm
+                                    label="Barrio"
+                                    name="barrio"
+                                    ancho="35%"
+                                    value={form.barrio}
+                                    onChange={handleChange}
+                                    error={errores.barrio}
+                                />
+                            </div>
+
+                            <div className={styles.fincompra_formulario_01}>
+
+                                <CampoForm
+                                    label="Calle"
+                                    name="calle"
+                                    ancho="80%"
+                                    value={form.calle}
+                                    onChange={handleChange}
+                                    error={errores.calle}
+                                />
+
+                            </div>
+
+                            <div className={styles.fincompra_formulario_02}>
+                                <CampoForm
+                                    label="Número"
+                                    name="numero_calle"
+                                    ancho="25%"
+                                    value={form.numero_calle}
+                                    onChange={handleChange}
+                                    error={errores.numero_calle}
+                                />
+                                <CampoForm
+                                    label="Piso"
+                                    name="piso"
+                                    ancho="15%"
+                                    value={form.piso}
+                                    onChange={handleChange}
+                                />
+                                <CampoForm
+                                    label="Depto"
+                                    name="depto"
+                                    ancho="15%"
+                                    value={form.depto}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </>
+                    )}
+
+                    <CampoForm
+                        label="Aclaraciones (opcional)"
+                        name="aclaraciones"
+                        ancho="100%"
+                        value={form.aclaraciones}
+                        onChange={handleChange}
+                        type="textarea"
+                    />
+
+
+                    <div className={styles.finCompra__boton}>
+                        <Boton
+                            ancho="100%"
+                            type="submit"
+                            label="Confirmar"
+                        />
+                    </div>
+                </form>
+            </section>
+        </section>
+
     );
 }
 
