@@ -7,7 +7,7 @@ function TotalContainer({ children }) {
   const { loader } = useContext(GlobalContext);
 
   return (
-    <section className={styles["total-container"]}>
+    <section className={styles.total__container}>
       {children}
       {loader.show && <Loader />}
     </section>
