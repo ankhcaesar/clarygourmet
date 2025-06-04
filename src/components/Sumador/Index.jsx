@@ -10,11 +10,11 @@ function Sumador({ value, setValue, disabled }) {
     return (
         <section className={styles.principal}>
 
-            <button className={styles.resta} onClick={disminuir} disabled={disabled}>
+            <button className={styles.principal__resta} onClick={disminuir} disabled={disabled}>
                 <img src={iconomenos} alt="resta" />
             </button>
-            <p className={styles.titulovalor}>{value}</p>
-            <button className={styles.suma} onClick={aumentar} disabled={disabled}>
+            <p className={styles.principal__titulovalor}>{value}</p>
+            <button className={styles.principal__suma} onClick={aumentar} disabled={disabled}>
                 <img src={iconomas} alt="suma" />
             </button>
 

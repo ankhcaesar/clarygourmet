@@ -32,15 +32,15 @@ useEffect(() => {
 
     return (
         <section className={styles.principal}>
-            <div className={styles.cajaImagen}>
+            <div className={styles.principal__cajaImagen}>
                 <img src={imagen} alt={articulo} />
             </div>
-            <div className={styles.derecha}>
-                <h3 className={styles.nombre}>{articulo}</h3>
-                <div className={styles.presentacion}>
+            <div className={styles.principal__derecha}>
+                <h3 className={styles.principal__derecha__nombre}>{articulo}</h3>
+                <div className={styles.principal__derecha__presentacion}>
                     {presentacion}
                 </div>
-                <div className={styles.sumadoryvalor}>
+                <div className={styles.principal__derecha__sumadoryvalor}>
                     <Sumador
                         value={cant}
                         setValue={setCant}

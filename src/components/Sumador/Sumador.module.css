@@ -4,8 +4,8 @@
     gap: 5px;
 }
 
-.resta,
-.suma {
+.principal__resta,
+.principal__suma {
     cursor: pointer;
     border: 1px solid rgb(212, 211, 211);
     box-shadow: 1px 1px 3px rgba(129, 128, 128, 0.4);
@@ -24,7 +24,7 @@
     }
 }
 
-.titulovalor {
+.principal__titulovalor {
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
