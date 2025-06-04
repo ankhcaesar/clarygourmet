@@ -6,46 +6,64 @@
 }
 
 .finCompra__principal {
-    height: 80vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.finCompra__titulo{
+.finCompra__titulo {
     border-bottom: solid 5px rgb(23, 33, 170);
 
     border-radius: 3%;
 }
 
-.finCompra__titulo h2{
-    margin: 5rem 0 0 0;
+.finCompra__titulo h2 {
+    margin: 2rem 0 0 0;
 }
 
 
 .finCompra__formulario {
-    width: 80%;
-    padding: 2rem 0;
+    width: 100%;
+    padding: 2rem 1rem 0 0;
 }
 
 .fincompra_formulario_01,
 .fincompra_formulario_02 {
     width: 100%;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
+    padding: 0.7rem 3.5rem 0;
 }
 
 .fincompra_formulario_02 {
+
     background-color: rgba(250, 235, 215, 0.377);
 
 }
 
-
 .finCompra__boton {
     display: flex;
     justify-content: center;
+    
     padding: 2rem 0;
 
 }
+
+@media (max-width: 480px) {
+    .finCompra__titulo h2 {
+        margin: 1rem 0 0 0;
+    }
+
+    .finCompra__formulario {
+        padding: 0.5rem 0 0.1rem 0;
+    }
+
+    .finCompra__boton {
+    padding: 0.5rem 0;
+
+}
+
+}
+
+@media (max-width: 769px) {}

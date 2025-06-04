@@ -69,15 +69,16 @@ function FinCompra() {
 
 
                 <form className={styles.finCompra__formulario} onSubmit={handleSubmit}>
-
-                    <CampoForm
-                        label="Nombre"
-                        name="nombre"
-                        ancho="80%"
-                        value={form.nombre}
-                        onChange={handleChange}
-                        error={errores.nombre}
-                    />
+                    <div className={styles.fincompra_formulario_01}>
+                        <CampoForm
+                            label="Nombre"
+                            name="nombre"
+                            ancho="80%"
+                            value={form.nombre}
+                            onChange={handleChange}
+                            error={errores.nombre}
+                        />
+                    </div>
                     <div className={styles.fincompra_formulario_02}>
                         <CampoForm
                             label="WhatsApp"
@@ -95,15 +96,16 @@ function FinCompra() {
                             error={errores.telefonos}
                         />
                     </div>
-
-                    <CampoForm
-                        label="Envío a domicilio"
-                        name="envio_a_domicilio"
-                        type="checkbox"
-                        ancho="80%"
-                        checked={form.envio_a_domicilio}
-                        onChange={handleChange}
-                    />
+                    <div className={styles.fincompra_formulario_01}>
+                        <CampoForm
+                            label="Envío a domicilio"
+                            name="envio_a_domicilio"
+                            type="checkbox"
+                            ancho="80%"
+                            checked={form.envio_a_domicilio}
+                            onChange={handleChange}
+                        />
+                    </div>
 
                     {form.envio_a_domicilio && (
                         <>
@@ -165,24 +167,27 @@ function FinCompra() {
                             </div>
                         </>
                     )}
+                    <div className={styles.fincompra_formulario_01}>
 
-                    <CampoForm
-                        label="Aclaraciones (opcional)"
-                        name="aclaraciones"
-                        ancho="100%"
-                        value={form.aclaraciones}
-                        onChange={handleChange}
-                        type="textarea"
-                    />
+                        <CampoForm
+                            label="Aclaraciones (opcional)"
+                            name="aclaraciones"
+                            ancho="100%"
+                            value={form.aclaraciones}
+                            onChange={handleChange}
+                            type="textarea"
+                        />
 
+                    </div>
 
                     <div className={styles.finCompra__boton}>
                         <Boton
-                            ancho="100%"
+                            ancho="65%"
                             type="submit"
                             label="Confirmar"
                         />
                     </div>
+
                 </form>
             </section>
         </section>
