@@ -58,9 +58,16 @@
 }
 
 @media (max-width: 480px) {
+    
     .tarjetaCategorias__contenedor {
-        height: 12rem;
+        width: min(70%, 20rem);
+        height: 10rem;
     }
+
+    .tarjetaCategorias__titulo {
+    margin: 0.15rem;
+
+}
 
     .tarjetaCategorias__titulo {
         font-size: 0.9rem;

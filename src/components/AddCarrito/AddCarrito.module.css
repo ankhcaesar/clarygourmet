@@ -90,3 +90,11 @@
 .cajaboton {
     padding: 15px;
 }
+
+
+@media (max-width: 480px) {
+    .caja {
+        top: 5vh;
+        width: 350px;
+    }
+}

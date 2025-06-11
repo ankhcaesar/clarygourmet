@@ -37,7 +37,6 @@
 }
 
 .fincompra_formulario_02 {
-
     background-color: rgba(250, 235, 215, 0.377);
 
 }
@@ -51,12 +50,13 @@
 }
 
 @media (max-width: 480px) {
+
     .finCompra__titulo h2 {
-        margin: 1rem 0 0 0;
+        margin: 0.7rem 0 0 0;
     }
 
     .finCompra__formulario {
-        padding: 0.5rem 0 0.1rem 0;
+        padding: 0.1rem 0 0.1rem 0;
     }
 
     .finCompra__boton {
