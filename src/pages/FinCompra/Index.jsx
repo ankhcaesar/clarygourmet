@@ -2,7 +2,6 @@ import styles from "./FinCompra.module.css";
 import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
 import { useState } from "react";
-import { useGuardarClienteYEntrega } from "../../hooks/useGuardarClienteYEntrega";
 import { useValidarCliente } from "../../hooks/useValidarCliente";
 import CampoForm from "../../components/CampoForm/Index";
 
@@ -22,7 +21,6 @@ function FinCompra() {
     });
 
     const [errores, setErrores] = useState({});
-    const { guardar } = useGuardarClienteYEntrega();
     const { validar } = useValidarCliente();
 
     const handleChange = (e) => {
@@ -44,13 +42,6 @@ function FinCompra() {
 
         const { envio_a_domicilio, aclaraciones, ...datosCliente } = form;
 
-        guardar({
-            cliente: datosCliente,
-            entrega: {
-                envio_a_domicilio,
-                aclaraciones,
-            },
-        });
     };
 
     return (

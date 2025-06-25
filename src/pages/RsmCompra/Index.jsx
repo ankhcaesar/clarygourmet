@@ -4,13 +4,13 @@ import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
 import CampoForm from "../../components/CampoForm/Index";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useResumenCompra } from "../../hooks/useResumenCompra";
+//import { useResumenCompra } from "../../hooks/useResumenCompra";
 import { supabase } from "../../db/supabaseclient";
 import db from "../../db/db";
 
 function RsmCompra() {
     const { formatomoneda, itemsCarrito, setLoader, ir } = useContext(GlobalContext);
-    const { cliente, entrega, venta, articulosCarrito, loading } = useResumenCompra();
+    // const { cliente, entrega, venta, articulosCarrito, loading } = useResumenCompra();
 
 
 
@@ -30,56 +30,12 @@ function RsmCompra() {
     const handleEnvio = async () => {
         setLoader({ show: true });
 
-        const sanitizarVentas = (articulos, clienteId, fecha) =>
-            articulos.map((item) => ({
-                id_art: item.id_art,
-                cant: item.cantidad,
-                valor_unit: item.valor_unit,
-                valor_total: item.valor_total,
-                id_cli: clienteId,
-                fecha_hora: fecha || new Date().toISOString(),
-            }));
+        setLoader({ show: false });
 
-        const sanitizarCliente = (cliente) => ({
-            id_cli: cliente.id_cli,
-            nombre: cliente.nombre,
-            whatsapp: cliente.whatsapp,
-            nro_alternativo: cliente.nro_alternativo,
-            ciudad: cliente.ciudad,
-            barrio: cliente.barrio,
-            calle: cliente.calle,
-            numero_calle: cliente.numero_calle,
-        });
-
-
-
-        try {
-            const clienteSubida = sanitizarCliente(cliente);
-            const ventasSubida = sanitizarVentas(articulosCarrito, cliente.id_cli, venta?.fecha_hora);
-
-            console.log("Cliente a subir:", clienteSubida);
-            console.log("Ventas a subir:", ventasSubida);
-
-            const { error: errorCliente } = await supabase.from("clientes").insert(clienteSubida);
-            const { error: errorVentas } = await supabase.from("ventas").insert(ventasSubida);
-
-            if (errorCliente || errorVentas) {
-                console.error("Errores en Supabase:", errorCliente, errorVentas);
-                return;
-            }
-
-            await db.ventas.clear();
-            await db.entrega.clear();
-            ir("carritocerrado");
-        } catch (error) {
-            console.error("Error general en handleEnvio:", error);
-        } finally {
-            setLoader({ show: false });
-        }
     };
 
 
-    if (loading) return <p className={styles.rsmCompra__cargando}>Cargando resumen...</p>;
+//    if (loading) return <p className={styles.rsmCompra__cargando}>Cargando resumen...</p>;
 
     const totalVenta = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
 

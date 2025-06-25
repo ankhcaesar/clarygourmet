@@ -10,7 +10,8 @@ function GlobalContextProvider({ children }) {
     const [botonMenu, setBotonMenu] = useState("principal");
 
     const [itemsCarrito, setItemsCarrito] = useState({
-        totalItems: 0
+        totalItems: 0,
+        id_vta: null
     });
 
     //funcion ir

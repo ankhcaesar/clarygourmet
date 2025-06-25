@@ -33,7 +33,7 @@ function Carrito() {
                     <div className={styles.carrito__listaArticulos}>
                         <ScrollContainer direction="vertical" scrollStep={200}>
                             {articulosCarrito.map((item) => (
-                                <TarjetasCarrito key={item.id_art} {...item} />
+                                <TarjetasCarrito key={item.id_arts} {...item} />
                             ))}
                         </ScrollContainer>
                     </div>
@@ -41,7 +41,7 @@ function Carrito() {
 
                 <div className={styles.carrito__totales}>
                     <div className={styles.carrito__subTotales}>
-                        <p>Cantidad de productos: {itemsCarrito.totalCantidades}</p>
+                        <p>Cantidad de productos: {itemsCarrito.totalItems}</p>
                     </div>
                     <div className={styles.carrito__totalCompra}>
                         <p>TOTAL COMPRA: {formatomoneda(totalCompra)}</p>

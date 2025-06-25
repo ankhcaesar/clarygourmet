@@ -1,5 +1,4 @@
 import styles from "./Sumador.module.css"
-
 import iconomas from "/icons/mas.svg"
 import iconomenos from "/icons/menos.svg"
 

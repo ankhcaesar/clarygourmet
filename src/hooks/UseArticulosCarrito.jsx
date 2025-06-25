@@ -18,11 +18,11 @@ export const UseArticulosCarrito = () => {
            
 
             try {
-                // Se obtienen los artículos actuales de la tabla 'ventas' en Dexie.
-                const ventas = await db.ventas.toArray();
+                // Se obtienen los artículos actuales de la tabla 'carrito' en Dexie.
+                const carrito = await db.carrito.toArray();
 
                 // Se extraen los IDs de los artículos.
-                const ids = ventas
+                const ids = carrito
                     .map((item) => item.id_arts)
                     .filter((id) => id !== undefined && id !== null);
 
@@ -46,8 +46,8 @@ export const UseArticulosCarrito = () => {
                 }
 
                 const resultado = await Promise.all(
-                    ventas.map(async (venta) => {
-                        const art = articulosDB.find((a) => a.id_arts === venta.id_arts);
+                    carrito.map(async (carrito) => {
+                        const art = articulosDB.find((a) => a.id_arts === carrito.id_arts);
                         // Si el artículo no se encuentra en Supabase (podría haber sido eliminado),
                         // se usa un nombre por defecto.
                         const articuloNombre = art?.articulo || "Artículo no encontrado";
@@ -55,13 +55,13 @@ export const UseArticulosCarrito = () => {
                         const imagenUrl = await getPublicImage("arts", art?.imagen_articulo);
 
                         return {
-                            id_art: venta.id_arts,
+                            id_arts: carrito.id_arts,
                             articulo: articuloNombre,
                             presentacion: presentacionArt,
                             imagen: imagenUrl,
-                            valor_unit: venta.valor_unit, 
-                            cantidad: venta.cant,
-                            valor_total: venta.valor_unit * venta.cant,
+                            valor_unit: carrito.valor_venta, 
+                            cantidad: carrito.cant,
+                            valor_total: carrito.valor_venta * carrito.cant,
                         };
                     })
                 );

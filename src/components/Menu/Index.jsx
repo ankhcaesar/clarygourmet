@@ -9,12 +9,14 @@ import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 function Menu() {
     const { itemsCarrito } = useContext(GlobalContext)
-    const { calcularItems } = UseAddVenta()
+    const { calcularTotales } = UseAddVenta()
 
+   
     useEffect(() => {
-        calcularItems()
-    }, [])
-
+    if (itemsCarrito.id_vta) {
+        calcularTotales(itemsCarrito.id_vta);
+    }
+}, [itemsCarrito.id_vta]);
     return (
         <section className={styles.menu}>
             <BotonMenu
@@ -30,9 +32,9 @@ function Menu() {
                     destino="carrito"
                     icono={iconoCarrito}
                 />
-                {itemsCarrito.totalCantidades > 0 && (
+                {itemsCarrito.totalItems > 0 && (
                     <div className={styles.menu__cantidad}>
-                        {itemsCarrito.totalCantidades}
+                        {itemsCarrito.totalItems}
                     </div>
                 )}
             </div>

@@ -6,7 +6,7 @@ import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 
 function TarjetasCarrito({
-    id_art, articulo, presentacion, imagen, valor_unit, cantidad
+    id_arts, articulo, presentacion, imagen, valor_unit, cantidad
 }) {
     const [cant, setCant] = useState(cantidad);
     const { formatomoneda } = useContext(GlobalContext);
@@ -18,7 +18,7 @@ useEffect(() => {
     const actualizarCantidad = async () => {
         setIsUpdating(true);
         try {
-            await actualizarCantidadProducto(id_art, cant);
+            await actualizarCantidadProducto(id_arts, cant);
             
         } catch (error) {
             console.error("Error al actualizar cantidad:", error);
@@ -27,7 +27,7 @@ useEffect(() => {
         }
     };
     actualizarCantidad();
-}, [cant, id_art]);
+}, [cant, id_arts]);
 
 
     return (

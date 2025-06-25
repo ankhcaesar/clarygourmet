@@ -14,14 +14,14 @@ function AddCarrito({ data }) {
 
 
     if (!data || data.length === 0 || !data[0].articulo) return null;
-    const { articulo, descripcion, imagenUrl, valor_venta, presentacion, onclick, id_arts } = data[0];
+    const { articulo, descripcion, imagenUrl, valor_venta, presentacion, id_arts } = data[0];
 
     const handleAgregar = async () => {
         try {
             await agregarProductoAVenta({
                 id_arts,
                 cant: cantidad,
-                valor_unit: valor_venta
+                valor_venta
             });
 
             limpiarAddCarrito();
