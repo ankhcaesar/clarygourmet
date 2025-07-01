@@ -5,52 +5,38 @@ import { GlobalContext } from "../context/GlobalContext";
 export function UseAddVenta() {
     const { itemsCarrito, setItemsCarrito } = useContext(GlobalContext);
 
-    // Verifica si ya existe id_vta, si no lo crea
-   const obtenerVentaId = async () => {
-    // ✅ 1. Ya tenemos id_vta en el contexto
-    if (itemsCarrito.id_vta) return itemsCarrito.id_vta;
+    const obtenerVentaId = async () => {
+        // Ya tenemos id_vta en contexto
+        if (itemsCarrito.id_vta) return itemsCarrito.id_vta;
 
-    // ✅ 2. Buscar productos en el carrito
-    const carrito = await db.carrito.toArray();
+        const carrito = await db.carrito.toArray();
 
-    if (carrito.length > 0) {
-        const id_vta = carrito[0].id_vta;
-        const venta = await db.ventas.get(id_vta);
+        if (carrito.length > 0) {
+            const id_vta = carrito[0].id_vta;
+            const venta = await db.ventas.get(id_vta);
 
-        if (venta) {
-            // Venta ya existe → usarla
-            setItemsCarrito(prev => ({ ...prev, id_vta }));
-            return id_vta;
-        } else {
-            // Venta no existe → recrear entrada en ventas
-            await db.ventas.add({
-                id_vta,
-                fecha_hora: new Date().toISOString(),
-                total_venta: 0,
-                entrega: null,
-                id_entrega: null
-            });
-
-            setItemsCarrito(prev => ({ ...prev, id_vta }));
-            return id_vta;
+            if (venta) {
+                setItemsCarrito(prev => ({ ...prev, id_vta }));
+                return id_vta;
+            }
         }
-    }
 
-    // ✅ 3. No hay productos ni id → crear nueva venta
-    const nuevaVentaId = await db.ventas.add({
-        fecha_hora: new Date().toISOString(),
-        total_venta: 0,
-        entrega: null,
-        id_entrega: null
-    });
+        // Crear nueva venta
+        const id_vta = crypto.randomUUID();
 
-    setItemsCarrito(prev => ({ ...prev, id_vta: nuevaVentaId }));
-    return nuevaVentaId;
-};
+        await db.ventas.add({
+            id_vta,
+            fecha_hora: new Date().toISOString(),
+            id_cli:null,
+            total_venta: 0,
+            entrega: null,
+            id_entrega: null
+        });
 
+        setItemsCarrito(prev => ({ ...prev, id_vta }));
+        return id_vta;
+    };
 
-
-    // Agrega o actualiza producto en carrito
     const agregarProductoAVenta = async ({ id_arts, cant, valor_venta }) => {
         const id_vta = await obtenerVentaId();
 
@@ -68,6 +54,7 @@ export function UseAddVenta() {
             });
         } else {
             await db.carrito.add({
+                id_carrito: crypto.randomUUID(),
                 id_vta,
                 id_arts,
                 cant,
@@ -79,7 +66,6 @@ export function UseAddVenta() {
         await calcularTotales(id_vta);
     };
 
-    // Actualiza cantidad de producto
     const actualizarCantidadProducto = async (id_arts, nuevaCantidad) => {
         const id_vta = await obtenerVentaId();
 
@@ -101,14 +87,11 @@ export function UseAddVenta() {
         }
     };
 
-    // Recalcula totales y actualiza el context
     const calcularTotales = async (id_vta) => {
-
-        if (!id_vta || typeof id_vta !== "number") {
+        if (!id_vta || typeof id_vta !== "string") {
             console.warn("calcularTotales: ID de venta inválido:", id_vta);
             return;
         }
-
 
         const productos = await db.carrito.where({ id_vta }).toArray();
 
@@ -129,3 +112,4 @@ export function UseAddVenta() {
         calcularTotales
     };
 }
+

@@ -1,11 +1,16 @@
 import styles from "./FinCompra.module.css";
 import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
-import { useState } from "react";
-import { useValidarCliente } from "../../hooks/useValidarCliente";
 import CampoForm from "../../components/CampoForm/Index";
+import { useState, useContext, useEffect } from "react";
+import { useGuardarDatosEnvio } from "../../hooks/useGuardarDatosEnvio"
+import { useValidarCliente } from "../../hooks/useValidarCliente";
+import { GlobalContext } from "../../context/GlobalContext";
+import db from "../../db/db"
 
 function FinCompra() {
+
+
     const [form, setForm] = useState({
         nombre: "",
         whatsapp: "",
@@ -17,11 +22,14 @@ function FinCompra() {
         piso: "",
         depto: "",
         envio_a_domicilio: true,
+        fecha_hora_entrega: "",
         aclaraciones: "",
     });
 
-    const [errores, setErrores] = useState({});
+    const { itemsCarrito, ir } = useContext(GlobalContext);
+    const { guardar } = useGuardarDatosEnvio();
     const { validar } = useValidarCliente();
+    const [errores, setErrores] = useState({});
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -31,7 +39,39 @@ function FinCompra() {
         });
     };
 
-    const handleSubmit = (e) => {
+    /** si funciona agregar desde la creacion, lo sacamos de aca
+        useEffect(() => {
+            const cargarDatosCliente = async () => {
+                const clientes = await db.clientes.toArray();
+                if (clientes.length > 0) {
+                    setForm(prev => ({ ...prev, ...clientes[0] }));
+                }
+            };
+            cargarDatosCliente();
+        }, [])
+     */
+
+
+    useEffect(() => {
+        const cargarDatosCliente = async () => {
+            const clientes = await db.clientes.toArray();
+            if (clientes.length > 0) {
+                const cliente = clientes[0];
+                setForm(prev => ({ ...prev, ...cliente }));
+
+                const id_vta = itemsCarrito?.id_vta;
+                if (id_vta) {
+                    await db.ventas.update(id_vta, { id_cli: cliente.id_cli });
+                }
+            }
+        };
+
+        cargarDatosCliente();
+    }, []);
+
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const { esValido, errores } = validar(form);
@@ -40,9 +80,16 @@ function FinCompra() {
             return;
         }
 
-        const { envio_a_domicilio, aclaraciones, ...datosCliente } = form;
-
+        try {
+            await guardar(form, itemsCarrito.id_vta);
+            ir("resumen")
+        } catch (error) {
+            console.error("Error al guardar datos de envío:", error);
+        }
     };
+
+
+
 
     return (
         <section className={styles.finCompra}>
@@ -53,13 +100,9 @@ function FinCompra() {
 
             <section className={styles.finCompra__principal}>
 
-
-                <div className={styles.finCompra__titulo}>
-                    <h2>Complete los datos para el envio</h2>
-                </div>
-
-
                 <form className={styles.finCompra__formulario} onSubmit={handleSubmit}>
+
+                    <h3>Datos del cliente</h3>
                     <div className={styles.fincompra_formulario_01}>
                         <CampoForm
                             label="Nombre"
@@ -100,6 +143,7 @@ function FinCompra() {
 
                     {form.envio_a_domicilio && (
                         <>
+                            <h3>Datos del envio</h3>
                             <div className={styles.fincompra_formulario_02}>
                                 <CampoForm
                                     label="Ciudad"
@@ -156,9 +200,27 @@ function FinCompra() {
                                     onChange={handleChange}
                                 />
                             </div>
+
+                            <h3>dia y hora de entrega</h3>
+                            <div className={styles.fincompra_formulario_01}>
+
+
+                                <CampoForm
+                                    label="Fecha y hora de entrega"
+                                    name="fecha_hora_entrega"
+                                    type="datetime-local"
+                                    ancho="60%"
+                                    value={form.fecha_hora_entrega}
+                                    onChange={handleChange}
+                                />
+                            </div>
+
+
                         </>
                     )}
-                    <div className={styles.fincompra_formulario_01}>
+
+
+                    <div className={styles.fincompra_formulario_02}>
 
                         <CampoForm
                             label="Aclaraciones (opcional)"

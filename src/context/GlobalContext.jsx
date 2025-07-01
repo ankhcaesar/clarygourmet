@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import db from "../db/db";
 export const GlobalContext = createContext();
 
 function GlobalContextProvider({ children }) {
@@ -31,7 +31,7 @@ function GlobalContextProvider({ children }) {
             carrito: "/Carrito",
             carritocerrado: "/CarritoCerrado",
             resumen: "/RsmCompra"
-            
+
         };
 
         if (rutas[to]) {
@@ -42,6 +42,21 @@ function GlobalContextProvider({ children }) {
     }
     //onClick={()=>ir("salir")} 
     // fin funcion ir 
+
+    //limpiar Carrito
+    async function limpiarCarrito(id_vta, entrega) {
+        try {
+            await db.carrito.where({ id_vta }).delete();
+            await db.ventas.delete(id_vta);
+            if (entrega?.id_entrega) {
+                await db.entrega.delete(entrega.id_entrega);
+            }
+            setItemsCarrito({ id_vta: null, totalItems: 0 });
+        } catch (error) {
+            console.warn("Error al limpiar carrito:", error);
+        }
+    }
+    //Fin limpiar Carrito
 
     //AddCarrito
     const [addCarrito, setAddCarrito] = useState({ show: false, data: [] });
@@ -83,7 +98,8 @@ function GlobalContextProvider({ children }) {
                 addCarrito, setAddCarrito,
                 limpiarAddCarrito,
                 itemsCarrito, setItemsCarrito,
-                formatomoneda
+                formatomoneda,
+                limpiarCarrito
 
             }
         }> {children} </GlobalContext.Provider>
