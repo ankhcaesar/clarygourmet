@@ -11,8 +11,8 @@ export function useGuardarDatosEnvio() {
         try {
 
             const {
-                nombre, whatsapp, nro_alternativo, ciudad,
-                barrio, calle, numero_calle, piso, depto,
+                nombre, whatsapp, nro_alternativo, departamento,
+                distrito, calle, numero_calle, piso, depto,
                 envio_a_domicilio, aclaraciones, fecha_hora_entrega
             } = form;
 
@@ -24,14 +24,14 @@ export function useGuardarDatosEnvio() {
             if (clientes.length > 0) {
                 id_cli = clientes[0].id_cli;
                 await db.clientes.update(clientes[0].id_cli, {
-                    nombre, whatsapp, nro_alternativo, ciudad,
-                    barrio, calle, numero_calle, piso, depto,
+                    nombre, whatsapp, nro_alternativo, departamento,
+                    distrito, calle, numero_calle, piso, depto,
                 });
             } else {
                 id_cli = crypto.randomUUID();
                 await db.clientes.add({
-                    id_cli, nombre, whatsapp, nro_alternativo, ciudad,
-                    barrio, calle, numero_calle, piso, depto,
+                    id_cli, nombre, whatsapp, nro_alternativo, departamento,
+                    distrito, calle, numero_calle, piso, depto,
                 });
             }
 

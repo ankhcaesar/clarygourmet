@@ -29,7 +29,7 @@ function RsmCompra() {
                     {venta?.entrega && (
                         <>
                             <li>Calle y número: {cliente?.calle} {cliente?.numero_calle}</li>
-                            <li>Barrio: {cliente?.barrio}</li>
+                            <li>distrito: {cliente?.distrito}</li>
                             <li>Entrega programada: {entrega?.fechayhora}</li>
                             <li>Aclaraciones: {entrega?.mensaje}</li>
                         </>

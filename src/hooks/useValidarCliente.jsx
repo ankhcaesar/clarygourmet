@@ -13,11 +13,11 @@ export function useValidarCliente() {
         }
 
         if (cliente.envio_a_domicilio) {
-            if (!cliente.ciudad || cliente.ciudad.trim() === "") {
-                errores.ciudad = "La ciudad es obligatoria si el envío es a domicilio.";
+            if (!cliente.departamento || cliente.departamento.trim() === "") {
+                errores.departamento = "La departamento es obligatoria si el envío es a domicilio.";
             }
-            if (!cliente.barrio || cliente.barrio.trim() === "") {
-                errores.barrio = "El barrio es obligatorio.";
+            if (!cliente.distrito || cliente.distrito.trim() === "") {
+                errores.distrito = "El distrito es obligatorio.";
             }
             if (!cliente.calle || cliente.calle.trim() === "") {
                 errores.calle = "La calle es obligatoria.";

@@ -2,9 +2,11 @@ import styles from "./FinCompra.module.css";
 import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
 import CampoForm from "../../components/CampoForm/Index";
+import { useDebounce } from "use-debounce";
 import { useState, useContext, useEffect } from "react";
 import { useGuardarDatosEnvio } from "../../hooks/useGuardarDatosEnvio"
 import { useValidarCliente } from "../../hooks/useValidarCliente";
+import {useGeorefMendoza} from "../../hooks/useGeorefMendoza"
 import { GlobalContext } from "../../context/GlobalContext";
 import db from "../../db/db"
 
@@ -15,8 +17,8 @@ function FinCompra() {
         nombre: "",
         whatsapp: "",
         nro_alternativo: "",
-        ciudad: "",
-        barrio: "",
+        departamento: "",
+        distrito: "",
         calle: "",
         numero_calle: "",
         piso: "",
@@ -29,6 +31,7 @@ function FinCompra() {
     const { itemsCarrito, ir } = useContext(GlobalContext);
     const { guardar } = useGuardarDatosEnvio();
     const { validar } = useValidarCliente();
+    const { departamentos, distritos, calles, loadDistritos, buscarCalles } = useGeorefMendoza();
     const [errores, setErrores] = useState({});
 
     const handleChange = (e) => {
@@ -39,17 +42,19 @@ function FinCompra() {
         });
     };
 
-    /** si funciona agregar desde la creacion, lo sacamos de aca
-        useEffect(() => {
-            const cargarDatosCliente = async () => {
-                const clientes = await db.clientes.toArray();
-                if (clientes.length > 0) {
-                    setForm(prev => ({ ...prev, ...clientes[0] }));
-                }
-            };
-            cargarDatosCliente();
-        }, [])
-     */
+    // Cuando cambia departamento, cargar distritos
+useEffect(() => {
+  if (form.departamento) loadDistritos(form.departamento);
+}, [form.departamento]);
+
+const [debouncedCalle] = useDebounce(form.calle, 300);
+
+// Buscar calles cuando cambia texto, y ya hay depto + distrito
+useEffect(() => {
+  if (form.departamento && debouncedCalle.length >= 3) {
+    buscarCalles(form.departamento, debouncedCalle); 
+  }
+}, [debouncedCalle, form.departamento]); 
 
 
     useEffect(() => {
@@ -107,6 +112,7 @@ function FinCompra() {
                         <CampoForm
                             label="Nombre"
                             name="nombre"
+                            type="text"
                             ancho="80%"
                             value={form.nombre}
                             onChange={handleChange}
@@ -117,6 +123,7 @@ function FinCompra() {
                         <CampoForm
                             label="WhatsApp"
                             name="whatsapp"
+                            type="tel"
                             ancho="35%"
                             value={form.whatsapp}
                             onChange={handleChange}
@@ -124,6 +131,7 @@ function FinCompra() {
                         <CampoForm
                             label="Número alternativo"
                             name="nro_alternativo"
+                            type="tel"
                             ancho="35%"
                             value={form.nro_alternativo}
                             onChange={handleChange}
@@ -146,20 +154,24 @@ function FinCompra() {
                             <h3>Datos del envio</h3>
                             <div className={styles.fincompra_formulario_02}>
                                 <CampoForm
-                                    label="Ciudad"
-                                    name="ciudad"
+                                    label="departamento"
+                                    name="departamento"
+                                    type="select"
                                     ancho="35%"
-                                    value={form.ciudad}
+                                    value={form.departamento}
                                     onChange={handleChange}
-                                    error={errores.ciudad}
+                                    options={departamentos}
+                                    error={errores.departamento}
                                 />
                                 <CampoForm
-                                    label="Barrio"
-                                    name="barrio"
+                                    label="distrito"
+                                    name="distrito"
+                                    type="select"
                                     ancho="35%"
-                                    value={form.barrio}
+                                    value={form.distrito}
                                     onChange={handleChange}
-                                    error={errores.barrio}
+                                    options={distritos}
+                                    error={errores.distrito}
                                 />
                             </div>
 
@@ -168,9 +180,11 @@ function FinCompra() {
                                 <CampoForm
                                     label="Calle"
                                     name="calle"
+                                    type="autocomplete"
                                     ancho="80%"
                                     value={form.calle}
                                     onChange={handleChange}
+                                    options={calles}
                                     error={errores.calle}
                                 />
 
@@ -180,6 +194,7 @@ function FinCompra() {
                                 <CampoForm
                                     label="Número"
                                     name="numero_calle"
+                                    type="number"
                                     ancho="25%"
                                     value={form.numero_calle}
                                     onChange={handleChange}
@@ -188,6 +203,7 @@ function FinCompra() {
                                 <CampoForm
                                     label="Piso"
                                     name="piso"
+                                    type="number"
                                     ancho="15%"
                                     value={form.piso}
                                     onChange={handleChange}
@@ -195,6 +211,7 @@ function FinCompra() {
                                 <CampoForm
                                     label="Depto"
                                     name="depto"
+                                    type="text"
                                     ancho="15%"
                                     value={form.depto}
                                     onChange={handleChange}

@@ -38,3 +38,27 @@
 .campoForm__checkboxLabel input {
     margin-right: 0.4rem;
 }
+
+.campoForm__sugerencias {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+    background: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0;
+}
+
+.campoForm__sugerencias li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.campoForm__sugerencias li:hover {
+    background: #f0f0f0;
+}
