@@ -6,7 +6,7 @@ import { useDebounce } from "use-debounce";
 import { useState, useContext, useEffect } from "react";
 import { useGuardarDatosEnvio } from "../../hooks/useGuardarDatosEnvio"
 import { useValidarCliente } from "../../hooks/useValidarCliente";
-import {useGeorefMendoza} from "../../hooks/useGeorefMendoza"
+import { useGeorefMendoza } from "../../hooks/useGeorefMendoza"
 import { GlobalContext } from "../../context/GlobalContext";
 import db from "../../db/db"
 
@@ -43,18 +43,18 @@ function FinCompra() {
     };
 
     // Cuando cambia departamento, cargar distritos
-useEffect(() => {
-  if (form.departamento) loadDistritos(form.departamento);
-}, [form.departamento]);
+    useEffect(() => {
+        if (form.departamento) loadDistritos(form.departamento);
+    }, [form.departamento]);
 
-const [debouncedCalle] = useDebounce(form.calle, 300);
+    const [debouncedCalle] = useDebounce(form.calle, 300);
 
-// Buscar calles cuando cambia texto, y ya hay depto + distrito
-useEffect(() => {
-  if (form.departamento && debouncedCalle.length >= 3) {
-    buscarCalles(form.departamento, debouncedCalle); 
-  }
-}, [debouncedCalle, form.departamento]); 
+    // Buscar calles cuando cambia texto, y ya hay depto + distrito
+    useEffect(() => {
+        if (form.departamento && debouncedCalle.length >= 3) {
+            buscarCalles(form.departamento, debouncedCalle);
+        }
+    }, [debouncedCalle, form.departamento]);
 
 
     useEffect(() => {
@@ -107,15 +107,18 @@ useEffect(() => {
 
                 <form className={styles.finCompra__formulario} onSubmit={handleSubmit}>
 
-                    <h3>Datos del cliente</h3>
+                    <h3 className={styles.finCompra__titulo}>Datos del cliente</h3>
                     <div className={styles.fincompra_formulario_01}>
                         <CampoForm
                             label="Nombre"
                             name="nombre"
                             type="text"
                             ancho="80%"
+                            minLength="3"
+                            required
                             value={form.nombre}
                             onChange={handleChange}
+                            title="Debe ingresar su nombre"
                             error={errores.nombre}
                         />
                     </div>
@@ -125,17 +128,23 @@ useEffect(() => {
                             name="whatsapp"
                             type="tel"
                             ancho="35%"
+                            minLength="9"
                             value={form.whatsapp}
                             onChange={handleChange}
+                            title="Debe ingresar numeros"
+                            error={errores.whatsapp}
                         />
                         <CampoForm
                             label="Número alternativo"
                             name="nro_alternativo"
                             type="tel"
                             ancho="35%"
+                            minLength="9"
                             value={form.nro_alternativo}
                             onChange={handleChange}
-                            error={errores.telefonos}
+                            error={errores.nro_alternativo}
+                            title="Debe ingresar numeros"
+
                         />
                     </div>
                     <div className={styles.fincompra_formulario_01}>
@@ -146,22 +155,26 @@ useEffect(() => {
                             ancho="80%"
                             checked={form.envio_a_domicilio}
                             onChange={handleChange}
+                            title="Error"
+                            error={errores.envio_a_domicilio}
                         />
                     </div>
 
                     {form.envio_a_domicilio && (
                         <>
-                            <h3>Datos del envio</h3>
+                            <h3 className={styles.finCompra__titulo}>Datos del envio</h3>
                             <div className={styles.fincompra_formulario_02}>
                                 <CampoForm
                                     label="departamento"
                                     name="departamento"
                                     type="select"
                                     ancho="35%"
+                                    required
                                     value={form.departamento}
                                     onChange={handleChange}
-                                    options={departamentos}
+                                    title="no debe estar vacio"
                                     error={errores.departamento}
+                                    options={departamentos}
                                 />
                                 <CampoForm
                                     label="distrito"
@@ -170,8 +183,9 @@ useEffect(() => {
                                     ancho="35%"
                                     value={form.distrito}
                                     onChange={handleChange}
-                                    options={distritos}
+                                    title="error"
                                     error={errores.distrito}
+                                    options={distritos}
                                 />
                             </div>
 
@@ -182,10 +196,12 @@ useEffect(() => {
                                     name="calle"
                                     type="autocomplete"
                                     ancho="80%"
+                                    required
                                     value={form.calle}
                                     onChange={handleChange}
-                                    options={calles}
+                                    title="no debe estar vacio"
                                     error={errores.calle}
+                                    options={calles}
                                 />
 
                             </div>
@@ -198,6 +214,7 @@ useEffect(() => {
                                     ancho="25%"
                                     value={form.numero_calle}
                                     onChange={handleChange}
+                                    title="debe ser numero"
                                     error={errores.numero_calle}
                                 />
                                 <CampoForm
@@ -207,6 +224,8 @@ useEffect(() => {
                                     ancho="15%"
                                     value={form.piso}
                                     onChange={handleChange}
+                                    title="debe ser numero"
+                                    error={errores.piso}
                                 />
                                 <CampoForm
                                     label="Depto"
@@ -215,10 +234,11 @@ useEffect(() => {
                                     ancho="15%"
                                     value={form.depto}
                                     onChange={handleChange}
+                                    title="error"
                                 />
                             </div>
 
-                            <h3>dia y hora de entrega</h3>
+                            <h3 className={styles.finCompra__titulo}>Dia y hora de entrega</h3>
                             <div className={styles.fincompra_formulario_01}>
 
 
@@ -229,6 +249,8 @@ useEffect(() => {
                                     ancho="60%"
                                     value={form.fecha_hora_entrega}
                                     onChange={handleChange}
+                                    title="error"
+                                    error={errores.fecha_hora_entrega}
                                 />
                             </div>
 
@@ -252,9 +274,14 @@ useEffect(() => {
 
                     <div className={styles.finCompra__boton}>
                         <Boton
-                            ancho="65%"
+                            ancho="35%"
                             type="submit"
                             label="Confirmar"
+                        />
+                        <Boton
+                            ancho="35%"
+                            type="reset"
+                            label="Limpiar"
                         />
                     </div>
 

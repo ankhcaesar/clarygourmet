@@ -1,3 +1,8 @@
+.finCompra__titulo{
+    text-align: center;
+    margin: 5px 0 10px 0;
+}
+
 .finCompra {
     width: 100%;
     overflow: hidden;
@@ -33,7 +38,7 @@
 .finCompra__boton {
     display: flex;
     justify-content: center;
-    
+    gap:30px;
     padding: 2rem 0;
 
 }
@@ -56,6 +61,7 @@
 
     .finCompra__boton {
     padding: 0.5rem 0;
+    
 
 }
 

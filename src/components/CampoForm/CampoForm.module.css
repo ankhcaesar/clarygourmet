@@ -41,12 +41,14 @@
 
 .campoForm__sugerencias {
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 80%;
+    left: 2px;
+    border-radius: 3px;
     z-index: 100;
     background: white;
+    box-shadow: 2px 3px 6px 1px rgb(204, 203, 203), inset 2px 3px 8px 1px rgb(226, 228, 226);
     border: 1px solid #ccc;
-    width: 100%;
+    width: 99%;
     max-height: 180px;
     overflow-y: auto;
     list-style: none;
@@ -55,10 +57,10 @@
 }
 
 .campoForm__sugerencias li {
-    padding: 8px;
+    padding: 2px;
     cursor: pointer;
 }
 
 .campoForm__sugerencias li:hover {
-    background: #f0f0f0;
+    background: #bebebe;
 }

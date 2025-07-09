@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./CampoForm.module.css";
 
-
-
-
-
 function CampoForm({
   label,
   name,
@@ -15,7 +11,10 @@ function CampoForm({
   ancho = "100%",
   checked,
   rows = 3,
-  options
+  options,
+  required,
+  minLength,
+  title
 }) {
   if (type === "checkbox") {
     return (
@@ -23,9 +22,18 @@ function CampoForm({
         <label className={styles.campoForm__checkboxLabel}>
           <input
             type="checkbox"
+
             name={name}
             checked={checked}
             onChange={onChange}
+            required={required}
+            title={title}
+            onInvalid={(e) => {
+              e.target.setCustomValidity(title || "error");
+            }}
+            onInput={(e) => {
+              e.target.setCustomValidity("");
+            }}
           />
           {label}
         </label>
@@ -43,6 +51,14 @@ function CampoForm({
           onChange={onChange}
           rows={rows}
           className={styles.input}
+          required={required}
+          title={title}
+          onInvalid={(e) => {
+            e.target.setCustomValidity(title || "error");
+          }}
+          onInput={(e) => {
+            e.target.setCustomValidity("");
+          }}
         />
         {error && <div className={styles.campoForm__error}>{error}</div>}
       </label>
@@ -53,17 +69,31 @@ function CampoForm({
     return (
       <label className={styles.campoForm__label} style={{ width: ancho }}>
         {label}
-        <select name={name} value={value} onChange={onChange} className={styles.input}>
+        <select
+          name={name}
+          value={value}
+          onChange={onChange}
+          className={styles.input}
+          required={required}
+          title={title}
+          onInvalid={(e) => {
+            e.target.setCustomValidity(title || "error");
+          }}
+          onInput={(e) => {
+            e.target.setCustomValidity("");
+          }}
+        >
           <option value="">-- Elegir --</option>
           {options.map(opt => (
             <option key={opt} value={opt}>{opt}</option>
+
           ))}
         </select>
         {error && <div className={styles.campoForm__error}>{error}</div>}
       </label>
     );
   }
-  
+
   if (type === "autocomplete") {
     const [showOptions, setShowOptions] = useState(false);
 
@@ -79,6 +109,14 @@ function CampoForm({
               onChange(e);
               setShowOptions(true);
             }}
+            required={required}
+            title={title}
+            onInvalid={(e) => {
+              e.target.setCustomValidity(title || "error");
+            }}
+            onInput={(e) => {
+              e.target.setCustomValidity("");
+            }}
             onBlur={() => setTimeout(() => setShowOptions(false), 150)}
             className={styles.input}
             autoComplete="off"
@@ -90,12 +128,12 @@ function CampoForm({
               <li
                 key={opt.id}
                 onClick={() => {
-                  const fakeEvent = { target: { name, value: opt.nombre, type: "text" } }; 
+                  const fakeEvent = { target: { name, value: opt.nombre, type: "text" } };
                   onChange(fakeEvent);
                   setShowOptions(false);
                 }}
               >
-                {opt.nombre} {/* Mostrar solo el nombre, no el objeto completo */}
+                {opt.nombre}
               </li>
             ))}
           </ul>
@@ -114,6 +152,14 @@ function CampoForm({
         value={value}
         onChange={onChange}
         className={styles.input}
+        required={required}
+        title={title}
+        onInvalid={(e) => {
+          e.target.setCustomValidity(title || "Error");
+        }}
+        onInput={(e) => {
+          e.target.setCustomValidity("");
+        }}
       />
       {error && <div className={styles.campoForm__error}>{error}</div>}
     </label>
