@@ -1,0 +1,11 @@
+:root {
+  /* Colores */
+  --color-primario: #FF6B6B;
+  --color-secundario: #4ECDC4;
+  --color-fondo: #F7FFF7;
+  /* Sombras */
+  --sombra-suave: 2px 2px 3px rgba(68, 66, 66, 0.15);
+  /* Espaciados */
+  --padding-movil: 1rem;
+  --padding-desktop: 2rem;
+}

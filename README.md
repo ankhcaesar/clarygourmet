@@ -1,12 +1,75 @@
-# React + Vite
+# ClaryGPToVta - Documentación  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Estructura  
+- `components/`: Componentes reutilizables (Boton, CampoForm, etc.).  
+- `hooks/`: Lógica reutilizable (useGeorefMendoza, useResumenCarrito).  
+- `db/`: Conexión a IndexedDB y Supabase.  
+- `pages/`: Vistas principales (Inicial, Categorias, Carrito, etc.).  
 
-Currently, two official plugins are available:
+Estilos  
+- Uso de **CSS Modules** para evitar colisiones.  
+- Breakpoints: `480px` (móvil), `768px` (tablet), `1024px` (desktop).  
+- Variables CSS para colores y sombras (opcional).  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Flujo de Trabajo  
+1. **Inicio**: Animación → Redirige a `/Categorias`.  
+2. **Categorias**: Muestra tarjetas con productos.  
+3. **Carrito**: Gestión de items + resumen.  
+4. **Checkout**: Formulario de envío → Resumen → Confirmación.
 
-## Expanding the ESLint configuration
+## Dependencias Clave
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este proyecto utiliza las siguientes tecnologías principales:
+
+- **React**: Librería para construir la interfaz de usuario.
+- **Vite**: Herramienta de construcción y servidor de desarrollo.
+- **Supabase**: Backend como servicio (base de datos, autenticación).
+- **IndexedDB**: Base de datos del lado del cliente para almacenamiento local.
+- **React Router**: Para la navegación declarativa en la aplicación.
+- **use-debounce**: Hook para retrasar la ejecución de funciones.
+
+## Configuración e Instalación
+
+Sigue estos pasos para configurar y ejecutar el proyecto localmente:
+
+1.  Clona el repositorio:
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    ```
+2.  Navega al directorio del proyecto:
+    ```bash
+    cd clarygourmet
+    ```
+3.  Instala las dependencias:
+    ```bash
+    npm install
+
+## Ejecución
+
+-   Para iniciar el servidor de desarrollo con recarga en caliente:
+    ```bash
+    npm run dev
+
+    La aplicación estará disponible en `http://localhost:5173/` (o el puerto que indique Vite).
+
+-   Para construir la aplicación para producción:
+    ```bash
+    npm run build
+    
+    Esto generará los archivos de producción en el directorio `dist/`.
+
+-   Para previsualizar la construcción de producción localmente:
+    ```bash
+    npm run preview
+    
+## Notas sobre la Base de Datos
+
+-   **Supabase:**
+    *   Asegúrate de tener un proyecto Supabase configurado.
+    *   Necesitarás las credenciales (URL y clave `anon`) y configurarlas en las variables de entorno (ej. `.env` file). Consulta el archivo `db/supabaseclient.jsx` para ver cómo se utilizan.
+    *   [Instrucciones adicionales si es necesario, ej. migración de esquema]
+
+-   **IndexedDB:**
+    *   La base de datos IndexedDB (`db/db.jsx`) se inicializa automáticamente al cargar la aplicación si no existe.
+    *   Almacena datos localmente en el navegador del usuario.
+
