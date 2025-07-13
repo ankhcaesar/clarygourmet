@@ -4,7 +4,7 @@ import GlobalContextProvider, { GlobalContext } from "../../context/GlobalContex
 function LayoutApp() {
 
     return (
-        <main>
+        <main> 
             <GlobalContextProvider>
                 <TotalContainer>
                     <Outlet />

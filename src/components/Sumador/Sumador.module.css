@@ -1,31 +1,31 @@
 .principal {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: var(--espacio-2);
 }
 
 .principal__resta,
 .principal__suma {
     cursor: pointer;
-    border: 1px solid rgb(212, 211, 211);
-    box-shadow: 1px 1px 3px rgba(129, 128, 128, 0.4);
-    height: 25px;
+    border: 1px solid var(--color-borde-formularios);
+    box-shadow: var(--sombra-suave);
+    height: var(--espacio-5);
     aspect-ratio: 1/2;
-    padding: 2px;
+    padding: var(--espacio-1);
     border-radius: 3px;
-    background: white;
+    background: var(--color-primario);
 
     &&:active {
-        box-shadow: inset 1px 1px 4px rgba(129, 128, 128, 0.5);
+        box-shadow: var(--sombra-suave-activa);
     }
 
     && img {
-        width: 14px;
+        width: var(--espacio-3);
     }
 }
 
 .principal__titulovalor {
-    font-size: 1rem;
+    font-size: var(--texto-base);
     font-weight: bold;
     text-align: center;
 }

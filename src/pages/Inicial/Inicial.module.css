@@ -21,7 +21,7 @@
   overflow: hidden;
   width: 350px;
   aspect-ratio: 1/1;
-  margin-bottom: 20px;
+  margin-bottom: var(--espaco-4-75);
 }
 
 .inicial__logo img {
@@ -42,10 +42,23 @@
 }
 
 /* Ajustes para pantallas pequeñas */
-@media (max-width: 480px) {
-.inicial {
-  min-height:80vh;
-}
+@media (max-width: var(--movil)) {
+  .inicial {
+    padding: var(--espaco-2-5);
+  }
+
+  .inicial__logo {
+    width: 80%;
+    aspect-ratio: 1/1;
+  }
+
+  .inicial__bienvenida {
+    font-size: 1.5em;
+  }
+
+  .inicial {
+    min-height: 80vh;
+  }
 
 
   .inicial__logo {

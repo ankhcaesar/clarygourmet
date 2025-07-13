@@ -11,7 +11,7 @@
   margin: 0 0 0 10px;
   background-color: transparent;
   border: 0;
-  width: 10px;
+  width: var(--espacio-3);
 }
 
 .menu__carrito {
@@ -30,14 +30,14 @@
   transform: translate(100%, -20%);
   background-color: red;
   color: white;
-  font-size: 1rem;
+  font-size: var(--texto-base);
   font-weight: bold;
-  width: 18px;
-  height: 18px;
+  width: var(--espacio-4-5);
+  aspect-ratio: 1/1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  padding: 4px;
+  padding: var(--espacio-1);
 }

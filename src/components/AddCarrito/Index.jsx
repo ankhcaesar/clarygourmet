@@ -53,7 +53,7 @@ function AddCarrito({ data }) {
                     <p className={styles.textodescipcion}>{descripcion}</p>
                 </div>
                 <div className={styles.cantidad}>
-                    <p className={styles.titulocantidad}>cantidad</p>
+                    <p className={styles.titulocantidad}>Cantidad</p>
                     <Sumador
                         value={cantidad}
                         setValue={setCantidad}

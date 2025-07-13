@@ -1,9 +1,10 @@
+/* 
 :root {
-  /* Ajustes globales */
+  /* Ajustes globales 
   max-width: 480px;
   min-width: 320px;
   margin: 0 auto;
-  font-size: 16px; /* base relativa para rem */
+  font-size: 16px; /* base relativa para rem 
 }
 
 html, body {
@@ -20,3 +21,4 @@ html, body {
 *::after {
   box-sizing: inherit;
 }
+*/

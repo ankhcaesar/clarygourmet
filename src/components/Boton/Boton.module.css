@@ -3,11 +3,11 @@
     padding: 5px 10px;
     border-style: solid;
     border-width: 0.5px;
-    border-color: rgba(128, 128, 128, 0.199);
+    border-color: var(--color-borde);
     border-radius: 7px;
-    font-size: 20px;
+    font-size: var(--texto-xl);
     color: black;
-    background-color: white;
+    background-color: var(--color-primario);
     box-shadow: 2px 3px 8px 1px grey, inset 2px 3px 8px 1px rgb(226, 228, 226);
     cursor: pointer;
 

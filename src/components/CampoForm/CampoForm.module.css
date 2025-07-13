@@ -10,15 +10,15 @@
     width: 100%;
     padding: 0.4rem;
     margin-top: 0.2rem;
-    border: 1px solid #ccc;
+    border: 1px solid ;
     border-radius: 5px;
     box-sizing: border-box;
     resize: none;
 }
 
 .campoForm__error {
-    color: red;
-    font-size: 0.8rem;
+    color: var(--color-texto-error);
+    font-size: var(--texto-xs);
     margin-top: 0.2rem;
 }
 
@@ -45,9 +45,9 @@
     left: 2px;
     border-radius: 3px;
     z-index: 100;
-    background: white;
+    background: var(--color-primario);
     box-shadow: 2px 3px 6px 1px rgb(204, 203, 203), inset 2px 3px 8px 1px rgb(226, 228, 226);
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-borde-formularios);
     width: 99%;
     max-height: 180px;
     overflow-y: auto;
