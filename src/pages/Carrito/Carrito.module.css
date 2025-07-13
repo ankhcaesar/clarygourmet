@@ -17,16 +17,12 @@
 
 .carrito__listaArticulos {
     width: 95%;
-    flex: 1;
+    height: 80%;
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
 
-    overflow-y: auto;
-    scroll-behavior: smooth;
 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
 }
 
 .carrito__listaArticulos::-webkit-scrollbar {
@@ -35,6 +31,7 @@
 
 .carrito__totales {
     width: 90%;
+    height: 20%;
     margin-top: 0.625rem;
 }
 

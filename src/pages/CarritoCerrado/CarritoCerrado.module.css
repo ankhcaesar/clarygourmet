@@ -41,7 +41,6 @@
     margin: 5px 0;
 }
 
-/* Ajustes para pantallas pequeñas */
 @media (max-width: var(--movil)) {
     .carritoCerrado {
         min-height: 80vh;
