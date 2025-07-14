@@ -11,12 +11,12 @@ function Menu() {
     const { itemsCarrito } = useContext(GlobalContext)
     const { calcularTotales } = UseAddVenta()
 
-   
+
     useEffect(() => {
-    if (itemsCarrito.id_vta) {
-        calcularTotales(itemsCarrito.id_vta);
-    }
-}, [itemsCarrito.id_vta]);
+        if (itemsCarrito.id_vta) {
+            calcularTotales(itemsCarrito.id_vta);
+        }
+    }, [itemsCarrito.id_vta]);
     return (
         <section className={styles.menu}>
             <BotonMenu

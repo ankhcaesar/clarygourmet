@@ -9,12 +9,6 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: var(--desktop)) {
-    .total__container {
-        max-height: 90vh;
-        margin: 5vh auto;
-    }
-}
 
 button:focus-visible,
 [tabindex="0"]:focus-visible {
@@ -22,17 +16,17 @@ button:focus-visible,
     outline-offset: 2px;
 }
 
-@media (max-width: var(--movil)) {
+@media (min-width: var(--movil)) {
     .total__container {
         height: calc(100vh - 50px);
         padding-bottom: 50px;
     }
+}
 
-    @media (max-width: var(--desktop)) {
-        .total__container {
-            width: var(--movil);
-        }
+@media (min-width: var(--desktop)) {
+    .total__container {
+        max-width: var(--movil);
+        max-height: 100vh;
+        margin: 5vh auto;
     }
-
-
 }

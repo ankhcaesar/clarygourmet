@@ -1,17 +1,9 @@
 .menu {
-  height: 40px;
   display: flex;
   justify-content: space-evenly;
-  background-color: rgba(211, 211, 211, 0.5);
+  background-color: var(--color-fondo-menu) ;
   border-radius: 3px;
   box-shadow: 0px -2px 4px 0px gray;
-}
-
-.menu button {
-  margin: 0 0 0 10px;
-  background-color: transparent;
-  border: 0;
-  width: var(--espacio-3);
 }
 
 .menu__carrito {
@@ -19,8 +11,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
 }
 
 .menu__cantidad {
@@ -42,8 +32,3 @@
   padding: var(--espacio-1);
 }
 
-@media (min-width: var(--desktop)) {
-  .menu {
-    height: 60px;
-  }
-}

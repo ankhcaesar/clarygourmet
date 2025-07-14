@@ -5,6 +5,7 @@
 
   --color-fondo: #F7FFF7;
   --color-fondo-secundario: rgba(250, 235, 215, 0.4);
+  --color-fondo-menu: rgba(211, 211, 211, 0.5);
 
   --color-texto: #333;
   --color-texto-error: #ff0000;
@@ -34,14 +35,19 @@
   /* Espaciados */
   /* 4px */
   --espacio-1: 0.25rem;
+
   /* 8px */
   --espacio-2: 0.5rem;
+
   /*10px */
   --espacio-2-5: 0.625rem;
+
   /* 12px */
   --espacio-3: 0.75rem;
+
   /* 16px */
   --espacio-4: 1rem;
+
   /* 18px */
   --espacio-4-5: 1.125rem;
 
@@ -54,6 +60,14 @@
   /* 24px */
   --espacio-5: 1.5rem;
 
+
+  /* otras variables */
+
+  /* 40px */
+  --iconomenu-ancho-1: .5rem;
+
+  /* 60px */
+  --iconomenu-ancho-2: 3.75rem;
 
 
   /* Breakpoints */
