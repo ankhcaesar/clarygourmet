@@ -32,7 +32,8 @@
 
 .carrito__totales {
     width: 90%;
-    height: 20%;
+    height: 20vh;
+    height: 20dvh;
     margin-top: 0.625rem;
 }
 
