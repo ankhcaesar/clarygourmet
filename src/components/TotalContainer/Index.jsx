@@ -13,7 +13,9 @@ function TotalContainer({ children }) {
       <ScrollContainer direction="vertical" scrollStep={100}>
         {children}
       </ScrollContainer>
+      
         {loader.show && <Loader />}
+
     </section>
   );
 }
