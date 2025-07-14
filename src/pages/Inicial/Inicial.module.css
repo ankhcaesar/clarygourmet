@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
 
 .inicial {
-  width: 100%;
+  width: 100vw;
+  width: 100dvw;
   height: 100vh;
   height: 100dvh;
   display: flex;

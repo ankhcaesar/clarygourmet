@@ -22,7 +22,7 @@ button:focus-visible,
 @media (max-width: var(--movil)) {
     .total__container {
         min-height: calc(100dvh - 50px);
-        padding-bottom: 50px;
+       
     }
 }
 
