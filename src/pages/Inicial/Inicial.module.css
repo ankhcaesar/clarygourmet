@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
 
 .inicial {
-  width: 100vw;
-  width: 100dvw;
+  width: 90vw;
+  width: 90dvw;
   height: 100vh;
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
@@ -21,7 +21,7 @@
   border-radius: 100%;
   box-shadow: 4px 4px 7px rgba(128, 128, 128, 0.6);
   overflow: hidden;
-  width: 350px;
+  width: 330px;
   aspect-ratio: 1/1;
   margin-bottom: var(--espaco-4-80);
 }
@@ -46,25 +46,13 @@
 @media (max-width: var(--movil)) {
   .inicial {
     padding: var(--espaco-2-5);
+    min-height: 80vh;
+    min-height: 80dvh;
   }
 
   .inicial__logo {
     width: 80%;
     aspect-ratio: 1/1;
-  }
-
-  .inicial__bienvenida {
-    font-size: 1.5em;
-  }
-
-  .inicial {
-    min-height: 80vh;
-    min-height: 80dvh;
-  }
-
-
-  .inicial__logo {
-    width: 80%;
   }
 
   .inicial__bienvenida {
