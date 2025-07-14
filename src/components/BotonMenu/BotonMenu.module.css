@@ -17,7 +17,7 @@
     opacity: 20%;
 }
 
-@media (min-width: var(--movil)) {
+@media (max-width: var(--movil)) {
     .boton-menu {
         width: var(--iconomenu-ancho-3);
     }

@@ -16,14 +16,14 @@ button:focus-visible,
     outline-offset: 2px;
 }
 
-@media (min-width: var(--movil)) {
+@media (max-width: var(--movil)) {
     .total__container {
         height: calc(100vh - 50px);
         padding-bottom: 50px;
     }
 }
 
-@media (min-width: var(--desktop)) {
+@media (max-width: var(--desktop)) {
     .total__container {
         max-width: var(--movil);
         max-height: 100vh;
