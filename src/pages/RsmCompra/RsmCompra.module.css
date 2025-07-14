@@ -18,6 +18,7 @@
 }
 
 .rsmCompra__boton{
+    padding: 10px;
     display: flex;
     justify-content: center;
 }

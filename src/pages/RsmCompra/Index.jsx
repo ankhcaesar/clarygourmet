@@ -11,7 +11,7 @@ function RsmCompra() {
 
 
 
-    
+
     return (
         <section className={styles.rsmCompra}>
             <Cabecera titulo="Resumen compra" origen="fin" />
