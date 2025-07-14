@@ -62,7 +62,7 @@ function AddCarrito({ data }) {
                 <div className={styles.cajaboton}>
 
                     <Boton
-                        ancho="300px"
+                        ancho="100%"
                         type="submit"
                         onClick={handleAgregar}
                         label="agregar al carrito"

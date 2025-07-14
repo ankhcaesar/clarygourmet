@@ -19,7 +19,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 390px;
+    width: 80vw;
+    width: 80dvw;
+    min-width: 290px;
+    max-width: 400px;
     height: auto;
     background-color: var(--color-primario);
     box-shadow: 2px 2px 3px 1px var(--sombra-suave);
@@ -88,6 +91,9 @@
 }
 
 .cajaboton {
+    width: 90%;
+    min-width: 200px;
+    max-width: 350px;
     padding: 10px;
 }
 
@@ -96,6 +102,5 @@
     .caja {
         top: 4vh;
         top: 4dvh;
-        width: 330px;
     }
 }
