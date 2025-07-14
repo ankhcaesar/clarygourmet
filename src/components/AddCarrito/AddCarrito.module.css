@@ -5,6 +5,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     background-color: var(--color-overlay);
     display: flex;
     justify-content: center;
@@ -14,6 +15,7 @@
 .caja {
     position: fixed;
     top: 10vh;
+    top: 10dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,6 +95,7 @@
 @media (max-width: var(--movil)) {
     .caja {
         top: 4vh;
+        top: 4dvh;
         width: 330px;
     }
 }

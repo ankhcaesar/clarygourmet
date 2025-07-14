@@ -1,7 +1,9 @@
 .total__container {
-    max-width: 95vh;
+    max-width: 95vw;
+    max-width: 95dvw;
     margin: 0 auto;
-    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
     position: relative;
     background: var(--color-primario);

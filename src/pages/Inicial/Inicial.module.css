@@ -2,7 +2,8 @@
 
 .inicial {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +42,6 @@
   margin: 5px 0;
 }
 
-/* Ajustes para pantallas pequeñas */
 @media (max-width: var(--movil)) {
   .inicial {
     padding: var(--espaco-2-5);
@@ -58,6 +58,7 @@
 
   .inicial {
     min-height: 80vh;
+    min-height: 80dvh;
   }
 
 
