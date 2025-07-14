@@ -41,3 +41,9 @@
   z-index: 1;
   padding: var(--espacio-1);
 }
+
+@media (min-width: var(--desktop)) {
+  .menu {
+    height: 60px;
+  }
+}

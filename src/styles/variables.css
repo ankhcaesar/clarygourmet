@@ -44,17 +44,28 @@
   --espacio-4: 1rem;
   /* 18px */
   --espacio-4-5: 1.125rem;
+
   /* 19px */
   --espacio-4-75: 1.1875rem;
+
   /* 20px */
-  --espaco-4-75: 1.25rem;
+  --espaco-4-80: 1.25rem;
+
   /* 24px */
   --espacio-5: 1.5rem;
+
+
 
   /* Breakpoints */
   --movil: 480px;
   --tablet: 768px;
   --desktop: 1024px;
+
 }
 
 /*     height: 80vh; */
+button:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-secundario);
+  outline-offset: 2px;
+}
