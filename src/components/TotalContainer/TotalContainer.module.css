@@ -1,12 +1,13 @@
 .total__container {
     max-width: 95vh;
     margin: 0 auto;
-    height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     position: relative;
     background: var(--color-primario);
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 
@@ -18,7 +19,7 @@ button:focus-visible,
 
 @media (max-width: var(--movil)) {
     .total__container {
-        height: calc(100vh - 50px);
+        min-height: calc(100dvh - 50px);
         padding-bottom: 50px;
     }
 }
@@ -26,7 +27,7 @@ button:focus-visible,
 @media (max-width: var(--desktop)) {
     .total__container {
         max-width: var(--movil);
-        max-height: 100vh;
+        max-height: 100dvh;
         margin: 5vh auto;
     }
 }
