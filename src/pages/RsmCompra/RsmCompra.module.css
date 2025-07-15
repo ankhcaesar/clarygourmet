@@ -1,7 +1,7 @@
 .rsmCompra {
     width: 100%;
-    height: calc(100dvh - 100px);
-    height: calc(100vh - 100px);
+    height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     overflow: hidden;

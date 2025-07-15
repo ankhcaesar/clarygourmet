@@ -1,8 +1,8 @@
 .categorias {
   width: 100vw;
   width: 100dvw;
-  height: calc(100vh - 100px);
-  height: calc(100dvh - 100px);
+  height: calc(100vh - 0.8rem);
+  height: calc(100dvh - 80px);
   display: flex;
   flex-direction: column;
   overflow: hidden;

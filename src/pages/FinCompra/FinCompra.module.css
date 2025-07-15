@@ -1,7 +1,7 @@
 .finCompra {
     width: 100%;
-    height: calc(100dvh - 100px);
-    height: calc(100vh - 100px);
+    height: calc(100dvh - 80px);
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
 }
@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .finCompra__formulario {

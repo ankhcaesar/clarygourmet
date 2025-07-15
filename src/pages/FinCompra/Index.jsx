@@ -42,9 +42,9 @@ function FinCompra() {
     };
 
 
-  useEffect(() => {
+    useEffect(() => {
         setBotonMenu("");
-            setCabecera((prev) => ({ ...prev, titulo: "Detalles de la compra", origen:"carrito" }));
+        setCabecera((prev) => ({ ...prev, titulo: "Detalles de la compra", origen: "carrito" }));
 
     }, []);
 
@@ -256,8 +256,6 @@ function FinCompra() {
                                     error={errores.fecha_hora_entrega}
                                 />
                             </div>
-
-
                         </>
                     )}
 

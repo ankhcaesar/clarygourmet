@@ -1,14 +1,9 @@
-import Cabecera from "../../components/Cabecera/Index";
 import styles from "./E404.module.css";
 import e404img from "/imgs/E_404.svg";
 
 function E404() {
     return (
         <section className={styles.e404}>
-            <Cabecera
-                titulo="Página web no encontrada"
-                origen="inicio"
-            />
 
             <div className={styles.e404__container}>
                 <img
