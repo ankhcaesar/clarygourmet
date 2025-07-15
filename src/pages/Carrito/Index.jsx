@@ -14,7 +14,7 @@ function Carrito() {
 
     useEffect(() => {
         setBotonMenu("carrito");
-            setCabecera((prev) => ({ ...prev, titulo: "Carrito" }));
+            setCabecera((prev) => ({ ...prev, titulo: "Carrito", origen:"categorias" }));
 
         setLoader({ show: loading });
     }, [loading]);

@@ -27,7 +27,7 @@ function FinCompra() {
         aclaraciones: "",
     });
 
-    const { itemsCarrito, ir } = useContext(GlobalContext);
+    const { itemsCarrito, ir, setBotonMenu, setCabecera } = useContext(GlobalContext);
     const { guardar } = useGuardarDatosEnvio();
     const { validar } = useValidarCliente();
     const { departamentos, distritos, calles, loadDistritos, buscarCalles } = useGeorefMendoza();
@@ -40,6 +40,13 @@ function FinCompra() {
             [name]: type === "checkbox" ? checked : value,
         });
     };
+
+
+  useEffect(() => {
+        setBotonMenu("");
+            setCabecera((prev) => ({ ...prev, titulo: "Detalles de la compra", origen:"carrito" }));
+
+    }, []);
 
     // Cuando cambia departamento, cargar distritos
     useEffect(() => {
