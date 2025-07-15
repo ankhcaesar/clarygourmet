@@ -1,5 +1,4 @@
 import styles from "./FinCompra.module.css";
-import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
 import CampoForm from "../../components/CampoForm/Index";
 import { useDebounce } from "use-debounce";
@@ -98,10 +97,7 @@ function FinCompra() {
 
     return (
         <section className={styles.finCompra}>
-            <Cabecera
-                titulo="Datos del envío"
-                origen="carrito"
-            />
+
 
             <section className={styles.finCompra__principal}>
 

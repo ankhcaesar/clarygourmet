@@ -7,6 +7,7 @@ function LayoutApp() {
         <main> 
             <GlobalContextProvider>
                 <TotalContainer>
+                
                     <Outlet />
                 </TotalContainer>
             </GlobalContextProvider>

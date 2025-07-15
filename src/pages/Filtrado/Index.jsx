@@ -12,11 +12,13 @@ import AddCarrito from "../../components/AddCarrito/Index";
 function Filtrado() {
   const location = useLocation();
   const { id_cats, categoria } = location.state;
-  const { setBotonMenu, ir, addCarrito, setAddCarrito, setLoader } = useContext(GlobalContext);
+  const { setBotonMenu, addCarrito, setCabecera, setAddCarrito, setLoader } = useContext(GlobalContext);
   const { data, loading } = useArticulosPorSubcategorias(id_cats);
+
 
   useEffect(() => {
     setBotonMenu("subcategorias");
+    setCabecera((prev) => ({ ...prev, titulo: "Subcategorias" }));
 
     if (loading) {
       setLoader({ show: true });
@@ -45,7 +47,7 @@ function Filtrado() {
                       imagen={arts.imagenUrl || arts.imagen_articulo}
                       onclick={() => setAddCarrito({ show: true, data: [arts] })}
                     />
-                    
+
                   ))}
                 </ScrollContainer>
               </div>

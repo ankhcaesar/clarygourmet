@@ -4,11 +4,12 @@ import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
 function Inicial() {
-    const { ir } = useContext(GlobalContext)
+    const { ir, setCabecera  } = useContext(GlobalContext)
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             ir("categorias");
+            setCabecera((prev) => ({ titulo:"Categorias", origen: "inicio" }));
         }, 2000);
         return () => clearTimeout(timeout);
     }, [ir]);

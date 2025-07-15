@@ -9,13 +9,15 @@ import ScrollContainer from "../../components/ScrollContaiiner/Index";
 import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito";
 
 function Carrito() {
-    const { setBotonMenu, formatomoneda, setLoader, itemsCarrito, ir } = useContext(GlobalContext);
+    const { setBotonMenu, formatomoneda, setLoader, setCabecera, itemsCarrito, ir } = useContext(GlobalContext);
     const { articulosCarrito, loading } = UseArticulosCarrito();
 
     const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
 
     useEffect(() => {
         setBotonMenu("carrito");
+            setCabecera((prev) => ({ ...prev, titulo: "Carrito" }));
+
         setLoader({ show: loading });
     }, [loading]);
 

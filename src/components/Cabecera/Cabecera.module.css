@@ -1,4 +1,4 @@
-.container{
+.cabecera{
     height: 40px;
     display: flex;
     align-items: center;
@@ -15,4 +15,5 @@
 
 .titulo{
     margin: 10px auto;
+    
 }

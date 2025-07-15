@@ -2,9 +2,12 @@
 
 .filtrado {
   width: 100%;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+
 }
 
 .filtrado__principal {
@@ -45,13 +48,14 @@
   gap: 3vw;
   overflow-x: auto;
   scroll-behavior: smooth;
-  margin-bottom:var(--espacio-4);
+  margin-bottom: var(--espacio-4);
   padding: 0 var(--espacio-4);
 }
 
 .filtrado__articulos::-webkit-scrollbar {
   display: none;
 }
+
 .filtrado__articulos {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -69,6 +73,7 @@
 }
 
 @media (max-width: var(--movil)) {
+
   .filtrado__principal {
     min-height: 80vh;
     min-height: 80dvh;
@@ -81,10 +86,6 @@
     flex-direction: column;
     gap: var(--espacio-4);
   }
-.filtrado{
-    min-height:80vh;
-    min-height:80dvh;
-}
 
   .filtrado__titulo {
     font-size: 0.95rem;
@@ -97,4 +98,3 @@
     padding: 0 0.5rem;
   }
 }
-

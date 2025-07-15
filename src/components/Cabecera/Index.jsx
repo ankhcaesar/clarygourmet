@@ -2,12 +2,12 @@ import styles from "./Cabecera.module.css"
 import iconoVolver from "/icons/volver_negro.svg"
 import { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
-function Cabecera(props) {
-    const { titulo, origen } = props
-    const { ir } = useContext(GlobalContext)
+function Cabecera() {
+    const { ir, cabecera } = useContext(GlobalContext)
+    const { titulo, origen } = cabecera 
 
     return (
-        <section className={styles.container}>
+        <section className={styles.cabecera}>
             <button
                 className={styles.volver}
                 onClick={() => { ir(origen) }}
