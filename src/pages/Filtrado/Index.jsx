@@ -4,8 +4,6 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { useLocation } from "react-router-dom";
 import { useArticulosPorSubcategorias } from "../../hooks/useArticulosPorSubcategorias";
 import ScrollContainer from "../../components/ScrollContaiiner/Index";
-import Cabecera from "../../components/Cabecera/Index";
-import Menu from "../../components/Menu/Index";
 import TarjetasProductos from "../../components/TarjetasProductos/Index";
 import AddCarrito from "../../components/AddCarrito/Index";
 
@@ -29,7 +27,6 @@ function Filtrado() {
 
   return (
     <section className={styles.filtrado}>
-      <Cabecera titulo={categoria} origen="categorias" />
       <section className={styles.filtrado__principal}>
 
         <ScrollContainer direction="vertical" scrollStep={260}>
@@ -57,7 +54,6 @@ function Filtrado() {
           ))}
         </ScrollContainer>
       </section>
-      <Menu />
       {addCarrito.show && <AddCarrito data={addCarrito.data} />}
     </section>
   );

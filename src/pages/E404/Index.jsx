@@ -1,5 +1,4 @@
 import Cabecera from "../../components/Cabecera/Index";
-import Menu from "../../components/Menu/Index";
 import styles from "./E404.module.css";
 import e404img from "/imgs/E_404.svg";
 
@@ -20,7 +19,6 @@ function E404() {
                 <div className={styles.e404__animacionPuerta}></div>
             </div>
 
-            <Menu />
         </section>
     );
 }

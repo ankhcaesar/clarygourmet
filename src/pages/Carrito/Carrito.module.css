@@ -1,5 +1,7 @@
 .carrito {
     width: 100%;
+    height: calc(100vh - 100px);
+    height: calc(100dvh - 100px);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -7,8 +9,6 @@
 
 .carrito__principal {
     width: 100%;
-    height: 80vh;
-    height: 80dvh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -57,14 +57,7 @@
 
 
 @media (max-width: var(--movil)) {
-    .carrito {
-    }
 
-    .carrito__principal {
-        padding-bottom: 0.8rem;
-        min-height: 80vh;
-        min-height: 80dvh;
-    }
 
     .carrito__listaArticulos {
         width: 100%;
@@ -76,6 +69,7 @@
         padding: 0 5px;
     }
 }
+
 @media (max-width: var(--tablet)) {
     .carrito__principal {
         padding-bottom: var(--espacio-2-5);

@@ -1,6 +1,4 @@
 import styles from "./Categorias.module.css";
-import Cabecera from "../../components/Cabecera/Index";
-import Menu from "../../components/Menu/Index";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import TarjetasCategorias from "../../components/TarjetasCategorias/Index";
@@ -22,10 +20,6 @@ function Categorias() {
 
     return (
         <section className={styles.categorias}>
-            <Cabecera
-                titulo="Categorías"
-                origen="inicio"
-            />
 
             <ScrollContainer direction="vertical" scrollStep={200}>
                 <section className={styles.categorias__principal}>
@@ -47,7 +41,6 @@ function Categorias() {
                 </section>
             </ScrollContainer>
 
-            <Menu />
         </section>
     );
 }

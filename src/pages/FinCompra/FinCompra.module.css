@@ -1,14 +1,14 @@
+.finCompra {
+    width: 100%;
+    height: calc(100dvh - 100px);
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+}
+
 .finCompra__titulo {
     text-align: center;
     margin: 5px 0 10px 0;
-}
-
-.finCompra {
-    width: 100%;
-    height: 100vh;
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
 }
 
 .finCompra__principal {
@@ -31,7 +31,8 @@
     display: flex;
     justify-content: space-between;
     padding: 0.7rem 3.5rem 0;
-    box-sizing: border-box; /* Añadido */
+    box-sizing: border-box;
+    /* Añadido */
 
 }
 
@@ -52,15 +53,16 @@
 
     .finCompra__formulario {
         padding: 1.1rem 0 0 0;
-        box-sizing: border-box; /* Añadido */
+        box-sizing: border-box;
     }
 
     .fincompra_formulario_01,
     .fincompra_formulario_02 {
 
         padding: 0.4rem 3.5rem 0;
-        box-sizing: border-box; /* Añadido */
+        box-sizing: border-box;
     }
+
     .finCompra__boton {
         padding: 0.5rem 0;
     }

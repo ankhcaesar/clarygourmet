@@ -1,6 +1,4 @@
 import styles from "./Carrito.module.css";
-import Cabecera from "../../components/Cabecera/Index";
-import Menu from "../../components/Menu/Index";
 import TarjetasCarrito from "../../components/TarjetasCarrito";
 import Boton from "../../components/Boton/Index";
 import { useContext, useEffect } from "react";
@@ -23,10 +21,6 @@ function Carrito() {
 
     return (
         <section className={styles.carrito}>
-            <Cabecera
-                titulo="Carrito"
-                origen="inicio"
-            />
 
             <section className={styles.carrito__principal}>
                 {articulosCarrito.length === 0 ? (
@@ -58,7 +52,6 @@ function Carrito() {
                 />
             </section>
 
-            <Menu />
         </section>
     );
 }

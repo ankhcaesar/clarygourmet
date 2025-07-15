@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import styles from "./RsmCompra.module.css";
-import Cabecera from "../../components/Cabecera/Index";
 import Boton from "../../components/Boton/Index";
 import { GlobalContext } from "../../context/GlobalContext";
 import { useResumenCarrito } from "../../hooks/useResumenCarrito";
@@ -9,12 +8,9 @@ function RsmCompra() {
     const { formatomoneda, itemsCarrito } = useContext(GlobalContext);
     const { cliente, entrega, venta, articulosCarrito, finalizarCompra } = useResumenCarrito();
 
-
-
-
     return (
         <section className={styles.rsmCompra}>
-            <Cabecera titulo="Resumen compra" origen="fin" />
+          
 
             <div className={styles.rsmCompra__principal}>
                 <h2>Resumen</h2>

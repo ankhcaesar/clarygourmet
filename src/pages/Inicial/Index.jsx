@@ -24,7 +24,6 @@ function Inicial() {
                 <p>Casero</p>
                 <p>y con mucho amor</p>
             </div>
-
         </section>
     )
 }

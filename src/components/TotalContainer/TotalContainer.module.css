@@ -1,15 +1,15 @@
 .total__container {
-    max-width: 95vw;
-    max-width: 95dvw;
-    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100vw;
+    width: 100dvw;
     height: 100vh;
     height: 100dvh;
-    overflow: hidden;
-    position: relative;
+    margin: 0 auto;
     background: var(--color-primario);
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
 }
 
 
@@ -19,17 +19,10 @@ button:focus-visible,
     outline-offset: 2px;
 }
 
-@media (max-width: var(--movil)) {
-    .total__container {
-        min-height: calc(100dvh - 50px);
-       
-    }
-}
 
 @media (max-width: var(--desktop)) {
     .total__container {
         max-width: var(--movil);
         max-height: 100dvh;
-        margin: 5vh auto;
     }
 }
