@@ -28,13 +28,15 @@ function Filtrado() {
   return (
     <section className={styles.filtrado}>
       <Cabecera titulo={categoria} origen="categorias" />
-
       <section className={styles.filtrado__principal}>
+
         <ScrollContainer direction="vertical" scrollStep={260}>
+
           {data.map((grupo) => (
             <section key={grupo.id_subcats} className={styles.filtrado__subcats}>
               <h2 className={styles.filtrado__titulo}>{grupo.sub_categorias}</h2>
               <div className={styles.filtrado__articulos}>
+
                 <ScrollContainer direction="horizontal" scrollStep={400}>
                   {grupo.articulos.map((arts) => (
                     <TarjetasProductos
@@ -43,14 +45,16 @@ function Filtrado() {
                       imagen={arts.imagenUrl || arts.imagen_articulo}
                       onclick={() => setAddCarrito({ show: true, data: [arts] })}
                     />
+                    
                   ))}
                 </ScrollContainer>
               </div>
+
             </section>
+
           ))}
         </ScrollContainer>
       </section>
-
       <Menu />
       {addCarrito.show && <AddCarrito data={addCarrito.data} />}
     </section>

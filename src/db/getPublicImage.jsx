@@ -32,7 +32,7 @@ export async function getPublicImage(folder, imageName) {
 
     return publicUrl;
   } catch (error) {
-    console.warn(`Imagen no disponible: ${folder}/${imageName}. Usando fallback.`, error);
+    //*console.warn(`Imagen no disponible: ${folder}/${imageName}. Usando fallback.`, error);
     return IMAGE_CONFIG.fallback;
   }
 }

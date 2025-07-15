@@ -10,8 +10,6 @@ function TotalContainer({ children }) {
     <section className={styles.total__container}>
 
       {children}
-
-
       {loader.show && <Loader />}
 
     </section>
