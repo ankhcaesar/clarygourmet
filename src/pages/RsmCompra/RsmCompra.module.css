@@ -8,17 +8,22 @@
 }
 
 .rsmCompra__principal {
-    width: 100%;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
+    padding: var(--espacio-2) 0  var(--desdeabajo-1) 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: var(--espaco-4-80);
+
+    background-color: aqua;
 }
 
 .rsmCompra__boton {
-    padding: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: var(--desdeabajo-1);
     display: flex;
+
     justify-content: center;
 }

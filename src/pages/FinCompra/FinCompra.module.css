@@ -12,6 +12,7 @@
 }
 
 .finCompra__principal {
+    height: calc(100% - var(--desdeabajo-1));
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -22,6 +23,7 @@
 
 .finCompra__formulario {
     width: 100%;
+    
     padding: 2rem 1rem 0 0;
 }
 
@@ -34,7 +36,7 @@
     box-sizing: border-box;
     /* Añadido */
 
-}
+}   
 
 .fincompra_formulario_02 {
     background-color: rgba(250, 235, 215, 0.377);
@@ -42,11 +44,12 @@
 }
 
 .finCompra__boton {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 2rem 0;
-
+    position: fixed;
+    background-color: transparent;
+    bottom: var(--desdeabajo-1);
+    justify-content: space-evenly;
 }
 
 @media (max-width: var(--movil)) {

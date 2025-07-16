@@ -10,10 +10,9 @@ function RsmCompra() {
 
     return (
         <section className={styles.rsmCompra}>
-          
 
             <div className={styles.rsmCompra__principal}>
-                <h2>Resumen</h2>
+                <h2>Detalle del pedido</h2>
 
                 <p>Fecha y hora: {venta?.fecha_hora || "No disponible"}</p>
 

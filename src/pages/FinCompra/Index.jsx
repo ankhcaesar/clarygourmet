@@ -11,7 +11,6 @@ import db from "../../db/db"
 
 function FinCompra() {
 
-
     const [form, setForm] = useState({
         nombre: "",
         whatsapp: "",
@@ -41,7 +40,6 @@ function FinCompra() {
         });
     };
 
-
     useEffect(() => {
         setBotonMenu("");
         setCabecera((prev) => ({ ...prev, titulo: "Detalles de la compra", origen: "carrito" }));
@@ -62,7 +60,6 @@ function FinCompra() {
         }
     }, [debouncedCalle, form.departamento]);
 
-
     useEffect(() => {
         const cargarDatosCliente = async () => {
             const clientes = await db.clientes.toArray();
@@ -79,8 +76,6 @@ function FinCompra() {
 
         cargarDatosCliente();
     }, []);
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -99,16 +94,17 @@ function FinCompra() {
         }
     };
 
-
-
-
     return (
         <section className={styles.finCompra}>
 
 
             <section className={styles.finCompra__principal}>
 
-                <form className={styles.finCompra__formulario} onSubmit={handleSubmit}>
+                <form 
+                    className={styles.finCompra__formulario} 
+                    onSubmit={handleSubmit}
+                    id="finCompraForm"
+                    >
 
                     <h3 className={styles.finCompra__titulo}>Datos del cliente</h3>
                     <div className={styles.fincompra_formulario_01}>
@@ -273,20 +269,23 @@ function FinCompra() {
 
                     </div>
 
-                    <div className={styles.finCompra__boton}>
-                        <Boton
-                            ancho="35%"
-                            type="submit"
-                            label="Confirmar"
-                        />
-                        <Boton
-                            ancho="35%"
-                            type="reset"
-                            label="Limpiar"
-                        />
-                    </div>
+
 
                 </form>
+                <div className={styles.finCompra__boton}>
+                    <Boton
+                        ancho="35%"
+                        type="submit"
+                        label="Confirmar"
+                        formulario="finCompraForm"
+                    />
+                    <Boton
+                        ancho="35%"
+                        type="reset"
+                        label="Limpiar"
+                        formulario="finCompraForm"
+                    />
+                </div>
             </section>
         </section>
 

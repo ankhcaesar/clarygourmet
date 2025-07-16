@@ -1,21 +1,21 @@
-.cabecera{
+.cabecera {
     height: 40px;
     display: flex;
     align-items: center;
     background-color: rgba(211, 211, 211, 0.507);
     border-radius: 3px;
-      box-shadow: var(--sombra-suave);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 
 }
 
-.volver{
-    margin: 0 0 0 10px ;
+.volver {
+    margin: 0 0 0 10px;
     background-color: transparent;
     border: 0;
     width: 10px;
 }
 
-.titulo{
+.titulo {
     margin: 10px auto;
-    
+
 }
