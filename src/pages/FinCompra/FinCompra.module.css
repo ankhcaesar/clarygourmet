@@ -12,7 +12,7 @@
 }
 
 .finCompra__principal {
-    height: calc(100% - var(--desdeabajo-1));
+    height: calc(100% - var(--desdeabajo-1-5));
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -34,8 +34,6 @@
     justify-content: space-between;
     padding: 0.7rem 3.5rem 0;
     box-sizing: border-box;
-    /* Añadido */
-
 }   
 
 .fincompra_formulario_02 {

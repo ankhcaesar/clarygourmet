@@ -26,3 +26,13 @@ button:focus-visible,
         max-height: 100dvh;
     }
 }
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: 3s;
+
+
+}

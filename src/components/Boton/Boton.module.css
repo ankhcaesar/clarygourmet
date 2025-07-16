@@ -14,7 +14,6 @@
     cursor: pointer;
 }
 
-
 .boton_active {
     color: black;
     background-color: var(--color-primario);
@@ -26,17 +25,17 @@
     cursor: not-allowed;
 }
 
-
-
-
-
 .boton_active:hover {
     box-shadow: 2px 3px 7px 1px rgba(128, 128, 128, 0.5), inset 2px 3px 8px 1px rgb(240, 238, 219);
-
 }
-
-
 
 .boton_active:active {
     box-shadow: inset 2px 3px 8px 1px rgb(116, 111, 111);
+}
+
+@media (max-width: var(--movil)) {
+    .boton_active, .boton_disabled {
+        width: 100%;
+        font-size: var(--texto-lg);
+    }
 }

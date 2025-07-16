@@ -42,7 +42,7 @@ function FinCompra() {
 
     useEffect(() => {
         setBotonMenu("");
-        setCabecera((prev) => ({ ...prev, titulo: "Detalles de la compra", origen: "carrito" }));
+        setCabecera((prev) => ({ ...prev, titulo: "Detalle del envío", origen: "carrito" }));
 
     }, []);
 
@@ -274,13 +274,13 @@ function FinCompra() {
                 </form>
                 <div className={styles.finCompra__boton}>
                     <Boton
-                        ancho="35%"
+                        ancho="37%"
                         type="submit"
                         label="Confirmar"
                         formulario="finCompraForm"
                     />
                     <Boton
-                        ancho="35%"
+                        ancho="37%"
                         type="reset"
                         label="Limpiar"
                         formulario="finCompraForm"

@@ -48,13 +48,13 @@ function Carrito() {
             <div className={styles.carrito__botones}>
 
                 <Boton
-                    ancho="35%"
+                    ancho="38%"
                     type="submit"
                     label="Cerrar compra"
                     onClick={() => ir("fin")}
                 />
                 <Boton
-                    ancho="35%"
+                    ancho="38%"
                     type="submit"
                     label="limpiar carrito"
                     disabled={articulosCarrito.length === 0 ? true : false}
