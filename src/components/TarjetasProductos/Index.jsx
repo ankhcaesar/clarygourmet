@@ -1,6 +1,9 @@
 import styles from "./TarjetasProductos.module.css";
 
 function TarjetasProductos({ nombre, imagen, onclick }) {
+
+
+  
   return (
     <section className={styles.producto}>
       <div className={styles.producto__caja} onClick={onclick}>

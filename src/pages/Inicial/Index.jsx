@@ -10,7 +10,7 @@ function Inicial() {
         const timeout = setTimeout(() => {
             ir("categorias");
             setCabecera((prev) => ({ titulo:"Categorias", origen: "inicio" }));
-        }, 2000);
+        }, 3500);
         return () => clearTimeout(timeout);
     }, [ir]);
 

@@ -36,6 +36,6 @@
 @media (max-width: var(--movil)) {
     .boton_active, .boton_disabled {
         width: 100%;
-        font-size: var(--texto-lg);
+        font-size: var(--texto-base);
     }
 }
