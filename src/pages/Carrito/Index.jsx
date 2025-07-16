@@ -7,14 +7,14 @@ import ScrollContainer from "../../components/ScrollContaiiner/Index";
 import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito";
 
 function Carrito() {
-    const { setBotonMenu, formatomoneda, setLoader, setCabecera, itemsCarrito, ir } = useContext(GlobalContext);
+    const { setBotonMenu, formatomoneda, setLoader, setCabecera, itemsCarrito, limpiarCarrito, ir } = useContext(GlobalContext);
     const { articulosCarrito, loading } = UseArticulosCarrito();
 
     const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
 
     useEffect(() => {
         setBotonMenu("carrito");
-            setCabecera((prev) => ({ ...prev, titulo: "Carrito", origen:"categorias" }));
+        setCabecera((prev) => ({ ...prev, titulo: "Carrito", origen: "categorias" }));
 
         setLoader({ show: loading });
     }, [loading]);
@@ -43,14 +43,24 @@ function Carrito() {
                         <p>TOTAL COMPRA: {formatomoneda(totalCompra)}</p>
                     </div>
                 </div>
+            </section>
+            
+            <div className={styles.carrito__botones}>
 
                 <Boton
-                    ancho="85%"
+                    ancho="35%"
                     type="submit"
                     label="Cerrar compra"
-                    onClick={()=>ir("fin")}
+                    onClick={() => ir("fin")}
                 />
-            </section>
+                <Boton
+                    ancho="35%"
+                    type="submit"
+                    label="limpiar carrito"
+                    disabled={articulosCarrito.length === 0 ? true : false}
+                    onClick={() => limpiarCarrito(itemsCarrito.id_vta)}
+                />
+            </div>
 
         </section>
     );

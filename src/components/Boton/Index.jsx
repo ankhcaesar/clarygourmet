@@ -1,12 +1,13 @@
 import styles from "./Boton.module.css"
 
 function Boton(props) {
-    const {ancho, type,onClick, label }=props
+    const {ancho, type,onClick, label, disabled }=props
     return(
         <button 
-        className={styles.boton} 
+        className={disabled ?   styles.boton_disabled : styles.boton_active} 
         style={{width:`${ancho}`}}
         type={type}
+        disabled={disabled}
         onClick={onClick}>
             {label}
         </button>

@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
 
 .inicial {
-  width: 90vw;
-  width: 90dvw;
+  width: 100vw;
+  width: 100dvw;
   height: 100vh;
   height: 100dvh;
   display: flex;
@@ -53,6 +53,8 @@
   .inicial__logo {
     width: 80%;
     aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
   }
 
   .inicial__bienvenida {

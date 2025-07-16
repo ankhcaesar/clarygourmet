@@ -4,6 +4,8 @@
     align-items: center;
     background-color: rgba(211, 211, 211, 0.507);
     border-radius: 3px;
+      box-shadow: var(--sombra-suave);
+
 }
 
 .volver{
