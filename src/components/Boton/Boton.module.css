@@ -7,7 +7,7 @@
     border-width: 0.5px;
     border-color: var(--color-borde);
     border-radius: 7px;
-    font-size: var(--texto-xl);
+    font-size: var(--texto-lg);
     color: black;
     background-color: var(--color-primario);
     box-shadow: 2px 3px 8px 1px grey, inset 2px 3px 8px 1px rgb(226, 228, 226);
