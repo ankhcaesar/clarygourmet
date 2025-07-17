@@ -8,7 +8,7 @@ function GlobalContextProvider({ children }) {
     // Variables
     const navigate = useNavigate();
     const [botonMenu, setBotonMenu] = useState("principal");
-    const [cabecera, setCabecera] = useState({"titulo": "Clary Gourmet", "origen": "inicio"});
+    const [cabecera, setCabecera] = useState({ "titulo": "Clary Gourmet", "origen": "inicio" });
 
     const [itemsCarrito, setItemsCarrito] = useState({
         totalItems: 0,
@@ -87,6 +87,29 @@ function GlobalContextProvider({ children }) {
     };
     // Fin funcion formato moneda
 
+    // Funcion formato fecha y hora
+
+    function formatoFecha (dateTime) {
+        const date = new Date(dateTime);
+        const dia = String(date.getDate()).padStart(2, '0');
+        const mes = String(date.getMonth() + 1).padStart(2, '0');
+        const anio = date.getFullYear();
+
+        return `${dia}/${mes}/${anio}`;
+    };
+
+    function formatoHora (dateTime) {
+        const date = new Date(dateTime);
+        const hora = String(date.getHours()).padStart(2, '0');
+        const minutos = String(date.getMinutes()).padStart(2, '0');
+
+        return `${hora}:${minutos}`;
+    };
+
+    // fin formato fechay hora
+
+
+
     return (
 
         <GlobalContext.Provider value={
@@ -99,10 +122,11 @@ function GlobalContextProvider({ children }) {
 
                 addCarrito, setAddCarrito,
                 limpiarAddCarrito,
-                itemsCarrito, setItemsCarrito,
-                formatomoneda,
-                limpiarCarrito
 
+                itemsCarrito, setItemsCarrito,
+                limpiarCarrito,
+                
+                formatomoneda,formatoFecha, formatoHora
             }
         }> {children} </GlobalContext.Provider>
     )

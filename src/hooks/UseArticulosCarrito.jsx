@@ -5,17 +5,16 @@ import { getPublicImage } from "../db/getPublicImage";
 import db from "../db/db";
 
 export const UseArticulosCarrito = () => {
-    // Se obtiene itemsCarrito del contexto global.
-    // Esto permitirá que el hook reaccione a los cambios en el carrito.
+
     const { itemsCarrito } = useContext(GlobalContext);
-    
+
     const [articulosCarrito, setArticulosCarrito] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const cargarDatosCarrito = async () => {
             setLoading(true);
-           
+
 
             try {
                 // Se obtienen los artículos actuales de la tabla 'carrito' en Dexie.
@@ -30,7 +29,7 @@ export const UseArticulosCarrito = () => {
                 if (ids.length === 0) {
                     setArticulosCarrito([]); // Se establece el carrito como vacío.
                     setLoading(false);
-                    return; 
+                    return;
                 }
 
                 const { data: articulosDB, error } = await supabase
@@ -59,7 +58,7 @@ export const UseArticulosCarrito = () => {
                             articulo: articuloNombre,
                             presentacion: presentacionArt,
                             imagen: imagenUrl,
-                            valor_unit: carrito.valor_venta, 
+                            valor_unit: carrito.valor_venta,
                             cantidad: carrito.cant,
                             valor_total: carrito.valor_venta * carrito.cant,
                         };
@@ -77,7 +76,7 @@ export const UseArticulosCarrito = () => {
 
         cargarDatosCarrito();
 
-    }, [itemsCarrito]); 
+    }, [itemsCarrito]);
 
     return { articulosCarrito, loading };
 };

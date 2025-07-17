@@ -274,13 +274,13 @@ function FinCompra() {
                 </form>
                 <div className={styles.finCompra__boton}>
                     <Boton
-                        ancho="37%"
+                        ancho="40%"
                         type="submit"
                         label="Confirmar"
                         formulario="finCompraForm"
                     />
                     <Boton
-                        ancho="37%"
+                        ancho="40%"
                         type="reset"
                         label="Limpiar"
                         formulario="finCompraForm"

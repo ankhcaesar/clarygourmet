@@ -1,6 +1,6 @@
 .menu {
-  display: flex;
   height: 50px;
+  display: flex;
   justify-content: space-evenly;
   background-color: var(--color-fondo-menu);
   border-radius: 3px;

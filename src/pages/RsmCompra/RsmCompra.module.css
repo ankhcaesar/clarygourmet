@@ -9,12 +9,45 @@
 
 .rsmCompra__principal {
     width: 90%;
-    height: 100%;
+    height: 80%;
     margin: 0 auto;
-    padding: var(--espacio-2) 0  var(--desdeabajo-1) 0;
+    padding: var(--espacio-4) var(--espacio-1) var(--desdeabajo-1) var(--espacio-1);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: conic-gradient(from -52.5deg at bottom, #0000, var(--color-fondo-secundario) 1deg 104deg, #0000 105deg) 50%/26.06px 100%
+}
+
+.rsmCompra__principal__titulo {
+    align-self: center;
+    padding: 0 0 var(--espacio-2) 0;
+}
+
+.rsmCompra__principal__datosclary {
+    padding: var(--espacio-3) 0;
+}
+
+.rsmCompra__principal__datostiket {
+    padding: var(--espacio-2) 0;
+    border-top: dashed 2px grey;
+}
+
+
+.rsmCompra__principal__datoscliente {
+    padding: var(--espacio-2) 0;
+    border-top: dashed 2px grey;
+}
+
+.rsmCompra__principal__listaarticulos {
+    padding: var(--espacio-2) 0;
+    border-top: dashed 2px grey;
+
+}
+
+.rsmCompra__principal__listaarticulos__total {
+    padding: var(--espacio-2) 0;
+    border-top: dashed 2px grey;
+    text-align: right;
+
 }
 
 .rsmCompra__boton {

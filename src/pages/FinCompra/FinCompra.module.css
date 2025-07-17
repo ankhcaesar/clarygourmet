@@ -4,16 +4,12 @@
     height: calc(100dvh - 80px);
     display: flex;
     flex-direction: column;
-}
+        overflow: hidden;
 
-.finCompra__titulo {
-    text-align: center;
-    margin: 5px 0 10px 0;
 }
 
 .finCompra__principal {
     height: calc(100% - var(--desdeabajo-1-5));
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +17,11 @@
     overflow-y: auto;
 }
 
+
+.finCompra__titulo {
+    text-align: center;
+    margin: 5px 0 10px 0;
+}
 .finCompra__formulario {
     width: 100%;
 height: 100%;
@@ -42,12 +43,13 @@ height: 100%;
 }
 
 .finCompra__boton {
+    position: absolute;
     width: 100%;
     display: flex;
-    position: fixed;
-    background-color: transparent;
-    bottom: var(--desdeabajo-1);
     justify-content: space-evenly;
+    align-items: center;
+    padding: var(--espacio-2);
+    bottom: var(--desdeabajo-1);
 }
 
 @media (max-width: var(--movil)) {

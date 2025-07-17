@@ -5,12 +5,12 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { useResumenCarrito } from "../../hooks/useResumenCarrito";
 
 function RsmCompra() {
-    const { formatomoneda, itemsCarrito, setBotonMenu, setCabecera } = useContext(GlobalContext);
+    const { formatomoneda, formatoFecha, formatoHora, itemsCarrito, setBotonMenu, setCabecera } = useContext(GlobalContext);
     const { cliente, entrega, venta, articulosCarrito, finalizarCompra } = useResumenCarrito();
-
-   useEffect(() => {
+      const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
+    useEffect(() => {
         setBotonMenu("");
-        setCabecera((prev) => ({ ...prev, titulo: "Comprobante la compra", origen: "fin" }));
+        setCabecera((prev) => ({ ...prev, titulo: "Clary Gourmet", origen: "fin" }));
 
     }, []);
 
@@ -18,24 +18,50 @@ function RsmCompra() {
         <section className={styles.rsmCompra}>
 
             <div className={styles.rsmCompra__principal}>
-                <h2>Detalle del pedido</h2>
 
-                <p>Fecha y hora: {venta?.fecha_hora || "No disponible"}</p>
+                <h2 className={styles.rsmCompra__principal__titulo}>DETALLE DEL PEDIDO</h2>
 
-                <ul className={styles.rsmCompra__principal__rsmCompra}>
-                    <li>Cliente: {cliente?.nombre}</li>
-                    <li>WhatsApp / Alt: {cliente?.whatsapp || cliente?.nro_alternativo}</li>
-                    <li>Total productos: {itemsCarrito.totalItems}</li>
-                    <li>Total venta: {formatomoneda(venta?.total_venta)}</li>
-                    {venta?.entrega && (
-                        <>
-                            <li>Calle y número: {cliente?.calle} {cliente?.numero_calle}</li>
-                            <li>distrito: {cliente?.distrito}</li>
-                            <li>Entrega programada: {entrega?.fechayhora}</li>
-                            <li>Aclaraciones: {entrega?.mensaje}</li>
-                        </>
-                    )}
-                </ul>
+                <div className={styles.rsmCompra__principal__datosclary}>
+                    <ul>
+                        <li>Clary Gourmet Mendoza</li>
+                        <li>whatsapp: (261) 588 5088</li>
+                        <li>Instagram: @clarygourmetmza</li>
+                    </ul>
+                </div>
+                <div className={styles.rsmCompra__principal__datostiket}>
+                    <ul>
+                        <li>id compra:...{venta ? venta.id_vta.toString().slice(-10) : "s/n"}</li>
+
+                        <li>Fecha: {venta ? formatoFecha(venta.fecha_hora) : "s/n"}</li>
+                        <li>Hora: {venta ? formatoHora(venta.fecha_hora) : "s/n"}</li>
+                    </ul>
+                </div>
+
+                <div className={styles.rsmCompra__principal__datoscliente}>
+                    <ul>
+                        <li>Cliente: {cliente?.nombre}</li>
+                        {cliente?.whatsapp &&  <li>whatsapp:+549 261 {cliente.whatsapp}</li>}
+                        {cliente?.nro_alternativo &&  <li>num alter:+549 261 {cliente.nro_alternativo}</li>}
+                    </ul>
+
+                </div>
+
+
+                <div className={styles.rsmCompra__principal__listaarticulos}>
+                    <ul>
+                        {articulosCarrito.map((item) => (
+                            <li key={item.id_arts}>
+                                {item.nombre} - {item.cant} x {formatomoneda(item.valor_venta)} ....... {formatomoneda(item.valor_x_cant)}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className={styles.rsmCompra__principal__listaarticulos__total}>
+                        <p>TOTAL: {totalCompra}</p>
+
+                    </div>
+                </div>
+
+
             </div>
 
             <div className={styles.rsmCompra__boton}>

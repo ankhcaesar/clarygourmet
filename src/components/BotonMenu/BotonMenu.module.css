@@ -5,6 +5,7 @@
     width: var(--iconomenu-ancho-1);
     aspect-ratio: 1/1;
     padding: var(--espacio-2);
+    margin: 0 0 auto 0;
 }
 
 .boton-menu__icono--activo {
