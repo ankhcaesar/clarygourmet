@@ -41,26 +41,30 @@ function AddCarrito({ data }) {
         <section className={styles.overlay} onClick={handleOverlayClick} >
 
             <div className={styles.caja} onClick={onclick}>
-                <div className={styles.cajaImagen}>
-                    <img src={imagenUrl} alt={articulo} />
+
+                <div className={styles.caja__imagen}>
+                    <img className={styles.caja__imagen__imagen} src={imagenUrl} alt={articulo} />
                 </div>
-                <div className={styles.pie}>
-                    <p className={styles.presentacion}>{presentacion}</p>
-                    <p className={styles.valor}>{formatomoneda(valor_venta)}</p>
+
+                <div className={styles.caja__pie}>
+                    <p className={styles.caja__pie__presentacion}>{presentacion}</p>
+                    <p className={styles.caja__pie__valor}>{formatomoneda(valor_venta)}</p>
                 </div>
-                <div className={styles.descripcion}>
+
+                <div className={styles.caja__descripcion}>
                     <h4>{articulo}</h4>
-                    <p className={styles.textodescipcion}>{descripcion}</p>
+                    <p className={styles.caja__descripcion__textodescipcion}>{descripcion}</p>
                 </div>
-                <div className={styles.cantidad}>
-                    <p className={styles.titulocantidad}>Cantidad</p>
+                
+                <div className={styles.caja__cantidad}>
+                    <p className={styles.caja__cantidad__titulo}>Cantidad</p>
                     <Sumador
                         value={cantidad}
                         setValue={setCantidad}
                     />
                 </div>
-                <div className={styles.cajaboton}>
 
+                <div className={styles.caja__boton}>
                     <Boton
                         ancho="100%"
                         type="submit"

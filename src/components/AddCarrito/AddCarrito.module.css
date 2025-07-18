@@ -1,4 +1,5 @@
 .overlay {
+    z-index: 97;
     position: absolute;
     top: 0;
     right: 0;
@@ -9,72 +10,84 @@
     background-color: var(--color-overlay);
     display: flex;
     justify-content: center;
-    z-index: 97;
 }
 
 .caja {
+    z-index: 98;
+    width: 85vw;
+    width: 85dvw;
+    min-width: 290px;
+    max-width: 400px;
+    aspect-ratio: 1/1.8;
     position: fixed;
-    top: 10vh;
-    top: 10dvh;
+    top: 4vh;
+    top: 4dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80vw;
-    width: 80dvw;
-    min-width: 290px;
-    max-width: 400px;
-    height: auto;
     background-color: var(--color-primario);
     box-shadow: 2px 2px 3px 1px var(--sombra-suave);
     border-radius: 5px;
-    z-index: 98;
+    box-sizing: content-box;
 }
 
-.cajaImagen {
+.caja__imagen {
+    max-width: 270px;
+    aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
-    width: 90%;
+    align-items: center;
     background-color: var(--color-primario);
-    border: 1px solid var(--color-borde);
-    margin: 5px auto;
-    padding: 10px;
-    overflow: hidden;
+    padding: var(--espacio-2) 0;
+
 }
 
-.cajaImagen img {
-    width: 70%;
-    aspect-ratio: 1/1;
+.caja__imagen__imagen {
+
+    width: 100%;
     object-fit: contain;
+    border-radius: var(--espacio-1);
 }
 
-.pie {
-    width: 90%;
+.caja__pie {
+    width: 85%;
     display: flex;
     justify-content: space-between;
-    padding: 0 5px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
 }
 
-.descripcion {
-    width: 90%;
-    aspect-ratio: 2/0.5;
+.caja__pie__presentacion {
+    font-size: var(--texto-base);
 }
 
-.descripcion h4 {
-    margin: 5px 0 0 0;
-    text-transform: uppercase;
-}
-
-.descripcion p {
-    margin: 0;
-}
-
-.valor {
+.caja__pie__valor {
+    font-size: var(--texto-lg);
     font-weight: bold;
     color: green;
 }
 
-.cantidad {
+.caja__descripcion {
+    width: 85%;
+    height: 20%;
+}
+
+.caja__descripcion h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: var(--espacio-4) 0 var(--espacio-2) 0;
+}
+
+.caja__descripcion p {
+    height: 15%;
+    margin: 0;
+}
+
+
+.caja__cantidad {
+    position: absolute;
+    bottom: 60px;
     width: 90%;
+    height: 10%;
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
@@ -84,13 +97,15 @@
     padding: 0 8px;
 }
 
-.titulocantidad {
+.caja__cantidad__titulo {
     font-size: 1.2lh;
     font-weight: bold;
     margin: 0;
 }
 
-.cajaboton {
+.caja__boton {
+    position: absolute;
+    bottom: var(--espacio-3);
     width: 90%;
     min-width: 20px;
     max-width: 350px;
@@ -98,9 +113,16 @@
 }
 
 
-@media (max-width: var(--movil)) {
+
+
+@media screen and (min-width: 900px) {
+
     .caja {
-        top: 4vh;
-        top: 4dvh;
+        top: 10vh;
+        top: 10dvh;
+
+        aspect-ratio: 1/1.35;
+
     }
+
 }

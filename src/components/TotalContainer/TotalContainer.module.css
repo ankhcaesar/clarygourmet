@@ -20,11 +20,6 @@ button:focus-visible,
 }
 
 
-/* Tablets (481px - 768px) */
-@media screen and (min-width: 481px) {
-}
-
-/* Tablets grandes (481px - 1024px) */
 @media screen and (min-width: 1025px) {
     .total__container {
         max-width: 720px;

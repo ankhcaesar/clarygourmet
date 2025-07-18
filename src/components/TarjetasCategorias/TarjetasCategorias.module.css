@@ -10,7 +10,6 @@
     align-items: center;
     justify-content: space-between;
     width: min(90%, 22rem);
-    /*height: 14rem;*/
     cursor: pointer;
     box-shadow: var(--sombra-boton);
     border: 1px solid var(--color-borde);
@@ -52,7 +51,7 @@
 
 .tarjetaCategorias__titulo {
     text-align: center;
-    font-size: var(--texto-base);
+    font-size: var(--texto-lg);
     margin: var(--espacio-1);
     color: inherit;
 }
