@@ -7,7 +7,7 @@ import { useResumenCarrito } from "../../hooks/useResumenCarrito";
 function RsmCompra() {
     const { formatomoneda, formatoFecha, formatoHora, itemsCarrito, setBotonMenu, setCabecera } = useContext(GlobalContext);
     const { cliente, entrega, venta, articulosCarrito, finalizarCompra } = useResumenCarrito();
-      const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
+    const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
     useEffect(() => {
         setBotonMenu("");
         setCabecera((prev) => ({ ...prev, titulo: "Clary Gourmet", origen: "fin" }));
@@ -40,8 +40,8 @@ function RsmCompra() {
                 <div className={styles.rsmCompra__principal__datoscliente}>
                     <ul>
                         <li>Cliente: {cliente?.nombre}</li>
-                        {cliente?.whatsapp &&  <li>whatsapp:+549 261 {cliente.whatsapp}</li>}
-                        {cliente?.nro_alternativo &&  <li>num alter:+549 261 {cliente.nro_alternativo}</li>}
+                        {cliente?.whatsapp && <li>whatsapp:+549 261 {cliente.whatsapp}</li>}
+                        {cliente?.nro_alternativo && <li>num alter:+549 261 {cliente.nro_alternativo}</li>}
                     </ul>
 
                 </div>

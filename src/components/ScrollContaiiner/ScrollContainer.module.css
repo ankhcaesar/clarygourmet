@@ -14,10 +14,9 @@
 
 }
 
+/* Chrome, Safari, Edge */
 .scrollContainer::-webkit-scrollbar {
     display: none;
-    /* Chrome, Safari, Edge */
-
 }
 
 .vertical {

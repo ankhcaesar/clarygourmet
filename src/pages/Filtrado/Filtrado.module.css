@@ -3,8 +3,8 @@
 .filtrado {
   width: 100vw;
   width: 100dvw;
-  height: calc(100vh - 80px);
-  height: calc(100dvh - 80px);
+  height: calc(100vh - var(--desdeabajo-2));
+  height: calc(100dvh - var(--desdeabajo-2));
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -72,23 +72,11 @@
 }
 
 @media (max-width: var(--movil)) {
+  .filtrado {
+    max-width: 720px;
 
-
-
-  .filtrado__subcats {
-    display: flex;
-    flex-direction: column;
-    gap: var(--espacio-4);
   }
 
-  .filtrado__titulo {
-    font-size: 0.95rem;
-    margin: 0.2em 0 0.2em 0.8em;
-  }
 
-  .filtrado__articulos {
-    gap: 5vw;
-    gap: 5dvw;
-    padding: 0 0.5rem;
-  }
+
 }

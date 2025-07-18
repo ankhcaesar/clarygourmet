@@ -1,5 +1,5 @@
 .menu {
-  height: 50px;
+  height: 55px;
   display: flex;
   justify-content: space-evenly;
   background-color: var(--color-fondo-menu);
@@ -18,7 +18,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(100%, -20%);
+  transform: translate(0, -30%);
   background-color: red;
   color: white;
   font-size: var(--texto-base);

@@ -1,11 +1,9 @@
 .boton-menu {
-    margin-left: var(--espacio-2-5);
+    width: var(--iconomenu-ancho-2);
+    aspect-ratio: 1/1;
+    margin-bottom: var(--espacio-2);
     background-color: transparent;
     border: 0;
-    width: var(--iconomenu-ancho-1);
-    aspect-ratio: 1/1;
-    padding: var(--espacio-2);
-    margin: 0 0 auto 0;
 }
 
 .boton-menu__icono--activo {
@@ -18,7 +16,7 @@
     opacity: 20%;
 }
 
-@media (max-width: var(--movil)) {
+@media screen and (min-width: 1025px) {
     .boton-menu {
         width: var(--iconomenu-ancho-3);
     }

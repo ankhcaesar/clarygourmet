@@ -70,6 +70,7 @@
   /* 60px */
   --iconomenu-ancho-2: 3.75rem;
 
+  --iconomenu-ancho-3: 4rem;
 
 /* desde abajo */
 
@@ -79,7 +80,12 @@
 /* 70px */
 --desdeabajo-1-5:4.375rem;
 
---desdeabajo-2:6.25rem;
+/*80px */
+--desdeabajo-2:5.31rem;
+
+/* px*/
+--desdeabajo-3:6.25rem;
+
 
   /* Breakpoints */
   --movil: 480px;
@@ -88,3 +94,14 @@
 
 }
 
+/* plantill
+
+@media screen and (min-width: 1025px) {
+    .total__container {
+        max-width: 720px;
+    }
+}
+
+
+}
+*/
