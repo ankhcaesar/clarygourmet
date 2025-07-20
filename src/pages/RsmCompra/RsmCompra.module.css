@@ -50,6 +50,7 @@
 }
 
 .rsmCompra__principal__listaarticulos {
+    height:calc(100dvh-var(--desdeabajo-2));
     border-top: dashed 2px grey;
     overflow-y: scroll;
     scrollbar-width: none;
