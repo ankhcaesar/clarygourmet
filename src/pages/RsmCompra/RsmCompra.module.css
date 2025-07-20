@@ -4,14 +4,16 @@
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
+    align-items: center;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .rsmCompra__principal {
     width: 90%;
-    height: 80%;
+    height: 78%;
     margin: 0 auto;
-    padding: var(--espacio-4) var(--espacio-1) var(--desdeabajo-1) var(--espacio-1);
+    padding: var(--espacio-4-5) var(--espacio-1) var(--desdeabajo-1) var(--espacio-1);
     display: flex;
     flex-direction: column;
     background: conic-gradient(from -52.5deg at bottom, #0000, var(--color-fondo-secundario) 1deg 104deg, #0000 105deg) 50%/26.06px 100%
@@ -26,35 +28,109 @@
     padding: var(--espacio-3) 0;
 }
 
-.rsmCompra__principal__datostiket {
-    padding: var(--espacio-2) 0;
+.rsmCompra__principal__datostiket,
+.rsmCompra__principal__datoscliente {
+    padding: var(--espacio-2);
     border-top: dashed 2px grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
-.rsmCompra__principal__datoscliente {
-    padding: var(--espacio-2) 0;
-    border-top: dashed 2px grey;
+.items_izq {
+    text-align: left;
+    font-size: var(--texto-sm);
+}
+
+.items_der {
+    text-align: right;
+    font-weight: 500;
+    font-size: var(--texto-sm);
 }
 
 .rsmCompra__principal__listaarticulos {
-    padding: var(--espacio-2) 0;
     border-top: dashed 2px grey;
-
+    overflow-y: scroll;
+    scrollbar-width: none;
+    padding: 0 0 10px;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
 }
 
-.rsmCompra__principal__listaarticulos__total {
-    padding: var(--espacio-2) 0;
-    border-top: dashed 2px grey;
+.rsmCompra__principal__listaarticulos ::-webkit-scrollbar {
+    display: none;
+}
+
+.rsmCompra__principal__listaarticulos_tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--espacio-3);
+    font-size: var(--texto-sm);
+}
+
+.rsmCompra__principal__listaarticulos_tabla th,
+.rsmCompra__principal__listaarticulos_tabla td {
+    padding: 0.18rem 0;
+    text-align: left;
+}
+
+
+.col_cantidad {
+    width: 10%;
+    text-align: center;
+}
+
+.col_articulo {
+    width: 45%;
+}
+
+.col_precio,
+.col_subtotal {
+    width: 20%;
     text-align: right;
-
 }
+
+.total_label {
+    border-top: solid 2px grey;
+    text-align: right;
+    font-weight: bold;
+    padding-right: var(--espacio-4);
+}
+
+.total_compra {
+    border-top: solid 2px grey;
+    text-align: right;
+    font-weight: bold;
+}
+
 
 .rsmCompra__boton {
     width: 100%;
+    max-width: 350px;
     position: fixed;
     bottom: var(--desdeabajo-1);
+    margin-bottom: var(--espacio-1);
     display: flex;
-
     justify-content: center;
+    box-sizing: border-box;
+}
+
+
+@media screen and (min-width: 900px) {
+
+    .rsmCompra {
+        max-width: 400px;
+    }
+
+    .rsmCompra__principal {
+        max-width: 400px;
+        height: 85%;
+    }
+
+    .rsmCompra__boton {
+        margin-bottom: var(--espacio-2);
+    }
+
 }

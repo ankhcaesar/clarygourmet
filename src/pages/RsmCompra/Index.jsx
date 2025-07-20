@@ -29,39 +29,73 @@ function RsmCompra() {
                     </ul>
                 </div>
                 <div className={styles.rsmCompra__principal__datostiket}>
-                    <ul>
-                        <li>id compra:...{venta ? venta.id_vta.toString().slice(-10) : "s/n"}</li>
 
-                        <li>Fecha: {venta ? formatoFecha(venta.fecha_hora) : "s/n"}</li>
-                        <li>Hora: {venta ? formatoHora(venta.fecha_hora) : "s/n"}</li>
-                    </ul>
-                </div>
+                    <div className={styles.div_izq}>
+                        <ul className={styles.items_izq}>
+                            <li>ID COMPRA</li>
+                            <li>FECHA</li>
+                            <li>HORA</li>
+                        </ul>
+                    </div>
 
-                <div className={styles.rsmCompra__principal__datoscliente}>
-                    <ul>
-                        <li>Cliente: {cliente?.nombre}</li>
-                        {cliente?.whatsapp && <li>whatsapp:+549 261 {cliente.whatsapp}</li>}
-                        {cliente?.nro_alternativo && <li>num alter:+549 261 {cliente.nro_alternativo}</li>}
-                    </ul>
-
-                </div>
-
-
-                <div className={styles.rsmCompra__principal__listaarticulos}>
-                    <ul>
-                        {articulosCarrito.map((item) => (
-                            <li key={item.id_arts}>
-                                {item.nombre} - {item.cant} x {formatomoneda(item.valor_venta)} ....... {formatomoneda(item.valor_x_cant)}
-                            </li>
-                        ))}
-                    </ul>
-                    <div className={styles.rsmCompra__principal__listaarticulos__total}>
-                        <p>TOTAL: {totalCompra}</p>
-
+                    <div className={styles.div_der}>
+                        <ul className={styles.items_der}>
+                            <li>...{venta ? venta.id_vta.toString().slice(-10) : "s/n"}</li>
+                            <li> {venta ? formatoFecha(venta.fecha_hora) : "s/n"}</li>
+                            <li> {venta ? formatoHora(venta.fecha_hora) : "s/n"}</li>
+                        </ul>
                     </div>
                 </div>
 
+                <div className={styles.rsmCompra__principal__datoscliente}>
 
+                    <div className={styles.div_izq}>
+                        <ul className={styles.items_izq}>
+                            <li>Cliente: </li>
+                            {cliente?.whatsapp && <li>whatsapp: </li>}
+                            {cliente?.nro_alternativo && <li>num alter: </li>}
+
+                        </ul>
+                    </div>
+
+                    <div className={styles.div_der}>
+                        <ul className={styles.items_der}>
+                            <li>{cliente?.nombre}</li>
+                            {cliente?.whatsapp && <li>+549 (261) {cliente.whatsapp}</li>}
+                            {cliente?.nro_alternativo && <li>{cliente.nro_alternativo}</li>}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className={styles.rsmCompra__principal__listaarticulos}>
+
+                    <table className={styles.rsmCompra__principal__listaarticulos_tabla}>
+                        <thead>
+                            <tr>
+                                <th scope="col" className={styles.col_cantidad}>Cant.</th>
+                                <th scope="col" className={styles.col_articulo}>Artículo</th>
+                                <th scope="col" className={styles.col_precio}>Unit.</th>
+                                <th scope="col" className={styles.col_subtotal}>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {articulosCarrito.map((item) => (
+                                <tr key={`${item.id_arts}-${item.cant}`}>
+                                    <td className={styles.titulos}>{item.cant}</td>
+                                    <td className={styles.col_articulo}>{item.nombre}</td>
+                                    <td className={styles.col_precio}>{formatomoneda(item.valor_venta)}</td>
+                                    <td className={styles.col_subtotal}>{formatomoneda(item.valor_x_cant)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colSpan={3} className={styles.total_label}>TOTAL</td>
+                                <td className={styles.total_compra}>{formatomoneda(totalCompra)}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
 
             <div className={styles.rsmCompra__boton}>
