@@ -84,7 +84,7 @@ export function useResumenCarrito() {
         if (!venta || !articulosCarrito.length) return "";
 
         // Encabezado
-        let mensaje = " *NUEVO PEDIDO* \n\n";
+        let mensaje = "            *NUEVO PEDIDO* \n\n";
 
         // Datos de la venta
         mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
@@ -94,7 +94,7 @@ export function useResumenCarrito() {
 
         // Datos del cliente si existe
         if (cliente) {
-            mensaje += "DATOS DEL CLIENTE\n";
+            mensaje += "*DATOS DEL CLIENTE*\n";
             mensaje += `Nombre: ${cliente.nombre || 'No especificado'}\n`;
             if (cliente.whatsapp) mensaje += `WhatsApp: +549261${cliente.whatsapp}\n`;
             if (cliente.nro_alternativo) mensaje += `Tel. Alternativo: ${cliente.nro_alternativo}\n`;
@@ -106,13 +106,13 @@ export function useResumenCarrito() {
         articulosCarrito.forEach(item => {
             mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
-        mensaje += `. ----------------------------\n\n`;
+        mensaje += `. ----------------------------\n`;
 
 
         // Total
         const total = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
-        mensaje += `\n TOTAL:* ${formatomoneda(total, true)}*\n`;
-
+        mensaje += `\n TOTAL: *${formatomoneda(total, true)}*\n`;
+r
         // Datos de entrega si existen
         if (entrega) {
             if (venta.entrega) mensaje += `. ----------------------------\n\n`;
