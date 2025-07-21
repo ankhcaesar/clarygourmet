@@ -21,7 +21,7 @@ function FinCompra() {
         numero_calle: "",
         piso: "",
         depto: "",
-        envio_a_domicilio: true,
+        envio_a_domicilio: false,
         fecha_hora_entrega: "",
         aclaraciones: "",
     });

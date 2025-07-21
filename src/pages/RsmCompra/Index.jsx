@@ -8,6 +8,7 @@ function RsmCompra() {
     const { formatomoneda, formatoFecha, formatoHora, itemsCarrito, setBotonMenu, setCabecera } = useContext(GlobalContext);
     const { cliente, entrega, venta, articulosCarrito, finalizarCompra } = useResumenCarrito();
     const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
+
     useEffect(() => {
         setBotonMenu("");
         setCabecera((prev) => ({ ...prev, titulo: "Clary Gourmet", origen: "fin" }));
