@@ -74,7 +74,7 @@ function RsmCompra() {
 
     </div>
     <div className={styles.div_der}>
-
+        <p> hola mundo <\p>
     </div>
 
 </div>
