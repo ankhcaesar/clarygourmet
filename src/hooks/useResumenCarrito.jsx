@@ -84,39 +84,43 @@ export function useResumenCarrito() {
         if (!venta || !articulosCarrito.length) return "";
 
         // Encabezado
-        let mensaje = "🚀 *NUEVO PEDIDO CLARY GOURMET* 🚀\n\n";
+        let mensaje = " *NUEVO PEDIDO* \n\n";
 
         // Datos de la venta
-        mensaje += `📋 *ID de Compra:* ${venta.id_vta.toString().slice(-10)}\n`;
-        mensaje += `📅 *Fecha:* ${formatoFecha(venta.fecha_hora)}\n`;
-        mensaje += `⏰ *Hora:* ${formatoHora(venta.fecha_hora)}\n\n`;
+        mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
+        mensaje += `Fecha: ${formatoFecha(venta.fecha_hora)}\n`;
+        mensaje += `Hora: ${formatoHora(venta.fecha_hora)}\n`;
+        mensaje += `-----------------------\n\n`
 
         // Datos del cliente si existe
         if (cliente) {
-            mensaje += "👤 *DATOS DEL CLIENTE*\n";
+            mensaje += "DATOS DEL CLIENTE\n";
             mensaje += `Nombre: ${cliente.nombre || 'No especificado'}\n`;
             if (cliente.whatsapp) mensaje += `WhatsApp: +549261${cliente.whatsapp}\n`;
             if (cliente.nro_alternativo) mensaje += `Tel. Alternativo: ${cliente.nro_alternativo}\n`;
-            mensaje += "\n";
+            mensaje += `-----------------------\n\n`;
         }
 
         // Artículos
-        mensaje += "🛒 *DETALLE DEL PEDIDO*\n";
+        mensaje += "*DETALLE DEL PEDIDO*\n";
         articulosCarrito.forEach(item => {
-            mensaje += `➡ ${item.cant} x ${item.nombre} (${formatomoneda(item.valor_venta)} c/u) = ${formatomoneda(item.valor_x_cant)}\n`;
+            mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
+        mensaje += `-----------------------\n\n`;
+
 
         // Total
         const total = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
-        mensaje += `\n💰 *TOTAL:* ${formatomoneda(total, true)}\n`;
+        mensaje += `\n TOTAL:* ${formatomoneda(total, true)}*\n`;
 
         // Datos de entrega si existen
         if (entrega) {
-            mensaje += "\n🚚 *DATOS DE ENTREGA*\n";
-            if (entrega.direccion) mensaje += `📍 Dirección: ${entrega.direccion}\n`;
-            if (entrega.referencia) mensaje += `📝 Referencia: ${entrega.referencia}\n`;
-            if (entrega.fechayhora) mensaje += `📅 Fecha entrega: ${formatoFecha(entrega.fechayhora)}\n`;
-            if (entrega.horario) mensaje += `⏱ Horario: ${entrega.horario}\n`;
+            if (venta.entrega) mensaje += `-----------------------\n\n`;
+            if (venta.entrega) mensaje += "\n *DATOS DE ENTREGA*\n";
+            if (entrega.direccion) mensaje += `Dirección: ${entrega.direccion}\n`;
+            if (entrega.referencia) mensaje += `Referencia: ${entrega.referencia}\n`;
+            if (entrega.fechayhora) mensaje += `Fecha: ${formatoFecha(entrega.fechayhora)}\n`;
+            if (entrega.horario) mensaje += `Hora: ${entrega.horario}\n`;
         }
 
         return encodeURIComponent(mensaje);
@@ -126,7 +130,7 @@ export function useResumenCarrito() {
         const mensaje = generarMensajeWhatsApp();
         if (!mensaje) return;
 
-        const telefonoEmpresa = "2615885088"; // Número fijo sin código de país
+        const telefonoEmpresa = "26152441084";
         const url = `https://wa.me/54${telefonoEmpresa}?text=${mensaje}`;
 
         // Abrir en nueva pestaña
@@ -146,7 +150,8 @@ export function useResumenCarrito() {
             if (!venta || articulosCarrito.length === 0) {
                 throw new Error("Faltan datos para finalizar la compra.");
             }
-                enviarWhatsApp();
+            enviarWhatsApp();
+
             // Subir cliente si existe
             if (cliente?.id_cli) {
                 const { error: upsertError } = await supabase
