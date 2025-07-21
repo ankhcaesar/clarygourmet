@@ -112,7 +112,7 @@ export function useResumenCarrito() {
         // Total
         const total = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
         mensaje += ` TOTAL: *${formatomoneda(total, true)}*\n`;
-r
+
         // Datos de entrega si existen
         if (entrega) {
             if (venta.entrega) mensaje += ` ----------------------------\n\n`;
