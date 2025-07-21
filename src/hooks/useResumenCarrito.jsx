@@ -90,7 +90,7 @@ export function useResumenCarrito() {
         mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
         mensaje += `Fecha: ${formatoFecha(venta.fecha_hora)}\n`;
         mensaje += `Hora: ${formatoHora(venta.fecha_hora)}\n`;
-        mensaje += `-----------------------\n\n`
+        mensaje += `. ----------------------------\n\n`
 
         // Datos del cliente si existe
         if (cliente) {
@@ -98,7 +98,7 @@ export function useResumenCarrito() {
             mensaje += `Nombre: ${cliente.nombre || 'No especificado'}\n`;
             if (cliente.whatsapp) mensaje += `WhatsApp: +549261${cliente.whatsapp}\n`;
             if (cliente.nro_alternativo) mensaje += `Tel. Alternativo: ${cliente.nro_alternativo}\n`;
-            mensaje += `-----------------------\n\n`;
+            mensaje += `. ----------------------------\n\n`;
         }
 
         // Artículos
@@ -106,7 +106,7 @@ export function useResumenCarrito() {
         articulosCarrito.forEach(item => {
             mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
-        mensaje += `-----------------------\n\n`;
+        mensaje += `. ----------------------------\n\n`;
 
 
         // Total
@@ -115,7 +115,7 @@ export function useResumenCarrito() {
 
         // Datos de entrega si existen
         if (entrega) {
-            if (venta.entrega) mensaje += `-----------------------\n\n`;
+            if (venta.entrega) mensaje += `. ----------------------------\n\n`;
             if (venta.entrega) mensaje += "\n *DATOS DE ENTREGA*\n";
             if (entrega.direccion) mensaje += `Dirección: ${entrega.direccion}\n`;
             if (entrega.referencia) mensaje += `Referencia: ${entrega.referencia}\n`;
