@@ -68,6 +68,16 @@ function RsmCompra() {
                     </div>
                 </div>
 
+<div className={styles.rsmCompra__principal__entrega}>
+    <div className={styles.div_izq}>
+
+    </div>
+    <div className={styles.div_der}>
+
+    </div>
+
+</div>
+
                 <div className={styles.rsmCompra__principal__listaarticulos}>
 
                     <table className={styles.rsmCompra__principal__listaarticulos_tabla}>
