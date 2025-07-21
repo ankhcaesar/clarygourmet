@@ -70,6 +70,7 @@ function RsmCompra() {
 
 <div className={styles.rsmCompra__principal__entrega}>
     <div className={styles.div_izq}>
+        {venta.entrega? && <p>día:</p>}
 
     </div>
     <div className={styles.div_der}>
