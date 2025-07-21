@@ -130,7 +130,7 @@ export function useResumenCarrito() {
         const mensaje = generarMensajeWhatsApp();
         if (!mensaje) return;
 
-        const telefonoEmpresa = "26152441084";
+        const telefonoEmpresa = "2612441084";
         const url = `https://wa.me/54${telefonoEmpresa}?text=${mensaje}`;
 
         // Abrir en nueva pestaña
