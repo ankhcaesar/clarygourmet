@@ -53,15 +53,7 @@
     height:calc(100dvh-var(--desdeabajo-2));
     border-top: dashed 2px grey;
     overflow-y: scroll;
-    scrollbar-width: none;
     padding: 0 0 10px;
-    /* Firefox */
-    -ms-overflow-style: none;
-    /* IE 10+ */
-}
-
-.rsmCompra__principal__listaarticulos ::-webkit-scrollbar {
-    display: none;
 }
 
 .rsmCompra__principal__listaarticulos_tabla {
@@ -74,7 +66,6 @@
 .rsmCompra__principal__listaarticulos_tabla th,
 .rsmCompra__principal__listaarticulos_tabla td {
     padding: 0.18rem 0;
-    text-align: left;
 }
 
 
@@ -90,13 +81,19 @@
 .col_precio,
 .col_subtotal {
     width: 20%;
-    text-align: right;
+    text-align:right;
+    padding: 15px;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
 }
 
 .total_label {
     border-top: solid 2px grey;
     text-align: right;
     font-weight: bold;
+        font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+
     padding-right: var(--espacio-4);
 }
 
@@ -104,6 +101,7 @@
     border-top: solid 2px grey;
     text-align: right;
     font-weight: bold;
+    padding: 5px;
 }
 
 

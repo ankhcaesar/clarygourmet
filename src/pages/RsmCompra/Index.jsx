@@ -91,7 +91,7 @@ function RsmCompra() {
                         <tfoot>
                             <tr>
                                 <td colSpan={3} className={styles.total_label}>TOTAL</td>
-                                <td className={styles.total_compra}>{formatomoneda(totalCompra)}</td>
+                                <td className={styles.total_compra}>{formatomoneda(totalCompra, true)}</td>
                             </tr>
                         </tfoot>
                     </table>

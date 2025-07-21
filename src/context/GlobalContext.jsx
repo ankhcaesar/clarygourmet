@@ -75,17 +75,36 @@ function GlobalContextProvider({ children }) {
     // Fin Loader
 
 
-    // funcion formato moneda 
-    function formatomoneda(valor) {
 
-        return new Intl.NumberFormat("es-AR", {
-            style: "currency",
-            currency: "ARS",
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-        }).format(valor);
+
+    // funcion formato moneda 
+
+function formatomoneda(valor, esmonetario = false) {
+    const opciones = {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
     };
+
+    if (esmonetario) {
+        opciones.style = "currency";
+        opciones.currency = "ARS";
+    }
+
+    return new Intl.NumberFormat("es-AR", opciones).format(valor);
+}
     // Fin funcion formato moneda
+
+
+//formatonumero
+
+
+
+
+
+
+
+
+
 
     // Funcion formato fecha y hora
 

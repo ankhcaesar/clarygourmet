@@ -48,7 +48,7 @@ function AddCarrito({ data }) {
 
                 <div className={styles.caja__pie}>
                     <p className={styles.caja__pie__presentacion}>{presentacion}</p>
-                    <p className={styles.caja__pie__valor}>{formatomoneda(valor_venta)}</p>
+                    <p className={styles.caja__pie__valor}>{formatomoneda(valor_venta, true)}</p>
                 </div>
 
                 <div className={styles.caja__descripcion}>

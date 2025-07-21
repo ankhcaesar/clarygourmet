@@ -40,7 +40,7 @@ function Carrito() {
                         <p>Cantidad de productos: {itemsCarrito.totalItems}</p>
                     </div>
                     <div className={styles.carrito__totalCompra}>
-                        <p>TOTAL COMPRA: {formatomoneda(totalCompra)}</p>
+                        <p>TOTAL COMPRA: {formatomoneda(totalCompra, true)}</p>
                     </div>
                 </div>
             </section>

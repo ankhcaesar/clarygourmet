@@ -33,7 +33,7 @@ useEffect(() => {
     return (
         <section className={styles.principal}>
             <div className={styles.principal__cajaImagen}>
-                <img src={imagen} alt={articulo} />
+                <img className={styles.principal__cajaImagen_imagen} src={imagen} alt={articulo} />
             </div>
             <div className={styles.principal__derecha}>
                 <h3 className={styles.principal__derecha__nombre}>{articulo}</h3>
@@ -46,7 +46,7 @@ useEffect(() => {
                         setValue={setCant}
                         disabled={isUpdating}
                     />
-                    <h3>{formatomoneda(valor_unit)}</h3>
+                    <h3>{formatomoneda(valor_unit, true)}</h3>
                 </div>
             </div>
         </section>
