@@ -17,11 +17,11 @@ function GlobalContextProvider({ children }) {
 
 
     //funcion vibrar
-function botonVibrar(ms=10){
-     if ('vibrate' in navigator){
-        navigator.vibrate(ms);
+    function botonVibrar(ms) {
+        if ('vibrate' in navigator) {
+            navigator.vibrate(ms);
+        }
     }
-}
     // fin funcion vibrar
 
 
@@ -89,23 +89,23 @@ function botonVibrar(ms=10){
 
     // funcion formato moneda 
 
-function formatomoneda(valor, esmonetario = false) {
-    const opciones = {
-        minimumFractionDigits: 0,
-        maximumFractionDigits: 0
-    };
+    function formatomoneda(valor, esmonetario = false) {
+        const opciones = {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        };
 
-    if (esmonetario) {
-        opciones.style = "currency";
-        opciones.currency = "ARS";
+        if (esmonetario) {
+            opciones.style = "currency";
+            opciones.currency = "ARS";
+        }
+
+        return new Intl.NumberFormat("es-AR", opciones).format(valor);
     }
-
-    return new Intl.NumberFormat("es-AR", opciones).format(valor);
-}
     // Fin funcion formato moneda
 
 
-//formatonumero
+    //formatonumero
 
 
 
@@ -118,7 +118,7 @@ function formatomoneda(valor, esmonetario = false) {
 
     // Funcion formato fecha y hora
 
-    function formatoFecha (dateTime) {
+    function formatoFecha(dateTime) {
         const date = new Date(dateTime);
         const dia = String(date.getDate()).padStart(2, '0');
         const mes = String(date.getMonth() + 1).padStart(2, '0');
@@ -127,7 +127,7 @@ function formatomoneda(valor, esmonetario = false) {
         return `${dia}/${mes}/${anio}`;
     };
 
-    function formatoHora (dateTime) {
+    function formatoHora(dateTime) {
         const date = new Date(dateTime);
         const hora = String(date.getHours()).padStart(2, '0');
         const minutos = String(date.getMinutes()).padStart(2, '0');
@@ -155,8 +155,8 @@ function formatomoneda(valor, esmonetario = false) {
 
                 itemsCarrito, setItemsCarrito,
                 limpiarCarrito,
-                
-                formatomoneda,formatoFecha, formatoHora
+
+                formatomoneda, formatoFecha, formatoHora
             }
         }> {children} </GlobalContext.Provider>
     )
