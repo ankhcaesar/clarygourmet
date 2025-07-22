@@ -17,7 +17,10 @@ function BotonMenu({ destino, icono, ms }) {
         <button
 
             className={styles["boton-menu"]}
-            onClick={()=>{ botonVibrar(10); handleClick}}
+            onClick={() => {
+                botonVibrar();
+                handleClick();
+            }}
             aria-label={`Ir a ${destino}`}
         >
             <img src={icono} className={claseIcono} alt="" />
