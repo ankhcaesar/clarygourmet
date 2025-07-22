@@ -23,8 +23,8 @@ function AppRoute() {
                     <Route index element={<Inicial />} />
                     <Route path="*" element={<E404 />} />
                     <Route path="/Categorias" element={<Categorias />} />
-                    <Route path="/Filtrado" element={ <Suspense fallback={<div>Cargando...</div>}> <Filtrado /></Suspense>} />
-                    <Route path="/Carrito" element={ <Suspense fallback={<div>Cargando...</div>}> <Carrito /> </Suspense> } />
+                    <Route path="/Filtrado" element={<Filtrado />} />
+                    <Route path="/Carrito" element={<Carrito />} />
                     <Route path="/FinCompra" element={<FinCompra />} />
                     <Route path="/RsmCompra" element={<RsmCompra />} />
                     <Route path="/CarritoCerrado" element={<CarritoCerrado />} />
