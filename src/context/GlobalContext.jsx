@@ -17,12 +17,11 @@ function GlobalContextProvider({ children }) {
 
 
     //funcion vibrar
-function botonVibrar(ms){
-    if(navigator.vibrate){
+function botonVibrar(ms=10){
+     if ('vibrate' in navigator){
         navigator.vibrate(ms);
     }
 }
-
     // fin funcion vibrar
 
 
