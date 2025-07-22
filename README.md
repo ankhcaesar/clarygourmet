@@ -1,10 +1,25 @@
 # ClaryGPToVta - Documentación  
 
-Estructura  
-- `components/`: Componentes reutilizables (Boton, CampoForm, etc.).  
-- `hooks/`: Lógica reutilizable (useGeorefMendoza, useResumenCarrito).  
-- `db/`: Conexión a IndexedDB y Supabase.  
-- `pages/`: Vistas principales (Inicial, Categorias, Carrito, etc.).  
+
+-   **Estructura general del proyecto:**
+clary-gourmet/
+├── public/            # Assets estáticos
+│   ├── icons/         # Íconos SVG
+│   ├── imgs/          # Imágenes generales
+│   └── favico.svg     # Favicon
+├── src/
+│   ├── components/    # Componentes reutilizables
+│   ├── context/       # Gestión de estado global
+│   ├── db/            # Conexiones a bases de datos
+│   ├── hooks/         # Custom hooks
+│   ├── pages/         # Vistas principales
+│   ├── styles/        # Estilos globales
+│   ├── App.jsx        # Componente principal
+│   └── main.jsx       # Punto de entrada
+├── .env               # Variables de entorno
+├── package.json       # Dependencias
+└── README.md          # Documentación
+
 
 Estilos  
 - Uso de **CSS Modules** para evitar colisiones.  

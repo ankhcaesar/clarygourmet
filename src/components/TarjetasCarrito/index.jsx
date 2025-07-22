@@ -1,13 +1,13 @@
 import styles from "./TarjetasCarrito.module.css"
 import Sumador from "../Sumador/Index"
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 
-function TarjetasCarrito({
+const TarjetasCarrito = React.memo(({
     id_arts, articulo, presentacion, imagen, valor_unit, cantidad
-}) {
+})=> {
     const [cant, setCant] = useState(cantidad);
     const { formatomoneda } = useContext(GlobalContext);
 
@@ -51,6 +51,6 @@ useEffect(() => {
             </div>
         </section>
     )
-}
+})
 
 export default TarjetasCarrito

@@ -1,16 +1,19 @@
 import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
 import Inicial from "./src/pages/Inicial/Index"
 import E404 from "./src/pages/E404/Index"
-
 import Categorias from "./src/pages/Categorias/Index"
-import Filtrado from "./src/pages/Filtrado/Index"
-import Carrito from "./src/pages/Carrito/Index"
+//import Filtrado from "./src/pages/Filtrado/Index"
+//import Carrito from "./src/pages/Carrito/Index"
 import FinCompra from "./src/pages/FinCompra/Index"
 import RsmCompra from "./src/pages/RsmCompra/Index"
 import CarritoCerrado from "./src/pages/CarritoCerrado/Index"
 
 import LayoutApp from "./src/components/LayoutApp/Index";
+
+const Carrito = lazy(() => import("./src/pages/Carrito/Index"));
+const Filtrado = lazy(() => import("./src/pages/Filtrado/Index"));
 
 function AppRoute() {
     return (
@@ -20,8 +23,8 @@ function AppRoute() {
                     <Route index element={<Inicial />} />
                     <Route path="*" element={<E404 />} />
                     <Route path="/Categorias" element={<Categorias />} />
-                    <Route path="/Filtrado" element={<Filtrado />} />
-                    <Route path="/Carrito" element={<Carrito />} />
+                    <Route path="/Filtrado" element={ <Suspense fallback={<div>Cargando...</div>}> <Filtrado /></Suspense>} />
+                    <Route path="/Carrito" element={ <Suspense fallback={<div>Cargando...</div>}> <Carrito /> </Suspense> } />
                     <Route path="/FinCompra" element={<FinCompra />} />
                     <Route path="/RsmCompra" element={<RsmCompra />} />
                     <Route path="/CarritoCerrado" element={<CarritoCerrado />} />
