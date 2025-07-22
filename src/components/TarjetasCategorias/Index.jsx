@@ -6,6 +6,7 @@ function TarjetasCategorias({ nombre, imagen, onclick }) {
             <div className={styles.tarjetaCategorias__contenedor} onClick={onclick}>
                 <div className={styles.tarjetaCategorias__imagenContenedor}>
                     <img
+                        loading="lazy"
                         src={imagen}
                         alt={`Imagen representativa de ${nombre}`}
                         className={styles.tarjetaCategorias__imagen}

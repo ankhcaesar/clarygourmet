@@ -15,6 +15,17 @@ function GlobalContextProvider({ children }) {
         id_vta: null
     });
 
+
+    //funcion vibrar
+function botonVibrar(ms){
+    if(navigator.vibrate){
+        navigator.vibrate(ms);
+    }
+}
+
+    // fin funcion vibrar
+
+
     //funcion ir
     function ir(destino, opciones = {}) {
         const to = destino.trim().toLowerCase();
@@ -138,6 +149,7 @@ function formatomoneda(valor, esmonetario = false) {
                 cabecera, setCabecera,
 
                 loader, setLoader,
+                botonVibrar,
 
                 addCarrito, setAddCarrito,
                 limpiarAddCarrito,

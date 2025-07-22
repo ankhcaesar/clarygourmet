@@ -2,8 +2,8 @@ import { useContext } from "react"
 import styles from "./BotonMenu.module.css"
 import { GlobalContext } from "../../context/GlobalContext"
 
-function BotonMenu({ destino, icono }) {
-    const { ir, botonMenu } = useContext(GlobalContext)
+function BotonMenu({ destino, icono, ms }) {
+    const { ir, botonMenu, botonVibrar } = useContext(GlobalContext)
 
     const claseIcono = botonMenu === destino
         ? styles["boton-menu__icono--inactivo"]
@@ -15,8 +15,9 @@ function BotonMenu({ destino, icono }) {
 
     return (
         <button
+
             className={styles["boton-menu"]}
-            onClick={handleClick}
+            onClick={()=>{ botonVibrar(10); handleClick}}
             aria-label={`Ir a ${destino}`}
         >
             <img src={icono} className={claseIcono} alt="" />

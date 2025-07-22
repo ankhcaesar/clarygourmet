@@ -33,7 +33,7 @@ useEffect(() => {
     return (
         <section className={styles.principal}>
             <div className={styles.principal__cajaImagen}>
-                <img className={styles.principal__cajaImagen_imagen} src={imagen} alt={articulo} />
+                <img loading="lazy" className={styles.principal__cajaImagen_imagen} src={imagen} alt={articulo} />
             </div>
             <div className={styles.principal__derecha}>
                 <h3 className={styles.principal__derecha__nombre}>{articulo}</h3>
