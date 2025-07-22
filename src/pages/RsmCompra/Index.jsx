@@ -20,7 +20,6 @@ function RsmCompra() {
 
             <div className={styles.rsmCompra__principal}>
 
-                <h2 className={styles.rsmCompra__principal__titulo}>DETALLE DEL PEDIDO</h2>
 
                 <div className={styles.rsmCompra__principal__datosclary}>
                     <ul>
@@ -29,7 +28,9 @@ function RsmCompra() {
                         <li>Instagram: @clarygourmetmza</li>
                     </ul>
                 </div>
+                <h2 className={styles.rsmCompra__principal__titulo}>DETALLE DEL PEDIDO</h2>
                 <div className={styles.rsmCompra__principal__datostiket}>
+
 
                     <div className={styles.div_izq}>
                         <ul className={styles.items_izq}>
@@ -40,6 +41,7 @@ function RsmCompra() {
                     </div>
 
                     <div className={styles.div_der}>
+
                         <ul className={styles.items_der}>
                             <li>...{venta ? venta.id_vta.toString().slice(-10) : "s/n"}</li>
                             <li> {venta ? formatoFecha(venta.fecha_hora) : "s/n"}</li>
@@ -52,9 +54,9 @@ function RsmCompra() {
 
                     <div className={styles.div_izq}>
                         <ul className={styles.items_izq}>
-                            <li>Cliente: </li>
-                            {cliente?.whatsapp && <li>whatsapp: </li>}
-                            {cliente?.nro_alternativo && <li>num alter: </li>}
+                            <li>CLIENTE </li>
+                            {cliente?.whatsapp && <li>WHATSAPP </li>}
+                            {cliente?.nro_alternativo && <li>NOM ALTER </li>}
 
                         </ul>
                     </div>
@@ -62,30 +64,32 @@ function RsmCompra() {
                     <div className={styles.div_der}>
                         <ul className={styles.items_der}>
                             <li>{cliente?.nombre}</li>
-                            {cliente?.whatsapp && <li>+549 (261) {cliente.whatsapp}</li>}
-                            {cliente?.nro_alternativo && <li>{cliente.nro_alternativo}</li>}
+                            {cliente?.whatsapp && <li>+549 (261){cliente.whatsapp}</li>}
+                            {cliente?.nro_alternativo && <li>+549 (261){cliente.nro_alternativo}</li>}
                         </ul>
                     </div>
                 </div>
                 {venta?.entrega &&
-                <div className={styles.rsmCompra__principal__datonsenvio}>
-                    <div className={styles.div_izq}>
-                        <ul className={styles.items_izq}>
-                            <li>dia:</li>
-                            <li>hora:</li>
-                            {entrega?.mensaje && <li>mensaje:</li>}
-                        </ul>
-                    </div>
+                    <div className={styles.contenedor_datosdelacompra}>
+                        <div className={styles.rsmCompra__principal__datonsenvio}>
+                            <div className={styles.div_izq}>
+                                <ul className={styles.items_izq}>
+                                    <li>DIA</li>
+                                    <li>HORA</li>
+                                    {entrega?.mensaje && <li>MENSAJE</li>}
+                                </ul>
+                            </div>
 
-                    <div className={styles.div_der}>
-                        <ul className={styles.items_der}>
-                            <li>{formatoFecha(entrega.fechayhora)}</li>
-                            <li>{formatoHora(entrega.fechayhora)}</li>
-                            {entrega?.mensaje && <li>{entrega.mensaje}</li>}
-                        </ul>
-                    </div>
+                            <div className={styles.div_der}>
+                                <ul className={styles.items_der}>
+                                    <li>{formatoFecha(entrega.fechayhora)}</li>
+                                    <li>{formatoHora(entrega.fechayhora)}</li>
+                                    {entrega?.mensaje && <li>{entrega.mensaje}</li>}
+                                </ul>
+                            </div>
 
-                </div>
+                        </div>
+                    </div>
                 }
 
 

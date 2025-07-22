@@ -112,19 +112,19 @@ export function useResumenCarrito() {
         mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
         mensaje += `Fecha: ${formatoFecha(venta.fecha_hora)}\n`;
         mensaje += `Hora: ${formatoHora(venta.fecha_hora)}\n`;
-        mensaje += `----------------------------\n\n`
+        mensaje += `----------------------------\n`
 
         // Datos del cliente si existe
         if (cliente) {
-            mensaje += "*DATOS DEL CLIENTE*\n";
+            mensaje += "*Datos del cliente*\n";
             mensaje += `Nombre: ${cliente.nombre || 'No especificado'}\n`;
-            if (cliente.whatsapp) mensaje += `WhatsApp: +549261${cliente.whatsapp}\n`;
-            if (cliente.nro_alternativo) mensaje += `Tel. Alternativo: ${cliente.nro_alternativo}\n`;
-            mensaje += ` ----------------------------\n\n`;
+            if (cliente.whatsapp) mensaje += `WhatsApp: +549(261)${cliente.whatsapp}\n`;
+            if (cliente.nro_alternativo) mensaje += `Tel. Alt: +549(261)${cliente.nro_alternativo}\n`;
+            mensaje += ` ----------------------------\n`;
         }
 
         // Artículos
-        mensaje += "*DETALLE DEL PEDIDO*\n";
+        mensaje += "*Detalle del pedido*\n";
         articulosCarrito.forEach(item => {
             mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
@@ -137,11 +137,13 @@ export function useResumenCarrito() {
 
         // Datos de entrega si existen
         if (venta.entrega) {
-            mensaje += `----------------------------\n\n`;
-            mensaje += '*DATOS DE ENTREGA*\n';
+            mensaje += `----------------------------\n`;
+            mensaje += '*Informacion de la entrega*\n';
             mensaje += `Dirección: ${direccion}\n`;
             mensaje += `Fecha: ${formatoFecha(entrega.fechayhora)}\n`;
             mensaje += `Hora: ${formatoHora(entrega.fechayhora)}\n`;
+            mensaje += `----------------------------\n`;
+            mensaje += ' ¡Gracias por su compra!'
         }
 
         return encodeURIComponent(mensaje);
