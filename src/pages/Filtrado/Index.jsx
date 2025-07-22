@@ -10,7 +10,7 @@ import AddCarrito from "../../components/AddCarrito/Index";
 function Filtrado() {
   const location = useLocation();
   const { id_cats, categoria } = location.state;
-  const { setBotonMenu, addCarrito, setCabecera, setAddCarrito, setLoader } = useContext(GlobalContext);
+  const { setBotonMenu, addCarrito, setCabecera, setAddCarrito, setLoader, botonVibrar } = useContext(GlobalContext);
   const { data, loading } = useArticulosPorSubcategorias(id_cats);
 
 
@@ -42,7 +42,7 @@ function Filtrado() {
                       key={arts.id_arts}
                       nombre={arts.articulo}
                       imagen={arts.imagenUrl || arts.imagen_articulo}
-                      onclick={() => setAddCarrito({ show: true, data: [arts] })}
+                      onclick={() => {botonVibrar(25);setAddCarrito({ show: true, data: [arts] })}}
                     />
 
                   ))}

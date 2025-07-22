@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import styles from "./TarjetasCategorias.module.css";
+import { GlobalContext } from "../../context/GlobalContext";
 
 function TarjetasCategorias({ nombre, imagen, onclick }) {
+const{botonVibrar}=useContext(GlobalContext)
+
     return (
         <section className={styles.tarjetaCategorias}>
-            <div className={styles.tarjetaCategorias__contenedor} onClick={onclick}>
+            <div className={styles.tarjetaCategorias__contenedor} onClick={()=>{botonVibrar(20);onclick()}}>
                 <div className={styles.tarjetaCategorias__imagenContenedor}>
                     <img
                         loading="lazy"
