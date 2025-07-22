@@ -67,6 +67,26 @@ function RsmCompra() {
                         </ul>
                     </div>
                 </div>
+                {venta?.entrega &&
+                <div className={styles.rsmCompra__principal__datonsenvio}>
+                    <div className={styles.div_izq}>
+                        <ul className={styles.items_izq}>
+                            <li>dia:</li>
+                            <li>hora:</li>
+                            {entrega?.mensaje && <li>mensaje:</li>}
+                        </ul>
+                    </div>
+
+                    <div className={styles.div_der}>
+                        <ul className={styles.items_der}>
+                            <li>{formatoFecha(entrega.fechayhora)}</li>
+                            <li>{formatoHora(entrega.fechayhora)}</li>
+                            {entrega?.mensaje && <li>{entrega.mensaje}</li>}
+                        </ul>
+                    </div>
+
+                </div>
+                }
 
 
 

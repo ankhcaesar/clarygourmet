@@ -83,14 +83,36 @@ export function useResumenCarrito() {
     const generarMensajeWhatsApp = () => {
         if (!venta || !articulosCarrito.length) return "";
 
+        // Construir la dirección si hay entrega
+        let direccion = "";
+        if (venta.entrega === true && cliente) {
+            const partesDireccion = [];
+            
+            if (cliente.calle && cliente.numero_calle) {
+                partesDireccion.push(`${cliente.calle} ${cliente.numero_calle}`);
+            }
+            
+            if (cliente.piso || cliente.depto) {
+                const pisoDepto = [cliente.piso, cliente.depto]
+                    .filter(Boolean)
+                    .join(" - ");
+                if (pisoDepto) partesDireccion.push(`(${pisoDepto})`);
+            }
+            
+            if (cliente.distrito) partesDireccion.push(cliente.distrito);
+            if (cliente.departamento) partesDireccion.push(cliente.departamento);
+            
+            direccion = partesDireccion.join(", ");
+        }
+
         // Encabezado
-        let mensaje = "            *NUEVO PEDIDO* \n\n";
+        let mensaje = "*NUEVO PEDIDO*\n\n";
 
         // Datos de la venta
         mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
         mensaje += `Fecha: ${formatoFecha(venta.fecha_hora)}\n`;
         mensaje += `Hora: ${formatoHora(venta.fecha_hora)}\n`;
-        mensaje += ` ----------------------------\n\n`
+        mensaje += `----------------------------\n\n`
 
         // Datos del cliente si existe
         if (cliente) {
@@ -106,7 +128,7 @@ export function useResumenCarrito() {
         articulosCarrito.forEach(item => {
             mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
-        mensaje += ` ----------------------------\n`;
+        mensaje += `----------------------------\n`;
 
 
         // Total
@@ -114,13 +136,12 @@ export function useResumenCarrito() {
         mensaje += ` TOTAL: *${formatomoneda(total, true)}*\n`;
 
         // Datos de entrega si existen
-        if (entrega) {
-            if (venta.entrega) mensaje += ` ----------------------------\n\n`;
-            if (venta.entrega) mensaje += "\n *DATOS DE ENTREGA*\n";
-            if (entrega.direccion) mensaje += `Dirección: ${entrega.direccion}\n`;
-            if (entrega.referencia) mensaje += `Referencia: ${entrega.referencia}\n`;
-            if (entrega.fechayhora) mensaje += `Fecha: ${formatoFecha(entrega.fechayhora)}\n`;
-            if (entrega.horario) mensaje += `Hora: ${entrega.horario}\n`;
+        if (venta.entrega) {
+            mensaje += `----------------------------\n\n`;
+            mensaje += '*DATOS DE ENTREGA*\n';
+            mensaje += `Dirección: ${direccion}\n`;
+            mensaje += `Fecha: ${formatoFecha(entrega.fechayhora)}\n`;
+            mensaje += `Hora: ${formatoHora(entrega.fechayhora)}\n`;
         }
 
         return encodeURIComponent(mensaje);

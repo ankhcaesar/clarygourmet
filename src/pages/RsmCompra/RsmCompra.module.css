@@ -29,7 +29,8 @@
 }
 
 .rsmCompra__principal__datostiket,
-.rsmCompra__principal__datoscliente {
+.rsmCompra__principal__datoscliente, 
+.rsmCompra__principal__datonsenvio {
     padding: var(--espacio-2);
     border-top: dashed 2px grey;
     display: flex;
