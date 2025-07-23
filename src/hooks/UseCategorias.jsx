@@ -9,6 +9,9 @@ export function useCategorias() {
 
     useEffect(() => {
         const fetchCategorias = async () => {
+
+        
+            
             setLoading(true);
             const { data, error } = await supabase
                 .from("categorias")

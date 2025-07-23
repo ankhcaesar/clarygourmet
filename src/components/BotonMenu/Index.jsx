@@ -1,29 +1,32 @@
-import { useContext } from "react"
 import styles from "./BotonMenu.module.css"
+import React, { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
 function BotonMenu({ destino, icono, ms }) {
     const { ir, botonMenu, botonVibrar } = useContext(GlobalContext)
 
     const claseIcono = botonMenu === destino
-        ? styles["boton-menu__icono--inactivo"]
-        : styles["boton-menu__icono--activo"]
+    const iconoEstilo = React.cloneElement(icono, {
+        className: claseIcono
+            ? styles["boton-menu__icono--inactivo"]
+            : styles["boton-menu__icono--activo"],
+        color: claseIcono ? "disabled" : "action"
+    });
+
+
 
     const handleClick = () => {
-        ir(destino)
+        botonVibrar(15);
+        ir(destino);
     }
 
     return (
         <button
-
             className={styles["boton-menu"]}
-            onClick={() => {
-                botonVibrar(15);
-                handleClick();
-            }}
+            onClick={() => { handleClick(); }}
             aria-label={`Ir a ${destino}`}
         >
-            <img src={icono} className={claseIcono} alt="" />
+            {iconoEstilo}
         </button>
     )
 }

@@ -72,12 +72,14 @@
 }
 
 .caja__descripcion h4 {
+    font-size: var(--texto-xl);
     font-weight: bold;
     text-transform: uppercase;
     padding: var(--espacio-4) 0 var(--espacio-2) 0;
 }
 
 .caja__descripcion p {
+    font-size: var(--texto-lg) ;
     height: 15%;
     margin: 0;
 }

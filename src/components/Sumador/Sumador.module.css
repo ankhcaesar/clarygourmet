@@ -9,8 +9,8 @@
     cursor: pointer;
     border: 1px solid var(--color-borde-formularios);
     box-shadow: var(--sombra-suave);
-    height: var(--espacio-5);
-    aspect-ratio: 1/2;
+    height: var(--espacio-6);
+    aspect-ratio: 2/2;
     padding: var(--espacio-1);
     border-radius: 3px;
     background: var(--color-primario);
@@ -20,12 +20,12 @@
     }
 
     && img {
-        width: var(--espacio-3);
+        width: var(--espacio-4);
     }
 }
 
 .principal__titulovalor {
-    font-size: var(--texto-base);
+    font-size: var(--texto-xl);
     font-weight: bold;
     text-align: center;
 }

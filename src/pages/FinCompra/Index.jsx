@@ -278,6 +278,7 @@ function FinCompra() {
                         type="submit"
                         label="Confirmar"
                         formulario="finCompraForm"
+                        onClick=""
                     />
                     <Boton
                         ancho="40%"

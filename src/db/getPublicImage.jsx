@@ -1,5 +1,6 @@
 import { supabase } from './supabaseclient';
 
+
 const IMAGE_CONFIG = {
   fallback: '/imgs/e404.jpg',
   bucket: import.meta.env.VITE_SUPABASE_STORAGE_BUCKET // debe ser 'images'

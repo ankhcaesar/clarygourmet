@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ScrollContainer.module.css";
+import { ArrowDropUp, ArrowDropDown, ArrowRight, ArrowLeft } from "@mui/icons-material";
 
 const iconos = {
-  up: "/icons/subir_negro.svg",
-  down: "/icons/bajar_negro.svg",
-  right: "/icons/ir_negro.svg",
-  left: "/icons/volver_negro.svg",
+  up: ArrowDropUp,
+  down: ArrowDropDown,
+  right: ArrowRight,
+  left: ArrowLeft,
 };
 
 export default function ScrollContainer({
@@ -56,7 +57,7 @@ export default function ScrollContainer({
 
   const renderArrow = (dir) => {
     const isPrev = dir === "prev";
-    const icon = isPrev
+    const IconComponent = isPrev
       ? iconos[isVertical ? "up" : "left"]
       : iconos[isVertical ? "down" : "right"];
     const positionClass = styles[isVertical
@@ -69,7 +70,7 @@ export default function ScrollContainer({
         onClick={() => scroll(dir)}
         aria-label={`Scroll ${dir}`}
       >
-        <img src={icon} alt={`Flecha ${dir}`} />
+        <IconComponent className={styles.arrowIcon} />
       </button>
     );
   };

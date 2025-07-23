@@ -1,20 +1,30 @@
 import styles from "./Cabecera.module.css"
-import iconoVolver from "/icons/volver_negro.svg"
 import { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
+import { ArrowBackIosNew } from "@mui/icons-material"
+import ProgressBall from "../ProgressBall"
 function Cabecera() {
     const { ir, cabecera } = useContext(GlobalContext)
-    const { titulo, origen } = cabecera 
+    const { titulo, origen } = cabecera
 
     return (
         <section className={styles.cabecera}>
             <button
-                className={styles.volver}
+                className={styles.cabecera__volver}
                 onClick={() => { ir(origen) }}
-            >  <img src={iconoVolver} alt="volver" />
+                aria-label="Volver"
+            >
+                <ArrowBackIosNew
+                    fontSize="medium"
+                    className={styles.iconoVolver}
+                />
             </button>
-            <div className={styles.titulo}>
+            <div className={styles.cabecera__titulo}>
                 <h2>{titulo}</h2>
+            </div>
+
+            <div className={styles.cabecera__estado}>
+                <ProgressBall/>
             </div>
         </section>
     )

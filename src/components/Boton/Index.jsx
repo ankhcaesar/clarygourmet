@@ -3,7 +3,7 @@ import styles from "./Boton.module.css"
 import { GlobalContext } from "../../context/GlobalContext"
 
 function Boton(props) {
-    const{botonVibrar}=useContext(GlobalContext)
+    const { botonVibrar } = useContext(GlobalContext)
     const { ancho, type, onClick, label, disabled, formulario } = props
     return (
         <button
@@ -11,7 +11,10 @@ function Boton(props) {
             style={{ width: `${ancho}` }}
             type={type}
             disabled={disabled}
-            onClick={()=>{botonVibrar(20);onClick()}}
+            onClick={() => {
+                botonVibrar(20);
+                {onClick && onClick();}
+            }}
             form={formulario}>
             {label}
         </button>
