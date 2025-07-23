@@ -38,12 +38,14 @@
 
 .principal__derecha__nombre {
    height: 15%;
-   font-size: var(--texto-lg);
+   font-size: var(--texto-xl);
+   font-weight: bold;
    margin: 0;
 }
 
 .principal__derecha__presentacion {
    height: 40%;
+   font-size: var(--texto-xl);
    padding-top:var(--espacio-1) ;
    font-size: var(--texto-base);
    color: #555;

@@ -13,11 +13,11 @@ function Sumador({ value, setValue, disabled }) {
         <section className={styles.principal}>
 
             <button className={styles.principal__resta} onClick={()=>{{botonVibrar(10);disminuir()}}} disabled={disabled}>
-                <Add fontSize="medium"/>
+                <Remove fontSize="medium"/>
             </button>
             <p className={styles.principal__titulovalor}>{value}</p>
             <button className={styles.principal__suma} onClick={()=>{{botonVibrar(10);aumentar()}}} disabled={disabled}>
-                <Remove fontSize="medium"/>
+                <Add fontSize="medium"/>
             </button>
 
 

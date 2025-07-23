@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ScrollContainer.module.css";
-import { ArrowDropUp, ArrowDropDown, ArrowRight, ArrowLeft } from "@mui/icons-material";
+import { ExpandLess, ExpandMore, ChevronLeft, ChevronRight } from "@mui/icons-material";
 
 const iconos = {
-  up: ArrowDropUp,
-  down: ArrowDropDown,
-  right: ArrowRight,
-  left: ArrowLeft,
+  up: ExpandLess,
+  down: ExpandMore,
+  right: ChevronRight,
+  left: ChevronLeft,
 };
 
 export default function ScrollContainer({
@@ -70,7 +70,7 @@ export default function ScrollContainer({
         onClick={() => scroll(dir)}
         aria-label={`Scroll ${dir}`}
       >
-        <IconComponent className={styles.arrowIcon} />
+        <IconComponent className={styles.arrowIcon} fontSize="medium"/>
       </button>
     );
   };
