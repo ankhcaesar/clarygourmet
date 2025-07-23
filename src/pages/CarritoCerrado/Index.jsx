@@ -20,7 +20,7 @@ function CarritoCerrado() {
             </div>
             <div className={styles.carritoCerrado__bienvenida}>
                 <p>En breve recibira un mensaje</p>
-                <p>confirmando el pedido</p>
+                <p>confirmando su pedido</p>
                 <p>....Gracias.</p>
             </div>
         </section>

@@ -116,7 +116,6 @@ export function useResumenCarrito() {
 
         // Datos del cliente si existe
         if (cliente) {
-            mensaje += "*Datos del cliente*\n";
             mensaje += `Nombre: ${cliente.nombre || 'No especificado'}\n`;
             if (cliente.whatsapp) mensaje += `WhatsApp: +549(261)${cliente.whatsapp}\n`;
             if (cliente.nro_alternativo) mensaje += `Tel. Alt: +549(261)${cliente.nro_alternativo}\n`;
@@ -124,7 +123,7 @@ export function useResumenCarrito() {
         }
 
         // Artículos
-        mensaje += "*Detalle del pedido*\n";
+        
         articulosCarrito.forEach(item => {
             mensaje += `${item.cant} x ${item.nombre}   ${formatomoneda(item.valor_x_cant)}\n`;
         });
@@ -143,7 +142,7 @@ export function useResumenCarrito() {
             mensaje += `Fecha: ${formatoFecha(entrega.fechayhora)}\n`;
             mensaje += `Hora: ${formatoHora(entrega.fechayhora)}\n`;
             mensaje += `----------------------------\n`;
-            mensaje += ' ¡Gracias por su compra!'
+            mensaje += ' ¡Gracias por su compra!\n'
         }
 
         return encodeURIComponent(mensaje);
