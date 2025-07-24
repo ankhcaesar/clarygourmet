@@ -13,7 +13,7 @@ function CarritoCerrado() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setMostrar(true);
-        }, 2500);
+        }, 3000);
         return () => clearTimeout(timeout);
     }, [mostrar]);
 
