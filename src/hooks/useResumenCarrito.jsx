@@ -172,7 +172,11 @@ export function useResumenCarrito() {
             if (!venta || articulosCarrito.length === 0) {
                 throw new Error("Faltan datos para finalizar la compra.");
             }
-            enviarWhatsApp();
+
+            
+            ir("carritocerrado");
+            setTimeout(() => enviarWhatsApp(), 30000);
+            
 
             // Subir cliente si existe
             if (cliente?.id_cli) {
@@ -220,8 +224,6 @@ export function useResumenCarrito() {
             // Limpiar todo
             await limpiarCarrito(id_vta, entrega);
 
-            ir("carritocerrado");
-            setTimeout(() => ir("inicio"), 30000);
         } catch (err) {
             console.warn("Error al finalizar compra:", err);
         } finally {

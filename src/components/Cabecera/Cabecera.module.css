@@ -22,12 +22,14 @@
     transition: transform 0.2s;
 }
 
-.volver:acthoive .iconoVolver {
+.volver:active .iconoVolver {
     transform: translateX(-9px);
 }
 
 .cabecera__titulo {
+    width: 100%;
     font-size: 1.5rem;
+    text-align: center;
     margin: 10px auto;
 
 }
