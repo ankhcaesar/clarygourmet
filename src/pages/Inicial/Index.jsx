@@ -17,7 +17,7 @@ function Inicial() {
     return (
         <section className={styles.inicial}>
             <div className={styles.inicial__logo}>
-                <img src={logo} alt="Logo" />
+                <img className={styles.inicial__logo_img} src={logo} alt="Logo" />
             </div>
             <div className={styles.inicial__bienvenida}>
                 <p>Gourmet</p>
