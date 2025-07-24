@@ -4,6 +4,7 @@
    width: 95%;
    height: 120px;
    display: flex;
+   align-items: center;
    background-color: rgba(243, 243, 239, 0.527);
    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
    margin: 5px 0;
@@ -12,28 +13,36 @@
 }
 
 .principal__cajaImagen {
-   flex: 0 0 30%;
    display: flex;
+   width: 40%;
+   height: 25%;
    justify-content: center;
    align-items: center;
    padding: 5px;
+   margin: 0 auto;
 }
 
 .principal__cajaImagen_imagen {
    width: 80%;
+   max-width: 110px;
+   min-width: 90px;
    aspect-ratio: 1/1;
    border: 0.5px solid rgba(128, 128, 128, 0.2);
    border-radius: 5px;
+   object-fit: cover;
+
 
 }
 
 .principal__derecha {
-   flex: 1 1 65%;
    display: flex;
+   flex: 1 1 0;
+   height: 100%;
    flex-direction: column;
    justify-content: space-evenly;
    padding: 8px;
    background-color: rgba(250, 235, 215, 0.377);
+   box-sizing: border-box;
 }
 
 .principal__derecha__nombre {
@@ -46,7 +55,7 @@
 .principal__derecha__presentacion {
    height: 40%;
    font-size: var(--texto-xl);
-   padding-top:var(--espacio-1) ;
+   padding-top: var(--espacio-1);
    font-size: var(--texto-base);
    color: #555;
 }
@@ -54,9 +63,21 @@
 .principal__derecha__sumadoryvalor {
    height: 30%;
    padding-right: var(--espacio-1);
+      font-size: var(--texto-xl);
+      font-weight: bold;
    display: flex;
    flex-direction: row-reverse;
    justify-content: flex-start;
    align-items: center;
    gap: 20px;
+}
+
+@media screen and (min-width: 900px) {
+
+   .principal__cajaImagen {
+      flex: 0 0 21%;
+   }
+.principal__derecha {
+   padding: 12px;
+}
 }

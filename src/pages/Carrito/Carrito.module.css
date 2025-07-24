@@ -35,8 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
- 
-    bottom: 90px;
+    bottom: 110px;
     width: 100%;
     height: 9vh;
     height: 9dvh;
@@ -47,10 +46,12 @@
 .carrito__subTotales {
     width: 90%;
     border-bottom: 1px solid black;
+    margin: 0 5px;
 }
 
 .carrito__subTotales p {
     margin: 0.625rem 0 0 0;
+    padding-bottom:5px ;
 }
 
 .carrito__totalCompra {
@@ -58,13 +59,12 @@
     display: flex;
     justify-content: flex-end;
     font-weight: bold;
+    padding-top: 5px;
 }
-
-
 
 .carrito__botones {
     position: absolute;
-    bottom: var(--desdeabajo-1);
+    bottom: var(--desdeabajo-1-5);
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -74,30 +74,24 @@
 
 
 
-@media (max-width: var(--movil)) {
+@media screen and (min-width: 1025px) {
 
-
-    .carrito__listaArticulos {
-        width: 100%;
-        gap: 0.4rem;
-    }
-
-    .carrito__totales {
-        width: 100%;
-        padding: 0 5px;
-    }
-}
-
-@media (max-width: var(--tablet)) {
     .carrito__principal {
-        padding-bottom: var(--espacio-2-5);
+        padding-bottom: var(--espacio-3);
     }
 
     .carrito__listaArticulos {
-        gap: 0.5rem;
+        gap: 1rem;
     }
 
     .carrito__totales {
         width: 95%;
+            bottom: 120px;
     }
+
+
+.carrito__botones {
+        bottom: var(--desdeabajo-2);
+
+}
 }
