@@ -1,29 +1,53 @@
 import styles from "./CarritoCerrado.module.css"
 import logo from "/imgs/logo.png"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
+import logoWP from "/imgs/wp.webp"
+import { useResumenCarrito } from "../../hooks/useResumenCarrito"
 
 function CarritoCerrado() {
-    const { ir } = useContext(GlobalContext)
+    const { ir } = useContext(GlobalContext);
+    const [mostrar, setMostrar] = useState(false)
+    const{enviarWhatsApp}=useResumenCarrito();
 
-   /* useEffect(() => {
+    useEffect(() => {
         const timeout = setTimeout(() => {
-            ir("inicio");
-        }, 3500);
+            setMostrar(true);
+        }, 2000);
         return () => clearTimeout(timeout);
-    }, [ir]);
-    */
+    }, [mostrar]);
+
 
     return (
         <section className={styles.carritoCerrado}>
-            <div className={styles.carritoCerrado__logo}>
-                <img src={logo} alt="Logo" />
+
+            <div className={styles.carritoCerrado__arriba}>
+                <div className={styles.carritoCerrado__logo}>
+                    <img className={styles.carritoCerrado__logo_img} src={logo} alt="Logo" />
+                </div>
+
+                <div className={styles.carritoCerrado__mensaje}>
+                    <p className={styles.carritoCerrado__mensaje_mensaje}>En breve recibira un mensaje confirmando su pedido</p>
+                    <p className={styles.carritoCerrado__mensaje_saludo}>....Gracias.</p>
+                </div>
             </div>
-            <div className={styles.carritoCerrado__bienvenida}>
-                <p>En breve recibira un mensaje</p>
-                <p>confirmando su pedido</p>
-                <p>....Gracias.</p>
+            {mostrar && <div className={styles.mensaje_wp}>
+
+                <button className={styles.mensaje_wp_boton} onClick={enviarWhatsApp}>
+                    <img src={logoWP} alt="enviar pedido" />
+                </button>
+
+                <p className={styles.mensaje_wp_mensaje}> si no se abrió tu whatsapp,
+                    presiona el boton para terminar la compra</p>
             </div>
+
+            }
+            <div className={styles.carritoCerrado__bajo}>
+
+
+            </div>
+
+
         </section>
     )
 
