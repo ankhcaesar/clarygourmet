@@ -56,6 +56,7 @@ function GlobalContextProvider({ children }) {
 
     //limpiar Carrito
     async function limpiarCarrito(id_vta, entrega) {
+        
         try {
             await db.carrito.where({ id_vta }).delete();
             await db.ventas.delete(id_vta);

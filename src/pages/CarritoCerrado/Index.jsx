@@ -8,12 +8,12 @@ import { useResumenCarrito } from "../../hooks/useResumenCarrito"
 function CarritoCerrado() {
     const { ir } = useContext(GlobalContext);
     const [mostrar, setMostrar] = useState(false)
-    const{enviarWhatsApp}=useResumenCarrito();
+    const { enviarWhatsApp } = useResumenCarrito();
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             setMostrar(true);
-        }, 2000);
+        }, 2500);
         return () => clearTimeout(timeout);
     }, [mostrar]);
 
@@ -31,23 +31,15 @@ function CarritoCerrado() {
                     <p className={styles.carritoCerrado__mensaje_saludo}>....Gracias.</p>
                 </div>
             </div>
-            {mostrar && <div className={styles.mensaje_wp}>
-
-                <button className={styles.mensaje_wp_boton} onClick={enviarWhatsApp}>
-                    <img src={logoWP} alt="enviar pedido" />
-                </button>
-
-                <p className={styles.mensaje_wp_mensaje}> si no se abrió tu whatsapp,
-                    presiona el boton para terminar la compra</p>
-            </div>
-
+            {mostrar &&
+                <div className={styles.mensaje_wp}>
+                    <p className={styles.mensaje_wp_mensaje}> si no se abrió tu whatsapp,
+                        presiona el boton para terminar la compra</p>
+                    <button className={styles.mensaje_wp_boton} onClick={enviarWhatsApp}>
+                        <img src={logoWP} alt="enviar pedido" />
+                    </button>
+                </div>
             }
-            <div className={styles.carritoCerrado__bajo}>
-
-
-            </div>
-
-
         </section>
     )
 
