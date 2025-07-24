@@ -17,6 +17,9 @@ function CarritoCerrado() {
         return () => clearTimeout(timeout);
     }, [mostrar]);
 
+    setTimeout(() => {
+        ir("inicial");
+    }, 3000);
 
     return (
         <section className={styles.carritoCerrado}>
