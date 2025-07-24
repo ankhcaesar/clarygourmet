@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import ScrollContainer from "../../components/ScrollContaiiner/Index";
 import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito";
+import { ProductionQuantityLimits } from "@mui/icons-material";
 
 function Carrito() {
     const { setBotonMenu, formatomoneda, setLoader, setCabecera, itemsCarrito, limpiarCarrito, ir } = useContext(GlobalContext);
@@ -24,7 +25,12 @@ function Carrito() {
 
             <section className={styles.carrito__principal}>
                 {articulosCarrito.length === 0 ? (
-                    <p>No hay productos para mostrar.</p>
+                    <div className={styles.carrito__principal__mensaje}>
+                        <ProductionQuantityLimits fontSize="large" sx={{color:"red"}}/>
+                        <p className={styles.carrito__principal__mensaje_mensaje}>No hay productos para mostrar.</p>
+                    </div>
+
+
                 ) : (
                     <div className={styles.carrito__listaArticulos}>
                         <ScrollContainer direction="vertical" scrollStep={200}>

@@ -17,6 +17,15 @@
     padding-bottom: var(--espacio-4);
 }
 
+.carrito__principal__mensaje{
+    width: 50%;
+    height: calc(100dvh - 12.50rem);
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 2vh;
+}
 .carrito__listaArticulos {
     width: 95%;
     height: calc(100dvh - 12.50rem);
