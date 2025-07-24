@@ -1,5 +1,5 @@
 import styles from "./Inicial.module.css"
-import logo from "/imgs/logo.png"
+import logo from "/imgs/logo.webp"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 

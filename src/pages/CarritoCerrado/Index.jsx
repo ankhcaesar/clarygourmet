@@ -1,5 +1,5 @@
 import styles from "./CarritoCerrado.module.css"
-import logo from "/imgs/logo.png"
+import logo from "/imgs/logo.webp"
 import { useContext, useEffect, useState } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import logoWP from "/imgs/wp.webp"

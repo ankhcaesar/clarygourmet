@@ -175,7 +175,7 @@ export function useResumenCarrito() {
 
             
             ir("carritocerrado");
-            setTimeout(() => enviarWhatsApp(), 2000);
+            setTimeout(() => enviarWhatsApp(), 1700);
             
 
             // Subir cliente si existe
