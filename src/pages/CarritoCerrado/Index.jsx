@@ -6,12 +6,13 @@ import { GlobalContext } from "../../context/GlobalContext"
 function CarritoCerrado() {
     const { ir } = useContext(GlobalContext)
 
-    useEffect(() => {
+   /* useEffect(() => {
         const timeout = setTimeout(() => {
             ir("inicio");
         }, 3500);
         return () => clearTimeout(timeout);
     }, [ir]);
+    */
 
     return (
         <section className={styles.carritoCerrado}>
