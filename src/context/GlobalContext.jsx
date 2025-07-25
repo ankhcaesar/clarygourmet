@@ -1,7 +1,11 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { useSyncFromSupabase } from "../db/syncserv" //delgrancambio
 import db from "../db/db";
+
 export const GlobalContext = createContext();
+
 
 function GlobalContextProvider({ children }) {
 
@@ -15,6 +19,7 @@ function GlobalContextProvider({ children }) {
         id_vta: null
     });
 
+const { loading, error } = useSyncFromSupabase(true); //del gran cambio
 
     //funcion vibrar
     function botonVibrar(ms) {
@@ -23,7 +28,6 @@ function GlobalContextProvider({ children }) {
         }
     }
     // fin funcion vibrar
-
 
     //funcion ir
     function ir(destino, opciones = {}) {
@@ -86,10 +90,7 @@ function GlobalContextProvider({ children }) {
     // Fin Loader
 
 
-
-
     // funcion formato moneda 
-
     function formatomoneda(valor, esmonetario = false) {
         const opciones = {
             minimumFractionDigits: 0,
@@ -118,7 +119,6 @@ function GlobalContextProvider({ children }) {
 
 
     // Funcion formato fecha y hora
-
     function formatoFecha(dateTime) {
         const date = new Date(dateTime);
         const dia = String(date.getDate()).padStart(2, '0');
@@ -135,7 +135,6 @@ function GlobalContextProvider({ children }) {
 
         return `${hora}:${minutos}`;
     };
-
     // fin formato fechay hora
 
 

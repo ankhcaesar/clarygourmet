@@ -4,14 +4,12 @@ import Boton from "../../components/Boton/Index";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import ScrollContainer from "../../components/ScrollContaiiner/Index";
-import { UseArticulosCarrito } from "../../hooks/UseArticulosCarrito";
+import { useArticulosCarrito } from "../../hooks/useArticulosCarrito";
 import { ProductionQuantityLimits } from "@mui/icons-material";
 
 function Carrito() {
     const { setBotonMenu, formatomoneda, setLoader, setCabecera, itemsCarrito, limpiarCarrito, ir } = useContext(GlobalContext);
-    const { articulosCarrito, loading } = UseArticulosCarrito();
-
-    const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_total, 0);
+    const { articulosCarrito, totalVenta, loading } = useArticulosCarrito(itemsCarrito.id_vta);
 
     useEffect(() => {
         setBotonMenu("carrito");
@@ -46,7 +44,7 @@ function Carrito() {
                         <p>Cantidad de productos: {itemsCarrito.totalItems}</p>
                     </div>
                     <div className={styles.carrito__totalCompra}>
-                        <p>TOTAL COMPRA: {formatomoneda(totalCompra, true)}</p>
+                        <p>TOTAL COMPRA: {formatomoneda(totalVenta, true)}</p>
                     </div>
                 </div>
             </section>

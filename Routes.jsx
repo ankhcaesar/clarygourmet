@@ -4,8 +4,7 @@ import { lazy, Suspense } from "react";
 import Inicial from "./src/pages/Inicial/Index"
 import E404 from "./src/pages/E404/Index"
 import Categorias from "./src/pages/Categorias/Index"
-//import Filtrado from "./src/pages/Filtrado/Index"
-//import Carrito from "./src/pages/Carrito/Index"
+
 import FinCompra from "./src/pages/FinCompra/Index"
 import RsmCompra from "./src/pages/RsmCompra/Index"
 import CarritoCerrado from "./src/pages/CarritoCerrado/Index"
@@ -18,6 +17,7 @@ const Filtrado = lazy(() => import("./src/pages/Filtrado/Index"));
 function AppRoute() {
     return (
         <BrowserRouter>
+        <Suspense fallback={null}>
             <Routes>
                 <Route element={<LayoutApp />}>
                     <Route index element={<Inicial />} />
@@ -31,6 +31,7 @@ function AppRoute() {
 
                 </Route>
             </Routes>
+            </Suspense>
         </BrowserRouter>
     )
 }

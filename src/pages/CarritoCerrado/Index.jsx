@@ -18,7 +18,7 @@ function CarritoCerrado() {
     }, [mostrar]);
 
     setTimeout(() => {
-        ir("inicial");
+        ir("inicio");
     }, 3000);
 
     return (

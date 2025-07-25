@@ -6,7 +6,7 @@ import { UseAddVenta } from "../../hooks/UseAddVenta"
 
 
 const TarjetasCarrito = React.memo(({
-    id_arts, articulo, presentacion, imagen, valor_unit, cantidad
+    id_arts, nombreArts, presentacion, imagen, valor_unit, cantidad
 })=> {
     const [cant, setCant] = useState(cantidad);
     const { formatomoneda } = useContext(GlobalContext);
@@ -33,10 +33,10 @@ useEffect(() => {
     return (
         <section className={styles.principal}>
             <div className={styles.principal__cajaImagen}>
-                <img loading="lazy" className={styles.principal__cajaImagen_imagen} src={imagen} alt={articulo} />
+                <img loading="lazy" className={styles.principal__cajaImagen_imagen} src={imagen} alt={nombreArts} />
             </div>
             <div className={styles.principal__derecha}>
-                <h3 className={styles.principal__derecha__nombre}>{articulo}</h3>
+                <h3 className={styles.principal__derecha__nombre}>{nombreArts}</h3>
                 <div className={styles.principal__derecha__presentacion}>
                     {presentacion}
                 </div>

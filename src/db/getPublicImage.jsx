@@ -3,7 +3,7 @@ import { supabase } from './supabaseclient';
 
 const IMAGE_CONFIG = {
   fallback: '/imgs/e404.webp',
-  bucket: import.meta.env.VITE_SUPABASE_STORAGE_BUCKET // debe ser 'images'
+  bucket: import.meta.env.VITE_SUPABASE_STORAGE_BUCKET
 };
 
 export async function getPublicImage(folder, imageName) {
@@ -33,7 +33,6 @@ export async function getPublicImage(folder, imageName) {
 
     return publicUrl;
   } catch (error) {
-    //*console.warn(`Imagen no disponible: ${folder}/${imageName}. Usando fallback.`, error);
     return IMAGE_CONFIG.fallback;
   }
 }

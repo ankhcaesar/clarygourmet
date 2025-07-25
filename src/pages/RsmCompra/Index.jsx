@@ -5,10 +5,9 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { useResumenCarrito } from "../../hooks/useResumenCarrito";
 
 function RsmCompra() {
-    const { formatomoneda, formatoFecha, formatoHora, itemsCarrito, setBotonMenu, setCabecera } = useContext(GlobalContext);
-    const { cliente, entrega, venta, articulosCarrito, finalizarCompra } = useResumenCarrito();
-    const totalCompra = articulosCarrito.reduce((acc, art) => acc + art.valor_x_cant, 0);
-
+    const { formatomoneda, formatoFecha, formatoHora, setBotonMenu, setCabecera } = useContext(GlobalContext);
+    const { cliente, entrega, venta, articulosCarrito = [], finalizarCompra } = useResumenCarrito();
+    const totalCompra = venta?.total_venta || 0
     useEffect(() => {
         setBotonMenu("");
         setCabecera((prev) => ({ ...prev, titulo: "Clary Gourmet", origen: "fin" }));
@@ -69,7 +68,7 @@ function RsmCompra() {
                         </ul>
                     </div>
                 </div>
-                {venta?.entrega &&
+                {venta?.entrega && entrega && 
                     <div className={styles.contenedor_datosdelacompra}>
                         <div className={styles.rsmCompra__principal__datonsenvio}>
                             <div className={styles.div_izq}>
@@ -106,7 +105,7 @@ function RsmCompra() {
                             </tr>
                         </thead>
                         <tbody>
-                            {articulosCarrito.map((item) => (
+                            {articulosCarrito?.map((item) => (
                                 <tr key={`${item.id_arts}-${item.cant}`}>
                                     <td className={styles.titulos}>{item.cant}</td>
                                     <td className={styles.col_articulo}>{item.nombre}</td>
