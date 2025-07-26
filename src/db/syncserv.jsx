@@ -3,9 +3,6 @@ import db from "./db";
 import { getPublicImage } from "./getPublicImage";
 import { supabase } from "./supabaseclient";
 
-// pasa usarlo importarlo en el primer render:
-//const { loading, error } = useSyncFromSupabase(true);
-
 export const useSyncFromSupabase = (autoSync = false) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
