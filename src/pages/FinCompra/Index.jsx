@@ -285,7 +285,7 @@ function FinCompra() {
                         type="reset"
                         label="Limpiar"
                         formulario="finCompraForm"
-                        disabled={!form.envio_a_domicilio }
+                        disabled={!form.envio_a_domicilio}
 
                     />
                 </div>
