@@ -3,7 +3,7 @@ import BotonMenu from "../BotonMenu/Index"
 import { useContext, useEffect } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 import { UseAddVenta } from "../../hooks/UseAddVenta"
-import {Home, Category, ShoppingCart} from "@mui/icons-material"
+import {Home, Search, ShoppingCart} from "@mui/icons-material"
 
 function Menu() {
     const { itemsCarrito } = useContext(GlobalContext)
@@ -23,7 +23,7 @@ function Menu() {
             />
             <BotonMenu
                 destino="categorias"
-                icono={Category}
+                icono={Search}
             />
             <div className={styles.menu__carrito}>
                 <BotonMenu
