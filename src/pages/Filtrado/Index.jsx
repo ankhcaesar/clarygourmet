@@ -6,6 +6,8 @@ import { useArticulosPorSubcategorias } from "../../hooks/useArticulosPorSubcate
 import ScrollContainer from "../../components/ScrollContaiiner/Index";
 import TarjetasProductos from "../../components/TarjetasProductos/Index";
 import AddCarrito from "../../components/AddCarrito/Index";
+import { ProductionQuantityLimits } from "@mui/icons-material";
+
 
 function Filtrado() {
   const location = useLocation();
@@ -28,31 +30,42 @@ function Filtrado() {
   return (
     <section className={styles.filtrado}>
       <section className={styles.filtrado__principal}>
+        {data.length === 0 ? (
+          <div className={styles.carrito__principal__mensaje}>
+            <ProductionQuantityLimits fontSize="large" sx={{ color: "red" }} />
+            <p className={styles.carrito__principal__mensaje_mensaje}>No hay productos para mostrar.</p>
+          </div>
+        ) : (
+          <ScrollContainer direction="vertical" scrollStep={260}>
+            {data.map((grupo) => (
+              <section key={grupo.id_subcats} className={styles.filtrado__subcats}>
+                <h2 className={styles.filtrado__titulo}>{grupo.sub_categorias}</h2>
+                {grupo.articulos.length === 0 ? (
+                  <div className={styles.carrito__principal__mensaje}>
+                    <ProductionQuantityLimits fontSize="large" sx={{ color: "red" }} />
+                    <p className={styles.carrito__principal__mensaje_mensaje}>No hay productos para mostrar.</p>
+                  </div>
+                ) : (
+                  <div className={styles.filtrado__articulos}>
+                    <ScrollContainer direction="horizontal" scrollStep={400}>
+                      {grupo.articulos.map((arts) => (
+                        <TarjetasProductos
+                          key={arts.id_arts}
+                          nombre={arts.articulo}
+                          imagen={arts.imagenUrl || arts.imagen_articulo}
+                          onclick={() => { botonVibrar(25); setAddCarrito({ show: true, data: [arts] }) }}
+                        />
 
-        <ScrollContainer direction="vertical" scrollStep={260}>
+                      ))}
+                    </ScrollContainer>
+                  </div>
+                )}
 
-          {data.map((grupo) => (
-            <section key={grupo.id_subcats} className={styles.filtrado__subcats}>
-              <h2 className={styles.filtrado__titulo}>{grupo.sub_categorias}</h2>
-              <div className={styles.filtrado__articulos}>
-                <ScrollContainer direction="horizontal" scrollStep={400}>
+              </section>
 
-                  {grupo.articulos.map((arts) => (
-                    <TarjetasProductos
-                      key={arts.id_arts}
-                      nombre={arts.articulo}
-                      imagen={arts.imagenUrl || arts.imagen_articulo}
-                      onclick={() => {botonVibrar(25);setAddCarrito({ show: true, data: [arts] })}}
-                    />
-
-                  ))}
-                </ScrollContainer>
-              </div>
-
-            </section>
-
-          ))}
-        </ScrollContainer>
+            ))}
+          </ScrollContainer>
+        )}
       </section>
       {addCarrito.show && <AddCarrito data={addCarrito.data} />}
     </section>

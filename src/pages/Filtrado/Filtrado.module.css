@@ -24,6 +24,19 @@
   -ms-overflow-style: none;
 }
 
+.carrito__principal__mensaje{
+  align-self: center;
+    width: 50%;
+    height: 20vh;
+    height: 20dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 2vh;
+}
+
+
 .filtrado__principal::-webkit-scrollbar {
   display: none;
 }
