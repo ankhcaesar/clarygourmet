@@ -31,7 +31,7 @@ export function useMensajeWhatsapp({ venta, cliente, entrega, articulosCarrito }
 
         if (cliente) {
             mensaje += `Nombre: ${cliente.nombre || "No especificado"}\n`;
-            if (cliente.whatsapp) mensaje += `Wp: +549(261)${cliente.whatsapp}\n`;
+            if (cliente.whatsapp) mensaje += `Wp: +549 ${cliente.whatsapp}\n`;
             if (cliente.nro_alternativo) mensaje += `Tel. Alt: +549 ${cliente.nro_alternativo}\n`;
             mensaje += `- - - - - - - - - - - - - - - - - - -\n`;
         }

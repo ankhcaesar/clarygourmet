@@ -63,7 +63,7 @@ function RsmCompra() {
                     <div className={styles.div_der}>
                         <ul className={styles.items_der}>
                             <li>{cliente?.nombre}</li>
-                            {cliente?.whatsapp && <li>+549 (261){cliente.whatsapp}</li>}
+                            {cliente?.whatsapp && <li>+549 {cliente.whatsapp}</li>}
                             {cliente?.nro_alternativo && <li>+549 {cliente.nro_alternativo}</li>}
                         </ul>
                     </div>
