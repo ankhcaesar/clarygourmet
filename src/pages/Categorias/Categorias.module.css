@@ -10,7 +10,7 @@
 
 .categorias__principal {
   margin: var(--espacio-4);
-  gap: var(--espacio-4-75);
+  gap: var(--espacio-1);
   display: flex;
   flex-direction: column;
   overflow-y: auto;

@@ -14,7 +14,7 @@
 
 .principal__cajaImagen {
    display: flex;
-   width: 30%;
+   width: 25%;
    justify-content: center;
    align-items: center;
    padding: 5px;
@@ -22,21 +22,20 @@
 }
 
 .principal__cajaImagen_imagen {
-   width: 85%;
-   aspect-ratio: 3/2;
+   width: 99%;
+   aspect-ratio: 1/1;
    background-size:contain ;
    background-position: center;
    background-repeat: no-repeat;
    border: none ;
    border-radius: 5px;
-
-
 }
 
 .principal__derecha {
+   
+   height: 100%;
    display: flex;
    flex: 1 1 0;
-   height: 100%;
    flex-direction: column;
    justify-content: space-evenly;
    padding: 8px;
@@ -45,10 +44,11 @@
 }
 
 .principal__derecha__nombre {
-   height: 15%;
+   height: 20%;
    font-size: var(--texto-xl);
    font-weight: bold;
    margin: 0;
+   overflow: hidden;
 }
 
 .principal__derecha__presentacion {
