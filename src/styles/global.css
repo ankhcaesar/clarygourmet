@@ -6,16 +6,15 @@
     user-select: none;
 }
 
-/* Imágenes: bloquear arrastre */
+/* Imágenes: bloquear arrastre 
 img {
     pointer-events: none;
     -webkit-user-drag: none;
     user-drag: none;
 }
 
-/* Opcional: evitar que se copien elementos */
+ Opcional: evitar que se copien elementos 
 body {
-    -webkit-touch-callout: none;
-    /* Evita menú en iOS */
+   -webkit-touch-callout: none;
+    /* Evita menú en iOS 
 }
-
