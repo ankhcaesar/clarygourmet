@@ -12,7 +12,7 @@ export async function getPublicImage(folder, imageName) {
   try {
     const { data, error } = supabase.storage
       .from(IMAGE_CONFIG.bucket)
-      .getPublicUrl(`${folder}/${imageName}.jpg`);
+      .getPublicUrl(`${folder}/${imageName}.webp`);
 
     if (error || !data?.publicUrl) throw new Error('Error al obtener la URL pública');
 
