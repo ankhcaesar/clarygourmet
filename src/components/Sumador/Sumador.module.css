@@ -15,7 +15,10 @@
     border-radius: 5px;
     background: var(--color-primario);
 
-    &&:active {
+
+  
+.principal__resta,
+.principal__suma{}:active {
         box-shadow: var(--sombra-suave-activa);
     }
 

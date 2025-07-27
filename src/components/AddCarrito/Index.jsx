@@ -27,7 +27,6 @@ function AddCarrito({ data }) {
             limpiarAddCarrito();
         } catch (error) {
             console.error("Error al agregar producto a la venta:", error);
-            // Podés mostrar un popup de error si querés
         }
     };
 
@@ -43,7 +42,10 @@ function AddCarrito({ data }) {
             <div className={styles.caja} onClick={onclick}>
 
                 <div className={styles.caja__imagen}>
-                    <img className={styles.caja__imagen__imagen} src={imagenUrl} alt={articulo} />
+                    <div
+                        className={styles.caja__imagen__imagen}
+                        style={{ backgroundImage: `url(${imagenUrl})` }}
+                    > </div>
                 </div>
 
                 <div className={styles.caja__pie}>
@@ -55,7 +57,7 @@ function AddCarrito({ data }) {
                     <h4>{articulo}</h4>
                     <p className={styles.caja__descripcion__textodescipcion}>{descripcion}</p>
                 </div>
-                
+
                 <div className={styles.caja__cantidad}>
                     <p className={styles.caja__cantidad__titulo}>Cantidad</p>
                     <Sumador

@@ -100,11 +100,11 @@ function FinCompra() {
 
             <section className={styles.finCompra__principal}>
 
-                <form 
-                    className={styles.finCompra__formulario} 
+                <form
+                    className={styles.finCompra__formulario}
                     onSubmit={handleSubmit}
                     id="finCompraForm"
-                    >
+                >
 
                     <h3 className={styles.finCompra__titulo}>Datos del cliente</h3>
                     <div className={styles.fincompra_formulario_01}>
@@ -285,6 +285,8 @@ function FinCompra() {
                         type="reset"
                         label="Limpiar"
                         formulario="finCompraForm"
+                        disabled={!form.envio_a_domicilio }
+
                     />
                 </div>
             </section>

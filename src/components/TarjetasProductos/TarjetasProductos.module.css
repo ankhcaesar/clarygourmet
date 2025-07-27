@@ -22,7 +22,7 @@
 }
 
 .producto__caja:active {
-    box-shadow: var(--sombra-suave-activa);
+  box-shadow: var(--sombra-suave-activa);
   transform: scale(0.98);
 }
 
@@ -39,8 +39,12 @@
 
 .producto__imagen {
   width: 99%;
+  aspect-ratio: 1/1;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   height: auto;
-  object-fit:contain;
+  object-fit: contain;
   border-radius: var(--espacio-1);
 }
 
@@ -48,10 +52,10 @@
   display: flex;
   justify-content: center;
   background-color: rgba(243, 243, 239, 1);
-    padding: var(--espacio-3) 0 var(--espacio-1) 0; 
+  padding: var(--espacio-3) 0 var(--espacio-1) 0;
 
   width: 100%;
-  
+
 }
 
 .producto__titulo {
@@ -59,6 +63,3 @@
   margin: 0;
   color: inherit;
 }
-
-
-

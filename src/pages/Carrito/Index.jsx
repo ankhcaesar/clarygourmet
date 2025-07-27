@@ -55,6 +55,7 @@ function Carrito() {
                     ancho="40%"
                     type="submit"
                     label="Cerrar compra"
+                    disabled={articulosCarrito.length === 0 ? true : false}
                     onClick={() => ir("fin")}
                 />
                 <Boton

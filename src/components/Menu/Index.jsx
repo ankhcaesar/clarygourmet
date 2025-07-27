@@ -19,16 +19,16 @@ function Menu() {
         <section className={styles.menu}>
             <BotonMenu
                 destino="inicio"
-                icono={<Home fontSize="medium"/>}
+                icono={Home}
             />
             <BotonMenu
                 destino="categorias"
-                icono={<Category fontSize="medium"/>}
+                icono={Category}
             />
             <div className={styles.menu__carrito}>
                 <BotonMenu
                     destino="carrito"
-                    icono={<ShoppingCart fontSize="medium"/>}
+                    icono={ShoppingCart}
                 />
                 {itemsCarrito.totalItems > 0 && (
                     <div className={styles.menu__cantidad}>
