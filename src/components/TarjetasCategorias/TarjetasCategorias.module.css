@@ -17,6 +17,7 @@
         transition: box-shadow 0.3s, transform 0.3s;
         overflow: hidden;
         background-color: var(--color-primario);
+
     }
 
     .tarjetaCategorias__contenedor:active {

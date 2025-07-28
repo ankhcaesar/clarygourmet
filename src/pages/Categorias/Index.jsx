@@ -18,12 +18,15 @@ function Categorias() {
         setLoader({ show: loading });
     }, [loading]);
 
+  
     return (
         <section className={styles.categorias}>
 
             <ScrollContainer direction="vertical" scrollStep={200}>
                 <section className={styles.categorias__principal}>
-                    {categorias.map((cat) => (
+                    {categorias
+                    .filter(cat=> cat.disponible)
+                    .map((cat) => (
                         <TarjetasCategorias
                             key={cat.id_cats}
                             nombre={cat.categoria}

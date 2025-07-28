@@ -6,10 +6,6 @@ function BotonMenu({ destino, icono: Icono , ms }) {
     const { ir, botonMenu, botonVibrar } = useContext(GlobalContext)
  
 
-    const claseIcono = botonMenu === destino
-
-
-
     const estaActivo = botonMenu === destino
 
 
