@@ -11,7 +11,7 @@ function GlobalContextProvider({ children }) {
 
     // Variables
     const navigate = useNavigate();
-    const [botonMenu, setBotonMenu] = useState("principal");
+    const [botonMenu, setBotonMenu] = useState("princinicialal");
     const [cabecera, setCabecera] = useState({ "titulo": "Clary Gourmet", "origen": "inicio" });
 
     const [itemsCarrito, setItemsCarrito] = useState({

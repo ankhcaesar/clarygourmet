@@ -5,6 +5,7 @@ import { GlobalContext } from "../../context/GlobalContext"
 
 function Inicial() {
     const { ir, setCabecera  } = useContext(GlobalContext)
+    
 
     useEffect(() => {
         const timeout = setTimeout(() => {

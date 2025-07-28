@@ -18,7 +18,7 @@ function Filtrado() {
 
   useEffect(() => {
     setBotonMenu("subcategorias");
-    setCabecera((prev) => ({ ...prev, titulo: "Subcategorias", origen: "categorias" }));
+    setCabecera((prev) => ({ ...prev, titulo: categoria, origen: "categorias" }));
 
     if (loading) {
       setLoader({ show: true });

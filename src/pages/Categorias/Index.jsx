@@ -9,6 +9,7 @@ function Categorias() {
     const { setBotonMenu, ir, setLoader } = useContext(GlobalContext);
 
     useEffect(() => {
+        
         setBotonMenu("categorias");
     }, []);
 

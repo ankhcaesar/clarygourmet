@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
 
 function BotonMenu({ destino, icono: Icono , ms }) {
-    const { ir, botonMenu, botonVibrar } = useContext(GlobalContext)
+    const { ir, botonMenu, botonVibrar, setCabecera } = useContext(GlobalContext)
  
 
     const estaActivo = botonMenu === destino
@@ -12,6 +12,7 @@ function BotonMenu({ destino, icono: Icono , ms }) {
     const handleClick = () => {
         botonVibrar(ms || 15);
         ir(destino);
+        setCabecera((prev) => ({ ...prev, titulo: destino}));
     }
 
     return (
