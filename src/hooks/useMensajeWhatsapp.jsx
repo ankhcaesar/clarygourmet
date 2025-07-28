@@ -24,9 +24,9 @@ export function useMensajeWhatsapp({ venta, cliente, entrega, articulosCarrito }
         }
 
         let mensaje = "*Clary Gourmet Mendoza*\n";
-        mensaje += 'whatsapp: (261) 2441084\n';
-        mensaje += 'Instagram: @clarygourmetmza\n\n';
-        mensaje += 'NUEVO PEDIDO*\n';
+        mensaje += 'Wp: +5492612441084\n';
+        mensaje += 'Insta: @clarygourmetmza\n\n';
+        mensaje += 'NUEVO PEDIDO\n';
         mensaje += `ID: ${venta.id_vta.toString().slice(-10)}\n`;
         mensaje += `Fecha: ${formatoFecha(venta.fecha_hora)}\n`;
         mensaje += `Hora: ${formatoHora(venta.fecha_hora)}\n`;
