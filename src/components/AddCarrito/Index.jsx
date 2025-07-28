@@ -14,7 +14,7 @@ function AddCarrito({ data }) {
 
 
     if (!data || data.length === 0 || !data[0].articulo) return null;
-    const { articulo, descripcion, imagenUrl, valor_venta, presentacion, id_arts } = data[0];
+    const { articulo, descripcion, imagenUrl, valor_venta, presentacion, id_arts, disponible } = data[0];
 
     const handleAgregar = async () => {
         try {
@@ -70,6 +70,7 @@ function AddCarrito({ data }) {
                     <Boton
                         ancho="100%"
                         type="submit"
+                        disabled={!disponible}
                         onClick={handleAgregar}
                         label="agregar al carrito"
                     />
