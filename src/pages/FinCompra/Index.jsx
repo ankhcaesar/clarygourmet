@@ -146,7 +146,7 @@ function FinCompra() {
 
                         />
                     </div>
-                    <div className={styles.fincompra_formulario_01}>
+                  {/*  <div className={styles.fincompra_formulario_01}>
                         <CampoForm
                             label="Envío a domicilio"
                             name="envio_a_domicilio"
@@ -158,8 +158,9 @@ function FinCompra() {
                             error={errores.envio_a_domicilio}
                         />
                     </div>
+                    */}
 
-                    {form.envio_a_domicilio && (
+                    {/*form.envio_a_domicilio && (
                         <>
                             <h3 className={styles.finCompra__titulo}>Datos del envio</h3>
                             <div className={styles.fincompra_formulario_02}>
@@ -253,7 +254,7 @@ function FinCompra() {
                                 />
                             </div>
                         </>
-                    )}
+                    )*/}
 
 
                     <div className={styles.fincompra_formulario_02}>
