@@ -23,7 +23,7 @@ function RsmCompra() {
                 <div className={styles.rsmCompra__principal__datosclary}>
                     <ul>
                         <li>Clary Gourmet Mendoza</li>
-                        <li>whatsapp: (261) 588 5088</li>
+                        <li>whatsapp: (261) 2441084</li>
                         <li>Instagram: @clarygourmetmza</li>
                     </ul>
                 </div>
