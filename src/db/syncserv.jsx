@@ -66,7 +66,6 @@ export const useSyncFromSupabase = (autoSync = false) => {
         }
     };
 
-    // 🟢 Auto-sync al inicio si se habilita
     useEffect(() => {
         if (autoSync) {
             syncFromSupabase();

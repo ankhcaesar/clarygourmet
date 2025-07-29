@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
+  ],
+    "redirects": [
+    { "source": "/tienda", "destination": "https://clarygourmet.vercel.app", "permanent": true }
   ]
 }

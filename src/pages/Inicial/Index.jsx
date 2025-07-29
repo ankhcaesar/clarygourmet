@@ -10,7 +10,7 @@ function Inicial() {
     useEffect(() => {
         const timeout = setTimeout(() => {
             ir("categorias");
-            setCabecera((prev) => ({ titulo:"Categorias", origen: "inicio" }));
+            setCabecera((prev) => ({ titulo:"Categorías", origen: "inicio" }));
         }, 2500);
         return () => clearTimeout(timeout);
     }, [ir]);

@@ -10,16 +10,13 @@ import RsmCompra from "./src/pages/RsmCompra/Index"
 import CarritoCerrado from "./src/pages/CarritoCerrado/Index"
 
 import LayoutApp from "./src/components/LayoutApp/Index";
-import ProtectedRoute from "./src/db/ProtectedRoute"
 
-import Admin from "./src/pages/admin/Index"
-import Login from "./src/pages/login/Index";
 
 const Carrito = lazy(() => import("./src/pages/Carrito/Index"));
 const Filtrado = lazy(() => import("./src/pages/Filtrado/Index"));
 
 function AppRoute() {
-
+    
     useEffect(() => {
         const handleContextMenu = (e) => {
             e.preventDefault();
@@ -44,15 +41,6 @@ function AppRoute() {
                         <Route path="/FinCompra" element={<FinCompra />} />
                         <Route path="/RsmCompra" element={<RsmCompra />} />
                         <Route path="/CarritoCerrado" element={<CarritoCerrado />} />
-
-                        <Route path="/Login" element={<Login />} />
-
-                        {/* Rutas protegidas*/}
-                        <Route element={<ProtectedRoute />}>
-                        <Route path="/Admin" element={<Admin />} />
-
-                        </Route>
-
                     </Route>
                 </Routes>
             </Suspense>

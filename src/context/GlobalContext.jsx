@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useSyncFromSupabase } from "../db/syncserv" //delgrancambio
+import { useSyncFromSupabase } from "../db/syncserv"
 import db from "../db/db";
 
 export const GlobalContext = createContext();
@@ -13,13 +13,13 @@ function GlobalContextProvider({ children }) {
     const navigate = useNavigate();
     const [botonMenu, setBotonMenu] = useState("princinicialal");
     const [cabecera, setCabecera] = useState({ "titulo": "Clary Gourmet", "origen": "inicio" });
-
+    const [session, setSession] = useState(null);
     const [itemsCarrito, setItemsCarrito] = useState({
         totalItems: 0,
         id_vta: null
     });
 
-const { loading, error } = useSyncFromSupabase(true); //del gran cambio
+    const { loading, error } = useSyncFromSupabase(true); 
 
     //funcion vibrar
     function botonVibrar(ms) {
@@ -45,7 +45,8 @@ const { loading, error } = useSyncFromSupabase(true); //del gran cambio
             inicio: "/",
             carrito: "/Carrito",
             carritocerrado: "/CarritoCerrado",
-            resumen: "/RsmCompra"
+            resumen: "/RsmCompra",
+            admin: "/Admin"
 
         };
 
@@ -60,7 +61,7 @@ const { loading, error } = useSyncFromSupabase(true); //del gran cambio
 
     //limpiar Carrito
     async function limpiarCarrito(id_vta, entrega) {
-        
+
         try {
             await db.carrito.where({ id_vta }).delete();
             await db.ventas.delete(id_vta);
@@ -109,15 +110,6 @@ const { loading, error } = useSyncFromSupabase(true); //del gran cambio
 
     //formatonumero
 
-
-
-
-
-
-
-
-
-
     // Funcion formato fecha y hora
     function formatoFecha(dateTime) {
         const date = new Date(dateTime);
@@ -156,7 +148,8 @@ const { loading, error } = useSyncFromSupabase(true); //del gran cambio
                 itemsCarrito, setItemsCarrito,
                 limpiarCarrito,
 
-                formatomoneda, formatoFecha, formatoHora
+                formatomoneda, formatoFecha, formatoHora,
+                session, setSession
             }
         }> {children} </GlobalContext.Provider>
     )
